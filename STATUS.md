@@ -18,3 +18,11 @@ Moved to `dragoonant/liangshan-108` on 2026-11-07 (D1). Next: the owner picks ba
 - Stage 4 (B1) and B2: D20 (loyal governors, conquest support -5) and D21 (capital waves, W-32) are in; targets still missed (0 wins in 576 games); see 70-sim-results.md.
 - B3: the `campaign` policy (phases grow, expand, renown, stage, assault) is in the sim; G-3 muster cap is now pop/60; targets still missed (see 70-sim-results.md and the B3 RULING lines).
 - Not done: the KB entry `liangshan-108.md` (outside this repo's paths) was not updated.
+
+## M3 first playable (2026-11-07, branch m3-playable)
+- `docs/spec/50-presentation.md`: the outlaw hideout ledger (tokens, fonts, stamps, layouts, must-not-look-like list).
+- `src/client/`: title (Continue names what it reopens, corrupt-save message, discard confirm), start picker (six chieftains, difficulty deadlines), SVG strategic map (48 prefectures, links by kind, protected capital, open/cut refuge links), prefecture panel with prompts and `query.preview` odds, 128-hero roster of posters with late-joiner triggers, HUD (month, deadline, Renown trend, Edict projection and status), warnings and advisor, full event log, five-column Renown ledger, help, settings (speed incl. Instant), autosave under `ls108-save`.
+- 3D hex battle (R3F): engine terrain, procedural figures, tile-only picking, hover/unit cards with odds and fatigue causes, "Day N of 20" with last 3 days lit, capital reinforcement waves, auto-resolve, withdraw, mouse (wheel, right rotate, middle pan, left pan until a middle press) and touch (pan, twist, pinch) camera.
+- New engine file `src/engine/query/client.ts` (`clientQuery`: startInfo, difficulties, ledger, triggerText, terrain, pendingInfo) with `tests/unit/client-queries.test.ts`.
+- e2e (`npm run e2e`, 14 tests, desktop and 390x844): two months and a battle by clicks, autosave then Continue in a persistent profile, corrupt save, tap behind a figure, rule 24, mouse controls, post-Edict map. Screenshots: `docs/screenshots/m3/` (set `M3_SHOTS=1` to rewrite), side by side with three-kingdoms-tactics in `compare-three-kingdoms-tactics.png`.
+- Not done: audio, GLB figures, no per-move playback of AI-only battles, KB entry `liangshan-108.md` not updated (outside this repo), hot-seat. The sim is untouched.
