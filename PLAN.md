@@ -37,6 +37,9 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 - **D23** Next: a goal-directed **campaign policy** (recruit, take the capital's neighbours after the Edict, attack with waves) in the sim, re-tune to the B1 `TARGET:` lines with it (B3), then the first playable (M3). The policy later seeds the M4 enemy AI.
 - **D24** Capital reinforcement waves stay at **three** (days 5, 10 and 15) (W-32).
 
+## Decisions (owner, 2026-11-07 after B3, do not re-ask)
+- **D25** Adopt the B3 **candidate settings** (Edict 300, Renown 4/4/5, invite loyalty 55, invite odds +10, upkeep and wages x0.7, court host 1500 + 15t) plus **1 command in the month a prefecture is conquered**; then build the first playable (M3) and **balance by the owner's own games**. The sim stays as a safety check (invariants and the policy table), not the balance gate.
+
 ## Design pillars
 1. **The outlaw fantasy, not a reskinned Romance of the Three Kingdoms** (C11): you are a wronged hero gathering sworn brothers in a marsh stronghold, fighting corrupt officials for justice, until the Emperor's Edict lets you strike Gao Qiu.
 2. **Brotherhood is the core system** (what players loved): recruiting by deed and reputation, sworn brotherhood gated by loyalty and matching personality, and heroes whose stats visibly change what you can do (C6).
@@ -54,6 +57,7 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 | B1 | Balance pass: player policies in the sim, Chao Gai, mountain-camp rivals (D16-D18) | 2026-11-07 |
 | B2 | Design fixes D20-D21 and re-tune to the B1 targets | 2026-11-07 |
 | B3 | Campaign policy and re-tune (D23) | 2026-11-07 |
+| B4 | Adopt the B3 candidate settings + conquest-month command (D25) | 2026-11-07 |
 | M3 | First playable on Pages: hideout-ledger skin, full map, battles, greedy AI, autosave | next |
 | M4 | Utility AI in a worker, bench gate | |
 | M5 | Art: 108 hero figures in the house style, portraits as wanted posters | |
