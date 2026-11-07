@@ -28,6 +28,11 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 - **D19** **Keep the 23 story-locked heroes**; the hero ledger shows each trigger.
 - Pages: the first deploy (2026-11-07) built cleanly and stopped at `configure-pages` because Pages is not enabled yet; the owner turns it on (Settings, Pages, Source "GitHub Actions"), then any push deploys.
 
+## Decisions (owner, 2026-11-07 after B1, do not re-ask)
+- **D20** **Loyal heroes govern:** any hero with loyalty 60 or more left in a prefecture gives 1 command a month; the chieftain and sworn brothers keep 2 and 1 as before (T-3), so brotherhood stays the strong path; the support drop on conquest is softened.
+- **D21** **Reinforcement waves at the capital:** from day 5 of a battle for the capital, a second wave of up to 8 units may join from the player's other prefectures that border it, so cutting more of its links pays twice (more waves, fewer escapes).
+- **D22** Next: one agent applies D20-D21 and re-tunes to the B1 `TARGET:` lines (B2), then the first playable (M3). The Edict threshold and Renown gains stay tuning knobs.
+
 ## Design pillars
 1. **The outlaw fantasy, not a reskinned Romance of the Three Kingdoms** (C11): you are a wronged hero gathering sworn brothers in a marsh stronghold, fighting corrupt officials for justice, until the Emperor's Edict lets you strike Gao Qiu.
 2. **Brotherhood is the core system** (what players loved): recruiting by deed and reputation, sworn brotherhood gated by loyalty and matching personality, and heroes whose stats visibly change what you can do (C6).
@@ -43,6 +48,7 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 | M1 | Data: 108 heroes, Gao Qiu's court, full prefecture map, items, events; `validate:data` | overnight 2026-11-07 |
 | M2 | Engine: strategic turn + hex battle, sim, tests by rule id | overnight 2026-11-07 |
 | B1 | Balance pass: player policies in the sim, Chao Gai, mountain-camp rivals (D16-D18) | 2026-11-07 |
+| B2 | Design fixes D20-D21 and re-tune to the B1 targets | 2026-11-07 |
 | M3 | First playable on Pages: hideout-ledger skin, full map, battles, greedy AI, autosave | next |
 | M4 | Utility AI in a worker, bench gate | |
 | M5 | Art: 108 hero figures in the house style, portraits as wanted posters | |
