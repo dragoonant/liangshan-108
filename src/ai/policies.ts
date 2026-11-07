@@ -52,9 +52,10 @@ function choosePending(id: PolicyId, e: Env): Action {
   return { t: 'choose', option: o[0] as string }
 }
 
+let carelessCalls = 0 // a call counter keeps a random walk from cycling (two heroes moving back and forth would otherwise repeat the same state forever)
 function careless(e: Env): Action {
-  // a deterministic hash of the state picks the action: no memory, no plan
-  let h = (e.s.t * 2654435761 + e.s.rng.draws * 40503 + e.legal.length * 97 + e.s.rng.s[0]) >>> 0
+  // a hash of the state and the call count picks the action: no memory, no plan
+  let h = (e.s.t * 2654435761 + e.s.rng.draws * 40503 + e.legal.length * 97 + e.s.rng.s[0] + ++carelessCalls * 2246822519) >>> 0
   h = Math.imul(h ^ (h >>> 15), 2246822519) >>> 0
   h = Math.imul(h ^ (h >>> 13), 3266489917) >>> 0
   return e.legal[((h ^ (h >>> 16)) >>> 0) % e.legal.length] as Action
@@ -200,6 +201,7 @@ function expand(e: Env, o: Expand): Action | null {
     if (a.men < o.minMen || a.target === e.c.x.capital || a.men > ps(e.c, a.pref).men * 0.75) continue // the A rules keep 30% at home; so do we
     const r = ratio(e, a)
     if (r < o.minRatio) continue
+    if (!a.heroes.some((h) => hs(e.c, h).status === 'sworn')) continue // a conquest without a sworn commander has no commands and revolts (T-3, H-16)
     const stay = ps(e.c, a.pref).heroes.filter((h) => hs(e.c, h).faction === 'player' && !a.heroes.includes(h)).length
     if (!safeAt(e, a.pref, ps(e.c, a.pref).men - a.men, stay)) continue
     const v = o.value(a)

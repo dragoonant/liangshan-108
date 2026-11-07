@@ -421,6 +421,11 @@ export function legalFor(c: Ctx, faction: string, pref: string): Action[] {
       const forces: string[][] = []
       const noChief = byCmd.filter((h) => h !== ch).slice(0, 8)
       for (const k of new Set([Math.min(2, noChief.length), Math.min(4, noChief.length), noChief.length])) if (k > 0) forces.push(noChief.slice(0, k))
+      // a sworn brother goes with the force so that the conquest has a commander to hold it (T-3)
+      for (const sw of noChief.filter((h) => hs(c, h).status === 'sworn').slice(0, 3)) {
+        forces.push([sw, ...noChief.filter((h) => h !== sw).slice(0, 1)])
+        forces.push([sw, ...noChief.filter((h) => h !== sw).slice(0, 3)])
+      }
       if (ch && able.includes(ch)) forces.push([...noChief.slice(0, 7), ch])
       for (const force of forces) {
         cand.push({ t: 'attack', pref, target: n.to, heroes: force, men: Math.floor(p.men * 0.7) })
