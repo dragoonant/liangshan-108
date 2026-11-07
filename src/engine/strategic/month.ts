@@ -10,6 +10,7 @@ import { addLoyalty, freeHero, restingLevel } from './heroes'
 import { addRenown } from './renown'
 import { checkTriggers } from './recruit'
 import { maybeAnnounce, musterCourt } from './court'
+import { growCamps, campMonthEnd } from './camps'
 import { defeat, checkNoPrefecture, checkChieftain } from './result'
 import { resetCommands } from './commands'
 import { renownInfo } from '../query/renown'
@@ -124,6 +125,8 @@ export function monthEnd(c: Ctx): void {
   rollEvents(c)
   // 9 court muster, campaign
   musterCourt(c)
+  growCamps(c)
+  campMonthEnd(c)
   maybeAnnounce(c)
   // 10 renown history, Edict, deadline
   const pf = s.factions['player']!

@@ -36,7 +36,7 @@ export function monthBundle(): DataBundle {
     ...D,
     map: { prefectures: [{ ...yz, terrain: 'plains', special: ['capital'], base: { population: 150000, land: 60, flood: 50 } }], links: [] },
     heroes: D.heroes.filter((h) => h.id === 'song-jiang' || h.id === 'wu-yong').map((h) => ({ ...h })),
-    extra: [], court: [], rivals: [], triggers: [],
+    extra: [], camps: [], court: [], rivals: [], triggers: [],
   }
 }
 

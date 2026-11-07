@@ -28,6 +28,7 @@ export interface HeroRecord {
   source: string
 }
 
+export interface CampRecord { id: string; name: string; nameZh: string; stronghold: string; chief: string; members: string[]; note: string; source: string }
 export interface SkillRecord { id: SkillId; name: string; effect: string; source: string }
 
 export type Terrain = 'plains' | 'hills' | 'mountains' | 'marsh' | 'river-delta' | 'coast'
@@ -62,6 +63,7 @@ export interface DataBundle {
   extra: HeroRecord[]
   court: HeroRecord[]
   rivals: HeroRecord[]
+  camps: CampRecord[]
   skills: SkillRecord[]
   map: MapRecord
   triggers: TriggerRecord[]

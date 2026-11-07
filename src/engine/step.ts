@@ -19,12 +19,12 @@ import { rank } from './ctx'
 const REQ: Record<string, string[]> = {
   levy: ['pref', 'actor'], train: ['pref', 'actor'], forge: ['pref', 'actor'], dykes: ['pref', 'actor'], relieve: ['pref', 'actor'], rest: ['pref', 'actor'],
   trade: ['pref', 'actor', 'dir', 'amount'], hunt: ['pref', 'actor', 'party', 'men'], move: ['pref', 'to', 'heroes', 'men'], send: ['pref', 'to', 'gold', 'food', 'arms', 'actor'],
-  spy: ['pref', 'actor', 'target', 'op'], recruit: ['pref', 'actor', 'target', 'method'], swear: ['pref', 'hero'], attack: ['pref', 'target', 'heroes', 'men'],
+  spy: ['pref', 'actor', 'target', 'op'], recruit: ['pref', 'actor', 'target', 'method'], swear: ['pref', 'hero'], attack: ['pref', 'target', 'heroes', 'men'], ally: ['pref', 'actor', 'camp'],
   endPhase: [], choose: ['option'], bMove: ['unit', 'to'], bAttack: ['unit', 'target'], bVolley: ['unit', 'target'], bCharge: ['unit', 'target'], bFire: ['unit', 'at'],
   bHide: ['unit'], bWait: ['unit'], bAmbush: ['unit'], bHeal: ['unit'], bScuttle: ['unit'], bCounsel: ['unit'], bWeather: ['unit', 'kind'], bDuel: ['unit', 'target', 'stake'],
   bEndSide: [], bWithdraw: [], bAuto: [],
 }
-const STRS = ['pref', 'actor', 'target', 'hero', 'unit', 'option']
+const STRS = ['pref', 'actor', 'target', 'hero', 'unit', 'option', 'camp']
 const NUMS = ['men', 'amount', 'gold', 'food', 'arms']
 const ENUMS: Record<string, string[]> = { dir: ['buyFood', 'sellFood'], op: ['report', 'steal', 'discord', 'expose', 'burn', 'forged-order', 'jailbreak'], method: ['invite', 'persuade'], stake: ['honour', 'capture'], kind: ['wind', 'rain', 'fog'] }
 /** Arch: an action with the wrong shape is rejected, never thrown on. */

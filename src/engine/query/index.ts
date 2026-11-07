@@ -11,6 +11,7 @@ import type { Preview } from '../strategic/commands'
 import { loyaltyLabel, oathStatus, restingLevel } from '../strategic/heroes'
 import { persuadeOdds, recruitOdds } from '../strategic/recruit'
 import { host } from '../strategic/court'
+import { allyOdds, campView, followOdds, joinOdds } from '../strategic/camps'
 import { renownInfo } from './renown'
 import { dmgChain, finalDamage, getUnit, moveRange as bMoveRange, captureOdds as bCapture, counterPct, openLinks, cornered } from '../battle/core'
 import { duelAccept, duelWin, duelLegal } from '../battle/actions'
@@ -62,6 +63,19 @@ export const query = {
     const c = mkCtx(s, data)
     return method === 'invite' ? recruitOdds(c, 'player', actor, target) : persuadeOdds(c, 'player', actor, target)
   },
+  /** K-8: every camp with its chief, heroes, men, alliance state and the three odds (K-5, K-6, K-7). */
+  camps(s: GameState, data: DataBundle = defaultBundle) {
+    const c = mkCtx(s, data)
+    const ch = chieftainId(c)
+    const actor = ch && hs(c, ch).loc ? ch : undefined
+    return c.x.camps.map((k) => campView(c, k.id, actor))
+  },
+  campOdds(s: GameState, camp: string, actor: string, data: DataBundle = defaultBundle): { ally: number; join: number } | null {
+    const c = mkCtx(s, data)
+    if (!c.x.campOf[camp] || !s.factions[camp]) return null
+    return { ally: allyOdds(c, camp, actor), join: joinOdds(c, camp) }
+  },
+  followOdds(s: GameState, member: string, data: DataBundle = defaultBundle): number { return followOdds(mkCtx(s, data), member) },
   attackPreview(s: GameState, unit: string, target: string) {
     const b = s.battle
     const u = b && getUnit(b, unit), t = b && getUnit(b, target)

@@ -1,6 +1,6 @@
 # 12 — Rules test checklist (v0.1)
 
-One line per rule id of `10-rules.md` (148 ids). The engine agent turns each into at least one test whose title starts with the id (`tests/unit/<file>`); `tests/unit/checklist.test.ts` reads this file and fails if an id has no test title. Tags: `unit` a pure function or state transition; `query` a `query.*` or `view` output; `sim` an invariant or behaviour over headless games; `ui` verified in the client or e2e test; `doc` a definition with no behaviour of its own (cover it through the rules that use it). Golden numbers for the core formulas are in `13-golden.md`.
+One line per rule id of `10-rules.md` (156 ids). The engine agent turns each into at least one test whose title starts with the id (`tests/unit/<file>`); `tests/unit/checklist.test.ts` reads this file and fails if an id has no test title. Tags: `unit` a pure function or state transition; `query` a `query.*` or `view` output; `sim` an invariant or behaviour over headless games; `ui` verified in the client or e2e test; `doc` a definition with no behaviour of its own (cover it through the rules that use it). Golden numbers for the core formulas are in `13-golden.md`.
 
 Format: `- [ ] ID [tag] what the test asserts (file)`.
 
@@ -165,3 +165,13 @@ Format: `- [ ] ID [tag] what the test asserts (file)`.
 - [ ] A-8 [ui] Warnings the AI gives you: any march on the player's prefecture is visible at the previous month-end if a scout is in service (H-7); court campaigns are always announced (G-6). (ai.test.ts)
 - [ ] A-9 [sim] Battle AI picks, per unit: duel if win% and accept% product is 20% or more; charge or volley if available; else attack the adjacent unit with the lowest men; else advance on the nearest e... (ai.test.ts)
 - [ ] A-10 [sim] Everything the AI does goes through step, so replay is exact (Arch). (ai.test.ts)
+
+## 12a. Camps
+- [ ] K-1 [unit] Eight camps own their strongholds and seat their outlaw heroes; the Yinma River camp does not exist (camps.test.ts)
+- [ ] K-2 [unit] A camp gets 1 command, attacks only from its stronghold and never an ally (camps.test.ts)
+- [ ] K-3 [unit] Slow growth: 5 men and arms per camp hero, 15 gold and 30 food a month (camps.test.ts)
+- [ ] K-4 [unit] A camp whose last prefecture falls is removed and its heroes follow W-27 (camps.test.ts)
+- [ ] K-5 [query] Alliance: odds shown, 200 gold, 24 months, the ally cannot be attacked (camps.test.ts)
+- [ ] K-6 [unit] An allied camp joins together at the shown odds after 3 months with Renown 60 or more (camps.test.ts)
+- [ ] K-7 [unit] A persuaded chief brings his heroes, each at the shown odds (camps.test.ts)
+- [ ] K-8 [query] query.camps lists every camp with chief, heroes, men, alliance and the three odds (camps.test.ts)

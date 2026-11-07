@@ -31,6 +31,9 @@ Distribution checks (validator): each ability has standard deviation >= 12, 2-12
 ## `heroes-extra.json` (array, 1 or more)
 Non-star heroes outside the 108 (PLAN D17): same record as `heroes.json` but `star` is `null` (required, type null) and `joinsLate` is false. Currently Chao Gai (`chao-gai`, start `yunzhou`). Ids and Chinese names are unique across all files. Triggers (`brother`, `defeated-hero`) may point at these ids. The engine loads them as `DataBundle.extra`; they are not counted in the 108 or in the ending tiers (X-1).
 
+## `camps.json` (array, PLAN D18)
+`{ id, name, nameZh, stronghold, chief, members[1..6], note, source }`. Ids end in `-band`. Checks: the stronghold is on the map, unique, not a rival stronghold and no court hero starts there; `chief` is in `members`; every member exists in `heroes.json` or `heroes-extra.json`, starts as `outlaw` at the stronghold, does not join late, and is in one camp only; every outlaw at a camp stronghold is in a camp.
+
 ## `court.json` (array)
 As a hero without `star` and with required `office`. `nickname`, `nicknameZh` optional. Must contain gao-qiu, cai-jing, tong-guan, yang-jian, gao-lian, gao-yanei (the validator accepts 16-26 records; there are 19, including the emperor).
 

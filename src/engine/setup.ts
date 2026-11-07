@@ -46,6 +46,7 @@ export function createGame(setup: Setup, data: DataBundle = defaultBundle, opts?
   const courtSpecial = ['capital', 'imperial-garrison', 'western-capital']
   const rivalOwner: Record<string, string> = {}
   for (const r of x.rivals) if (r.year <= 1101) rivalOwner[r.stronghold] = r.id
+  for (const k of x.camps) rivalOwner[k.stronghold] = k.id
   for (const id of x.order) {
     const rec = x.pref[id]!
     if (rivalOwner[id]) ownerOf[id] = rivalOwner[id]!
@@ -85,10 +86,11 @@ export function createGame(setup: Setup, data: DataBundle = defaultBundle, opts?
   }
 
   // 2. factions
-  const mkF = (): FactionState => ({ alive: true, renown: 0, renownStart: 0, renownHistory: [], ledger: [], edict: null, edictBuild: 0, chieftain: null, statusWorst: 0, nextCampaign: 0, campaign: null, inspectionAdvance: 0 })
+  const mkF = (): FactionState => ({ alive: true, renown: 0, renownStart: 0, renownHistory: [], ledger: [], edict: null, edictBuild: 0, chieftain: null, statusWorst: 0, nextCampaign: 0, campaign: null, inspectionAdvance: 0, allyUntil: 0, allySince: 0 })
   s.factions['player'] = { ...mkF(), renown: start.renown, renownStart: start.renown, chieftain: s.setup.startHero }
   s.factions['court'] = { ...mkF(), nextCampaign: CAMPAIGN_K[s.setup.difficulty] - 1 }
   for (const r of x.rivals) s.factions[r.id] = { ...mkF(), alive: r.year <= 1101 }
+  for (const k of x.camps) s.factions[k.id] = { ...mkF(), chieftain: k.chief }
 
   // 3. hero placement (Q-6)
   const prevOwner = ownerOf[start.pref] as string

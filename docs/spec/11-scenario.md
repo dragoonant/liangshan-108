@@ -18,10 +18,11 @@ The dated rivals Tian Hu and Wang Qing (1118) and Fang La's rebels (1120) in `da
 ## 2. Who owns what at the start
 Rule, applied in this order to each prefecture in `data/map.json`:
 1. A rival from `data/rivals.json` with `start.year <= 1101` and `stronghold` here owns it. Rival ids are the kebab slug of `faction`: `zhu-family-village`, `zeng-family-fortress`, `old-liangshan`.
+1b. Else a **camp** of `data/camps.json` owns it if the prefecture is its `stronghold`.
 2. Else the **court** owns it if a hero of `data/court.json` has `start.prefecture` here, or its `special` contains `capital`, `imperial-garrison` or `western-capital`.
 3. Else it is **free** (E-17).
 
-Result (48 prefectures): 13 court, 3 rival, 32 free.
+Result (48 prefectures): 13 court, 3 rival, 8 camp, 24 free. Camps (K-1, `data/camps.json`) take the place of the old rule-3 default for their eight strongholds: rule 1b, applied after rule 1, gives a prefecture to the camp whose `stronghold` it is.
 
 | Owner | Prefectures |
 |---|---|
@@ -29,13 +30,14 @@ Result (48 prefectures): 13 court, 3 rival, 32 free.
 | Zhu Family Village | `zhujiazhuang` |
 | Zeng Family Fortress | `zengtou-shi` |
 | Old Liangshan (Wang Lun) | `jizhou` |
-| Free (32) | `yingtianfu`, `caozhou`, `yanzhou`, `yizhou`, `dongchang`, `zhangde`, `zhongshan`, `zhending`, `cangzhou`, `youzhou`, `jizhou-north`, `shangdang`, `mangdang-shan`, `chenzhou`, `weizhou`, `yanan`, `huazhou`, `shaohua-shan`, `qingfeng-shan`, `erlong-shan`, `taohua-shan`, `duiying-shan`, `dengyun-shan`, `jieyang`, `huangmen-shan`, `xiangyang`, `tanzhou`, `hongzhou`, `luzhou`, `jiankang`, `suzhou`, `hangzhou` |
+| Camps (8) | `shaohua-band` `shaohua-shan` (Zhu Wu, Chen Da, Yang Chun); `taohua-band` `taohua-shan` (Zhou Tong); `erlong-band` `erlong-shan` (Deng Long); `qingfeng-band` `qingfeng-shan` (Yan Shun, Wang Ying, Zheng Tianshou); `duiying-band` `duiying-shan` (Lyu Fang, Guo Sheng); `mangdang-band` `mangdang-shan` (Fan Rui, Xiang Chong, Li Gun); `huangmen-band` `huangmen-shan` (Ou Peng, Ma Lin, Tao Zongwang); `dengyun-band` `dengyun-shan` (Zou Yuan, Zou Run) |
+| Free (24) | `yingtianfu`, `caozhou`, `yanzhou`, `yizhou`, `dongchang`, `zhangde`, `zhongshan`, `zhending`, `cangzhou`, `youzhou`, `jizhou-north`, `shangdang`, `chenzhou`, `weizhou`, `yanan`, `huazhou`, `jieyang`, `xiangyang`, `tanzhou`, `hongzhou`, `luzhou`, `jiankang`, `suzhou`, `hangzhou` |
 
-The chosen start prefecture is then handed to the player (S-8). The three rivals fight only inside the AI phase (A); the court does not fight rivals except by campaign (G-6).
+The chosen start prefecture is then handed to the player (S-8). The three rivals and the eight camps fight only inside the AI phase (A); the court does not fight rivals except by campaign (G-6).
 
 ## 3. Heroes at the start
 - **Court officials** (`data/court.json`, 19 records, incl. the Emperor who is a figure, not a unit). The governor of a court prefecture is the first court hero in file order whose `start.prefecture` is it (the Emperor never governs). A court hero whose prefecture is not court-owned moves to the nearest court prefecture by link count, ties by id (`gao-lian` and `yin-tianxi` leave `jizhou` for `yunzhou`). Resulting governors: `dongjing` Gao Qiu (with Cai Jing, Tong Guan, Yang Jian, Gao Yanei, Lu Qian, Dong Chao in the capital's reserve, G-7), `yunzhou` Gao Lian (with Cheng Wanli, Yin Tianxi), `daming` Liang Shijie (Li Cheng, Wen Datong), `jiangzhou` Cai Jiu (Huang Wenbing), `qingfeng-zhai` Liu Gao, `qingzhou` Murong Yanda, `mengzhou` Zhang Dutian. Other court prefectures have no named governor and are held by garrison captains (W-2) until a campaign commander is assigned. Graft per G-2.
-- **The 108** (Q-6): of 85 non-late heroes, `free` heroes are free in their `start.prefecture`; `official` heroes serve the court there if the court owns it, else are free; `outlaw` heroes belong to the rival or stay free in their stronghold; the 23 `joinsLate` heroes are dormant (section 5).
+- **The 108** (Q-6): of 85 non-late heroes, `free` heroes are free in their `start.prefecture`; `official` heroes serve the court there if the court owns it, else are free; `outlaw` heroes belong to the rival or camp that owns their stronghold, else stay free there; the 23 `joinsLate` heroes are dormant (section 5).
 - **Followers** (S-9) and what each start displaces (S-8):
 
 | Start | Followers (loyalty 60) | Displaced (become free heroes) | Notes |

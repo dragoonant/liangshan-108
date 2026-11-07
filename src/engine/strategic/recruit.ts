@@ -4,6 +4,7 @@ import { abil, compat, emit, has, heroName, hs, ps, rec, chieftainId, graftOf, E
 import { clamp } from '../util'
 import { freeHero, joinHero } from './heroes'
 import { addRenown } from './renown'
+import { campFollow } from './camps'
 
 export interface Term { label: string; value: number }
 export interface Odds { pct: number; terms: Term[] }
@@ -118,6 +119,7 @@ export function captiveChoice(c: Ctx, hero: string, option: string, actor: strin
     if (rollCheck(c, o.pct)) {
       joinHero(c, hero, 'player', joinLoyalty(c, hero, 'persuade'), pref)
       emit(c, 'persuaded', 'Q-4', `${name} is persuaded to join (${o.pct}%)`, pref)
+      campFollow(c, hero, pref)
     } else emit(c, 'persuadeFailed', 'Q-4', `${name} refuses and stays captive (${o.pct}%)`, pref)
   } else if (option === 'release') {
     freeHero(c, hero, pref, 'released with honour')

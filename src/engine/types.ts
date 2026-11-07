@@ -59,6 +59,8 @@ export interface FactionState {
   nextCampaign: number
   campaign: Campaign | null
   inspectionAdvance: number // months by which the next campaign is advanced (V-7)
+  allyUntil: number // camps only (K-5): allied with the player while t < allyUntil; 0 = never
+  allySince: number // camps only: t the alliance began (K-6 needs 3 months)
 }
 
 export interface ScheduledEvent {
@@ -160,6 +162,7 @@ export type Action =
   | { t: 'recruit'; pref: string; actor: string; target: string; method: 'invite' | 'persuade' }
   | { t: 'swear'; pref: string; hero: string }
   | { t: 'attack'; pref: string; target: string; heroes: string[]; men: number }
+  | { t: 'ally'; pref: string; actor: string; camp: string }
   | { t: 'endPhase' }
   | { t: 'choose'; option: string }
   | { t: 'bMove'; unit: string; to: Hex }

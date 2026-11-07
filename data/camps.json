@@ -1,0 +1,108 @@
+[
+  {
+    "id": "shaohua-band",
+    "name": "Mount Shaohua band",
+    "nameZh": "少华山",
+    "stronghold": "shaohua-shan",
+    "chief": "zhu-wu",
+    "members": [
+      "zhu-wu",
+      "chen-da",
+      "yang-chun"
+    ],
+    "note": "Zhu Wu leads Chen Da and Yang Chun; they hold the hill when Shi Jin is drawn into their quarrel (ch. 2-3).",
+    "source": "Water Margin ch. 2-3; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "taohua-band",
+    "name": "Mount Taohua band",
+    "nameZh": "桃花山",
+    "stronghold": "taohua-shan",
+    "chief": "zhou-tong",
+    "members": [
+      "zhou-tong"
+    ],
+    "note": "Zhou Tong holds the hill; Li Zhong joins him in the novel but starts free at Weizhou in our data (RULING K-1).",
+    "source": "Water Margin ch. 5; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "erlong-band",
+    "name": "Mount Erlong band",
+    "nameZh": "二龙山",
+    "stronghold": "erlong-shan",
+    "chief": "deng-long",
+    "members": [
+      "deng-long"
+    ],
+    "note": "Deng Long, Green-Eyed Tiger, holds the monastery hill until Lu Zhishen and Yang Zhi take it (ch. 17); the takeover is not scripted (RULING K-1).",
+    "source": "Water Margin ch. 17; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "qingfeng-band",
+    "name": "Mount Qingfeng band",
+    "nameZh": "清风山",
+    "stronghold": "qingfeng-shan",
+    "chief": "yan-shun",
+    "members": [
+      "yan-shun",
+      "wang-ying",
+      "zheng-tianshou"
+    ],
+    "note": "Yan Shun, Wang Ying and Zheng Tianshou hold the hill above Qingfeng Fort (ch. 32).",
+    "source": "Water Margin ch. 32; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "duiying-band",
+    "name": "Mount Duiying band",
+    "nameZh": "对影山",
+    "stronghold": "duiying-shan",
+    "chief": "lyu-fang",
+    "members": [
+      "lyu-fang",
+      "guo-sheng"
+    ],
+    "note": "Lyu Fang and Guo Sheng, rival halberdiers, share the hill until Xue Yong's duel brings them together (ch. 35).",
+    "source": "Water Margin ch. 35; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "mangdang-band",
+    "name": "Mount Mangdang band",
+    "nameZh": "芒砀山",
+    "stronghold": "mangdang-shan",
+    "chief": "fan-rui",
+    "members": [
+      "fan-rui",
+      "xiang-chong",
+      "li-gun"
+    ],
+    "note": "Fan Rui, Xiang Chong and Li Gun hold the hill near the Grand Canal (ch. 58).",
+    "source": "Water Margin ch. 58; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "huangmen-band",
+    "name": "Mount Huangmen band",
+    "nameZh": "黄门山",
+    "stronghold": "huangmen-shan",
+    "chief": "ou-peng",
+    "members": [
+      "ou-peng",
+      "ma-lin",
+      "tao-zongwang"
+    ],
+    "note": "Ou Peng, Ma Lin and Tao Zongwang hold the hill; Jiang Jing, who is with them in the novel, starts free at Tanzhou in our data (RULING K-1).",
+    "source": "Water Margin ch. 58; https://en.wikipedia.org/wiki/Water_Margin"
+  },
+  {
+    "id": "dengyun-band",
+    "name": "Mount Dengyun band",
+    "nameZh": "登云山",
+    "stronghold": "dengyun-shan",
+    "chief": "zou-yuan",
+    "members": [
+      "zou-yuan",
+      "zou-run"
+    ],
+    "note": "Uncle Zou Yuan and nephew Zou Run hold the hill north of Dengzhou (ch. 49).",
+    "source": "Water Margin ch. 49; https://en.wikipedia.org/wiki/Water_Margin"
+  }
+]

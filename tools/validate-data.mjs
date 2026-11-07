@@ -80,6 +80,7 @@ function validateFile(name) {
 
 const heroes = validateFile('heroes');
 const extra = validateFile('heroes-extra');
+const camps = validateFile('camps');
 const court = validateFile('court');
 const rivals = validateFile('rivals');
 const skills = validateFile('skills');
@@ -213,6 +214,36 @@ if (Array.isArray(rivals)) {
     if (!rivals.some((c) => c.id === need)) err(`rivals: missing ${need}`);
 }
 
+// ---- camps (PLAN D18): strongholds on the map, members exist and start as outlaws there ----
+if (Array.isArray(camps) && heroes) {
+  const person = new Map([...heroes, ...(extra ?? [])].map((h) => [h.id, h]));
+  const strong = new Set((rivals ?? []).map((r) => r.stronghold));
+  const courtAt = new Set((court ?? []).map((c) => c.start?.prefecture));
+  const ids = new Set(), holds = new Set(), used = new Set();
+  camps.forEach((c, i) => {
+    const at = `camps[${i}] ${c.id}`;
+    claimId('camps', c.id);
+    if (ids.has(c.id)) err(`${at}: duplicate id`);
+    ids.add(c.id);
+    if (!prefIds.has(c.stronghold)) err(`${at}: stronghold ${c.stronghold} not on the map`);
+    if (holds.has(c.stronghold)) err(`${at}: stronghold ${c.stronghold} used by another camp`);
+    holds.add(c.stronghold);
+    if (strong.has(c.stronghold)) err(`${at}: stronghold is also a rival stronghold`);
+    if (courtAt.has(c.stronghold)) err(`${at}: a court hero starts at ${c.stronghold}, so the court would own it`);
+    if (!c.members.includes(c.chief)) err(`${at}: chief ${c.chief} is not in members`);
+    for (const m of c.members) {
+      const h = person.get(m);
+      if (!h) { err(`${at}: member ${m} is not a hero or extra record`); continue; }
+      if (used.has(m)) err(`${at}: ${m} is in two camps`);
+      used.add(m);
+      if (h.start.status !== 'outlaw' || h.start.prefecture !== c.stronghold) err(`${at}: ${m} must start as outlaw at ${c.stronghold}`);
+      if (h.joinsLate) err(`${at}: ${m} joins late`);
+    }
+  });
+  // every outlaw hero at a camp stronghold belongs to that camp's list
+  for (const h of [...heroes, ...(extra ?? [])]) if (h.start.status === 'outlaw' && holds.has(h.start.prefecture) && !used.has(h.id)) err(`camps: outlaw ${h.id} at ${h.start.prefecture} is in no camp`);
+}
+
 // ---- triggers (RULING Q-5): one row per joinsLate hero, kinds closed, references exist ----
 if (triggers && heroes && map?.prefectures) {
   const hid = new Set([...heroes, ...(extra ?? [])].map((h) => h.id));
@@ -254,6 +285,6 @@ for (const w of warnings) console.log(`warn  ${w}`);
 for (const e of errors) console.log(`ERROR ${e}`);
 const n = (a) => (Array.isArray(a) ? a.length : 0);
 console.log(
-  `validate-data: ${errors.length ? 'FAILED' : 'OK'} | heroes ${n(heroes)} + extra ${n(extra)} (late ${globalThis.__late ?? 0}) | court ${n(court)} | rivals ${n(rivals)} | skills ${n(skills)} | prefectures ${map?.prefectures?.length ?? 0}, links ${globalThis.__links ?? 0}, capital ${globalThis.__capDist ?? '?'} links from Liangshan | ${errors.length} errors, ${warnings.length} warnings`
+  `validate-data: ${errors.length ? 'FAILED' : 'OK'} | heroes ${n(heroes)} + extra ${n(extra)} | camps ${n(camps)} (late ${globalThis.__late ?? 0}) | court ${n(court)} | rivals ${n(rivals)} | skills ${n(skills)} | prefectures ${map?.prefectures?.length ?? 0}, links ${globalThis.__links ?? 0}, capital ${globalThis.__capDist ?? '?'} links from Liangshan | ${errors.length} errors, ${warnings.length} warnings`
 );
 process.exit(errors.length ? 1 : 0);

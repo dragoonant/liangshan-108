@@ -2,6 +2,7 @@ import heroes from '../../data/heroes.json'
 import extra from '../../data/heroes-extra.json'
 import court from '../../data/court.json'
 import rivals from '../../data/rivals.json'
+import camps from '../../data/camps.json'
 import skills from '../../data/skills.json'
 import map from '../../data/map.json'
 import triggers from '../../data/triggers.json'
@@ -15,6 +16,7 @@ export const defaultBundle: DataBundle = {
   extra: extra as unknown as DataBundle['extra'],
   court: court as unknown as DataBundle['court'],
   rivals: rivals as unknown as DataBundle['rivals'],
+  camps: camps as unknown as DataBundle['camps'],
   skills: skills as unknown as DataBundle['skills'],
   map: map as unknown as DataBundle['map'],
   triggers: triggers as unknown as DataBundle['triggers'],

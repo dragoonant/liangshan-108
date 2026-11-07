@@ -13,6 +13,7 @@ import { addRenown } from './renown'
 import { inviteHero, persuadeOdds, recruitOdds, joinLoyalty, rollCheck, captiveChoice } from './recruit'
 import { startBattle } from '../battle/setup'
 import { joinHero } from './heroes'
+import { ALLY_COST, ALLY_MONTHS, allied, allyOdds, campChief, isCamp } from './camps'
 
 export interface Preview { rule: string; text: string; gold: number; food: number; lo?: number; hi?: number; pct?: number }
 export const isReject = (x: Reject | Preview): x is Reject => 'code' in x
@@ -334,6 +335,7 @@ export function runCommand(c: Ctx, a: Action, faction: string, dry: boolean): Re
       if (!link) return rej('illegal-target', 'W-1', 'the target is not linked')
       if (snowedIn(c, a.pref, a.target)) return rej('blocked-link', 'T-6', 'the link is snowed in')
       if (a.target === c.x.capital && s.factions['player']!.edict === null) return rej('capital-protected', 'G-5', 'the capital is protected until the Edict')
+      if (faction === 'player' && isCamp(c, t.owner) && allied(c, t.owner)) return rej('illegal-target', 'K-5', 'that camp is your ally')
       if (t.fought) return rej('illegal-target', 'T-9', 'that prefecture already fought a battle this month')
       if (!a.heroes.length || a.heroes.length > 8 || !a.heroes.every(actorOk)) return rej('requirement-not-met', 'W-1', '1 to 8 heroes of yours, present and fit')
       if (new Set(a.heroes).size !== a.heroes.length) return rej('requirement-not-met', 'W-1', 'a hero is listed twice')
@@ -344,6 +346,27 @@ export function runCommand(c: Ctx, a: Action, faction: string, dry: boolean): Re
       if (dry) return pv
       spend()
       startBattle(c, { attacker: faction, origin: a.pref, target: a.target, heroes: a.heroes, men, imperial: faction === 'court' })
+      return pv
+    }
+    case 'ally': {
+      if (!player) return rej('requirement-not-met', 'K-5', 'only the player offers alliances')
+      if (!actorOk(a.actor)) return rej('requirement-not-met', 'E-12', 'actor is not available there')
+      const k = c.x.campOf[a.camp]
+      const cf = s.factions[a.camp]
+      if (!k || !cf || !cf.alive) return rej('illegal-target', 'K-5', 'no such camp')
+      if (!c.x.adj[a.pref]?.some((n) => ps(c, n.to).owner === a.camp && !snowedIn(c, a.pref, n.to))) return rej('illegal-target', 'K-5', 'the camp must border this prefecture')
+      if (p.gold < ALLY_COST) return rej('not-enough-gold', 'K-5', `needs ${ALLY_COST} gold`)
+      const P = allyOdds(c, a.camp, a.actor)
+      const chief = campChief(c, a.camp)
+      const pv: Preview = { rule: 'K-5', text: `Offer ${k.name} an alliance (${chief ? heroName(c, chief) : 'its chief'}): ${P}%, ${ALLY_COST} gold, ${ALLY_MONTHS} months`, gold: ALLY_COST, food: 0, pct: P }
+      if (dry) return pv
+      p.gold -= ALLY_COST; spend()
+      if (roll(s, 100) < P) {
+        const renew = cf.allyUntil > s.t
+        cf.allyUntil = s.t + ALLY_MONTHS
+        if (!renew) cf.allySince = s.t
+        emit(c, 'ally', 'K-5', `${k.name} agrees to an alliance (${P}%) until month ${cf.allyUntil}`, a.pref)
+      } else emit(c, 'allyRefused', 'K-5', `${k.name} refuses an alliance (${P}%)`, a.pref)
       return pv
     }
   }
@@ -383,6 +406,9 @@ export function legalFor(c: Ctx, faction: string, pref: string): Action[] {
       for (const h of actors) for (const f of [0, 0.5, 1]) cand.push({ t: 'move', pref, to: n.to, heroes: [h], men: Math.floor(p.men * f) })
       cand.push({ t: 'send', pref, to: n.to, gold: 500, food: 0, arms: 0, actor: best }, { t: 'send', pref, to: n.to, gold: 0, food: 500, arms: 0, actor: best }, { t: 'send', pref, to: n.to, gold: 0, food: 0, arms: 200, actor: best })
     } else {
+      if (faction === 'player' && isCamp(c, q.owner)) {
+        cand.push({ t: 'ally', pref, actor: best, camp: q.owner })
+      }
       const ch = faction === 'player' ? chieftainId(c) : null
       const byCmd = [...able].sort((x, y) => abil(c, y).command - abil(c, x).command || rank(c, x) - rank(c, y))
       const forces: string[][] = []

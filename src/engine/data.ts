@@ -1,5 +1,5 @@
 import { defaultBundle } from '../data'
-import type { DataBundle, HeroRecord, LinkKind, PrefectureRecord, TriggerRecord } from '../data'
+import type { CampRecord, DataBundle, HeroRecord, LinkKind, PrefectureRecord, TriggerRecord } from '../data'
 
 export { defaultBundle }
 export type { DataBundle }
@@ -14,6 +14,8 @@ export interface Idx {
   pref: Record<string, PrefectureRecord>
   adj: Record<string, { to: string; kind: LinkKind }[]>
   rivals: RivalDef[]
+  camps: CampRecord[]
+  campOf: Record<string, CampRecord>
   triggers: Record<string, TriggerRecord>
   capital: string
   dists: Record<string, Record<string, number>>
@@ -49,7 +51,7 @@ export function indexOf(d: DataBundle): Idx {
   const triggers: Record<string, TriggerRecord> = {}
   for (const t of d.triggers) triggers[t.hero] = t
   const capital = d.map.prefectures.find((p) => p.special.includes('capital'))?.id ?? 'dongjing'
-  const idx: Idx = { d, hero, kindOf, order, orderIdx, pref, adj, rivals: [...rmap.values()].sort((a, b) => (a.id < b.id ? -1 : 1)), triggers, capital, dists: {} }
+  const idx: Idx = { d, hero, kindOf, order, orderIdx, pref, adj, rivals: [...rmap.values()].sort((a, b) => (a.id < b.id ? -1 : 1)), camps: d.camps, campOf: Object.fromEntries(d.camps.map((k) => [k.id, k])), triggers, capital, dists: {} }
   cache.set(d, idx)
   return idx
 }

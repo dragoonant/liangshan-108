@@ -5,11 +5,12 @@ import { D } from './helpers'
 
 describe('11-scenario facts (flag any drift between the data and the spec)', () => {
   const own = (hero: string) => { const s = createGame({ startHero: hero, difficulty: 2, seed: 1 }, D); return s }
-  test('scenario 2: before the player takes a start, 13 prefectures are court, 3 rival, 32 free', () => {
-    // use a start whose prefecture is free (Wu Song at cangzhou): then court stays 13, rival 3, free 31 + the player's 1
+  test('scenario 2: before the player takes a start, 13 prefectures are court, 3 rival, 8 camp, 24 free', () => {
+    // use a start whose prefecture is free (Wu Song at cangzhou): then court stays 13, rival 3, camps 8, free 23 + the player's 1
     const s = own('wu-song')
     const count = (o: string) => Object.values(s.prefectures).filter((p) => p.owner === o).length
-    expect([count('court'), count('zhu-family-village'), count('zeng-family-fortress'), count('old-liangshan'), count('free'), count('player')]).toEqual([13, 1, 1, 1, 31, 1])
+    expect([count('court'), count('zhu-family-village'), count('zeng-family-fortress'), count('old-liangshan'), count('free'), count('player')]).toEqual([13, 1, 1, 1, 23, 1])
+    expect(D.camps.map((k) => count(k.id))).toEqual(D.camps.map(() => 1))
   })
   test('scenario 3: court governors, the capital reserve and followers', () => {
     const s = own('wu-song')

@@ -1,0 +1,60 @@
+{
+ "$schema": "http://json-schema.org/draft/2020-12/schema",
+ "title": "Camps",
+ "type": "array",
+ "minItems": 1,
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "name",
+   "nameZh",
+   "stronghold",
+   "chief",
+   "members",
+   "note",
+   "source"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "name": {
+    "type": "string",
+    "minLength": 1
+   },
+   "nameZh": {
+    "type": "string",
+    "minLength": 1
+   },
+   "stronghold": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "chief": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "members": {
+    "type": "array",
+    "minItems": 1,
+    "maxItems": 6,
+    "uniqueItems": true,
+    "items": {
+     "type": "string",
+     "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    }
+   },
+   "note": {
+    "type": "string",
+    "minLength": 1
+   },
+   "source": {
+    "type": "string",
+    "minLength": 1
+   }
+  }
+ }
+}

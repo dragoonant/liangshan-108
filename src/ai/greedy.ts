@@ -7,6 +7,7 @@ import { monthOf, AI_RATIO } from '../engine/calendar'
 import { defaultBundle } from '../engine/data'
 import type { DataBundle } from '../data'
 import { isReject, legalFor, runCommand } from '../engine/strategic/commands'
+import { allied } from '../engine/strategic/camps'
 import { runway, levyAmount } from '../engine/strategic/economy'
 import { duelAccept, duelWin, legalForUnit } from '../engine/battle/actions'
 import { active, getUnit, other, visibleEnemies } from '../engine/battle/core'
@@ -68,12 +69,15 @@ export function decideStrategic(c: Ctx, faction: string, pref: string): Action |
   const m = monthOf(c.s.t)
   if ((m === 4 || m === 5) && p.dyke < 50) { const d = first('dykes'); if (d) return d }
   // (5) attack
-  if (faction !== 'court') {
+  // K-2: a camp attacks only from its stronghold and never an ally
+  const campRec = c.x.campOf[faction]
+  if (faction !== 'court' && (!campRec || campRec.stronghold === pref)) {
     const k = AI_RATIO[c.s.setup.difficulty]
     let target = ''
     let bv = -1
     for (const n of c.x.adj[pref] ?? []) {
       if (ps(c, n.to).owner === faction) continue
+      if (campRec && ps(c, n.to).owner === 'player' && allied(c, faction)) continue
       const v = perceive(c, faction, n.to)
       if (powerOf(v) * k > me) continue
       const val = v.pop / 1000 + v.gold / 100 + 50 * v.heroes

@@ -194,12 +194,12 @@ describe('E economy', () => {
   })
   test('E-17 free prefectures grow, hold garrison captains and never attack', () => {
     const s = game()
-    expect(ctxOf(s).s.commandsLeft['caozhou']).toBe(0)
+    expect(ctxOf(s).s.commandsLeft['hangzhou']).toBe(0)
     let n = 0
     let t = s
     for (let i = 0; i < 3; i++) { const r = ok(t, { t: 'endPhase' }); n += r.events.filter((e) => e.k === 'battleStart').length; t = r.state; while (t.pending || t.phase === 'battle') t = ok(t, t.pending ? { t: 'choose', option: t.pending.options[0] as string } : { t: 'bAuto' }).state }
     for (const e of t.log) if (e.kind === 'battleStart') expect(e.text).not.toMatch(/free/)
-    expect(t.prefectures['caozhou']!.pop).toBeGreaterThan(s.prefectures['caozhou']!.pop)
+    expect(t.prefectures['hangzhou']!.pop).toBeGreaterThan(s.prefectures['hangzhou']!.pop) // far from every camp, so nobody raids it
     void n
   })
 })
