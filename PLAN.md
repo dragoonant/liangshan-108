@@ -33,6 +33,10 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 - **D21** **Reinforcement waves at the capital:** from day 5 of a battle for the capital, a second wave of up to 8 units may join from the player's other prefectures that border it, so cutting more of its links pays twice (more waves, fewer escapes).
 - **D22** Next: one agent applies D20-D21 and re-tunes to the B1 `TARGET:` lines (B2), then the first playable (M3). The Edict threshold and Renown gains stay tuning knobs.
 
+## Decisions (owner, 2026-11-07 after B2, do not re-ask)
+- **D23** Next: a goal-directed **campaign policy** (recruit, take the capital's neighbours after the Edict, attack with waves) in the sim, re-tune to the B1 `TARGET:` lines with it (B3), then the first playable (M3). The policy later seeds the M4 enemy AI.
+- **D24** Capital reinforcement waves stay at **three** (days 5, 10 and 15) (W-32).
+
 ## Design pillars
 1. **The outlaw fantasy, not a reskinned Romance of the Three Kingdoms** (C11): you are a wronged hero gathering sworn brothers in a marsh stronghold, fighting corrupt officials for justice, until the Emperor's Edict lets you strike Gao Qiu.
 2. **Brotherhood is the core system** (what players loved): recruiting by deed and reputation, sworn brotherhood gated by loyalty and matching personality, and heroes whose stats visibly change what you can do (C6).
@@ -49,6 +53,7 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 | M2 | Engine: strategic turn + hex battle, sim, tests by rule id | overnight 2026-11-07 |
 | B1 | Balance pass: player policies in the sim, Chao Gai, mountain-camp rivals (D16-D18) | 2026-11-07 |
 | B2 | Design fixes D20-D21 and re-tune to the B1 targets | 2026-11-07 |
+| B3 | Campaign policy and re-tune (D23) | 2026-11-07 |
 | M3 | First playable on Pages: hideout-ledger skin, full map, battles, greedy AI, autosave | next |
 | M4 | Utility AI in a worker, bench gate | |
 | M5 | Art: 108 hero figures in the house style, portraits as wanted posters | |
