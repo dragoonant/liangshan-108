@@ -14,8 +14,8 @@ export function musterCourt(c: Ctx): void {
   for (const id of c.x.order) {
     const p = ps(c, id)
     if (p.owner !== 'court') continue
-    const cap = Math.floor(p.pop / 30)
-    const add = Math.max(0, Math.min(Math.floor(p.pop / 2000), cap - p.men))
+    const cap = Math.floor(p.pop / TUNE.musterCapDiv)
+    const add = Math.max(0, Math.min(Math.floor(p.pop / TUNE.musterDiv), cap - p.men))
     p.men += add; p.arms += add
   }
   const capital = ps(c, c.x.capital)

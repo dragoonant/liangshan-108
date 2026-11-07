@@ -12,11 +12,12 @@ import { monthOf, AI_RATIO } from '../engine/calendar'
 import { greedyAction, perceive } from './greedy'
 import { planWave } from '../engine/battle/wave'
 import { allied } from '../engine/strategic/camps'
+import { renownInfo } from '../engine/query/renown'
 import { oathStatus } from '../engine/strategic/heroes'
 
-export type PolicyId = 'greedy' | 'careless' | 'justice' | 'benevolent' | 'warlord' | 'brotherhood'
-export const POLICIES: PolicyId[] = ['justice', 'benevolent', 'warlord', 'brotherhood', 'careless', 'greedy']
-export const SENSIBLE: PolicyId[] = ['justice', 'benevolent', 'warlord', 'brotherhood']
+export type PolicyId = 'greedy' | 'careless' | 'justice' | 'benevolent' | 'warlord' | 'brotherhood' | 'campaign'
+export const POLICIES: PolicyId[] = ['campaign', 'justice', 'benevolent', 'warlord', 'brotherhood', 'careless', 'greedy']
+export const SENSIBLE: PolicyId[] = ['campaign', 'justice', 'benevolent', 'warlord', 'brotherhood']
 
 export interface Env { s: GameState; c: Ctx; legal: Action[]; id: PolicyId; owned: string[]; edict: boolean }
 type Of<T extends Action["t"]> = Action & { t: T }
@@ -110,13 +111,14 @@ function persuadeCaptives(e: Env): Action | null {
   return of(e, 'recruit', (a) => a.method === 'persuade' && hs(e.c, a.target).persuadedT !== e.s.t)[0] ?? null
 }
 
-function build(e: Env, o: { levyTo: number; train: number; forge: boolean }): Action | null {
+function build(e: Env, o: { levyTo: number; train: number; forge: boolean; byHeroes?: boolean }): Action | null {
   for (const p of e.owned) {
     const st = ps(e.c, p)
     if (!(e.s.commandsLeft[p] ?? 0)) continue
     const cap = Math.floor(st.pop / 20)
     const lv = of(e, 'levy', (a) => a.pref === p)[0]
-    if (lv && st.men < cap * o.levyTo) {
+    const heroN = st.heroes.filter((h) => hs(e.c, h).faction === 'player').length
+    if (lv && st.men < cap * o.levyTo && (!o.byHeroes || st.men < heroN * 1300 + 600)) {
       const n = levyAmount(e.c, p, lv.actor)
       if (st.gold - n >= reserve(e, p) + 100 && st.food >= Math.ceil((st.men + n) / 10) * 8 && st.support >= 35) return lv
     }
@@ -323,6 +325,7 @@ export function policyAction(id: PolicyId, s: GameState, legal: Action[], data: 
   if (s.pending) return choosePending(id, e)
   if (s.phase === 'battle') return legal.find((a) => a.t === 'bAuto') ?? legal.find((a) => a.t === 'bEndSide') ?? (legal[0] as Action)
   if (id === 'careless') return careless(e)
+  if (id === 'campaign') return campaignChoose(e) ?? { t: 'endPhase' }
   const a = core(e) ?? defend(e) ?? readiness(e) ?? (e.edict ? finale(e) : null) ?? LAYER[id]!(e) ?? idle(e)
   return a ?? { t: 'endPhase' }
 }
@@ -332,3 +335,169 @@ function idle(e: Env): Action | null {
   return null
 }
 void EMPEROR; void rec
+
+// ======================= the campaign policy (D23) =======================
+// A goal-directed stand-in for a good player. Phases (logged by the sim):
+//   1 grow    secure the start, invite and swear heroes, ally with or take the camps next door
+//   2 expand  take prefectures along the shortest route to the capital, a loyal hero (D20) in each
+//   3 renown  the projected Edict date is not green: farm the cheapest Renown (relief, hunts, justice conquests, expose)
+//   4 stage   Edict granted: own as many of the capital's neighbours as possible (cut links, waves from them, W-32, G-8)
+//   5 assault attack the capital with the largest force, then chase Gao Qiu
+// It reads only the view a player has (banded foreign numbers, Z-5) and answers with actions from `legalActions`.
+export const CAMPAIGN_PHASES = ['grow', 'expand', 'renown', 'stage', 'assault'] as const
+export let campaignPhaseNow = 0 // 1-based index of the phase chosen by the last call (the sim logs first arrivals)
+
+const servingHeroes = (e: Env): number => Object.keys(e.s.heroes).filter((h) => { const x = e.s.heroes[h]!; return x.faction === 'player' && ['chieftain', 'sworn', 'ordinary'].includes(x.status) }).length
+const capNeighbours = (e: Env): string[] => (e.c.x.adj[e.c.x.capital] ?? []).map((n) => n.to)
+
+function campaignAttack(e: Env, o: { minRatio: number; value: (a: Of<'attack'>) => number | null; maxShare?: number; needGovernor?: boolean; skipSafe?: boolean }): Action | null {
+  let best: Of<'attack'> | null = null
+  let bv = 0
+  const cap = e.c.x.capital
+  for (const a of of(e, 'attack', (x) => noChief(e, x))) {
+    const isCap = a.target === cap
+    if (a.men < 250 || (isCap && !e.edict)) continue
+    if (a.men > ps(e.c, a.pref).men * (o.maxShare ?? 0.75) + 1) continue
+    let r = ratio(e, a)
+    if (isCap) { const extra = planWave(e.c, null).reduce((n, w) => n + w.men + w.heroes.reduce((m, h) => m + heroVal(e, h), 0), 0); r *= 1 + extra / 6000 }
+    if (r < o.minRatio) continue
+    if (o.needGovernor !== false && !a.heroes.some((h) => hs(e.c, h).status === 'sworn' || hs(e.c, h).loyalty >= 60)) continue
+    const stay = ps(e.c, a.pref).heroes.filter((h) => hs(e.c, h).faction === 'player' && !a.heroes.includes(h)).length
+    if (!isCap && !o.skipSafe && !safeAt(e, a.pref, ps(e.c, a.pref).men - a.men, stay)) continue
+    const v = o.value(a)
+    if (v === null) continue
+    const score = v + 8 * Math.min(r, 3)
+    if (score > bv) { bv = score; best = a }
+  }
+  return best
+}
+function routeValue(e: Env, d: Record<string, number>, a: Of<'attack'>): number {
+  const o = ps(e.c, a.target).owner
+  const p = perceive(e.c, 'player', a.target)
+  const my = Math.min(...e.owned.map((q) => d[q] ?? 99), 99)
+  const gain = my - (d[a.target] ?? 99) // steps nearer the capital
+  return 10 + 14 * gain + 25 * freeHeroesAt(e, a.target) + (e.c.x.campOf[o] ? 20 : 0) + p.pop / 20000 + (o === 'court' ? 5 : 0)
+}
+function campaignConsolidate(e: Env, d: Record<string, number>): Action | null {
+  for (const p of e.owned) {
+    if (!(e.s.commandsLeft[p] ?? 0)) continue
+    const st = ps(e.c, p)
+    if (st.men < 600 || st.heroes.some((h) => hs(e.c, h).status === 'chieftain')) continue
+    const mine = d[p] ?? 99
+    const borders = (e.c.x.adj[p] ?? []).some((n) => ps(e.c, n.to).owner !== 'player')
+    const m = of(e, 'move', (a) => a.pref === p && (d[a.to] ?? 99) < mine && a.men >= st.men * 0.99 && a.heroes.length >= 2)[0]
+    if (m && !borders) return m
+  }
+  return null
+}
+
+/** Heroes and men belong together (a unit leads command x 15 men): send a spare hero to a linked prefecture that has men but few heroes. */
+function campaignRedistribute(e: Env): Action | null {
+  const heroesAt = (p: string): number => ps(e.c, p).heroes.filter((h) => hs(e.c, h).faction === 'player' && hs(e.c, h).wounded <= e.s.t).length
+  for (const p of e.owned) {
+    if (!(e.s.commandsLeft[p] ?? 0)) continue
+    const have = heroesAt(p)
+    if (have < 3) continue
+    for (const m of of(e, 'move', (a) => a.pref === p && a.heroes.length === 1 && a.men === 0)) {
+      const h = m.heroes[0] as string
+      if (hs(e.c, h).status === 'chieftain') continue
+      const dest = ps(e.c, m.to)
+      const need = Math.ceil(dest.men / 1100) - heroesAt(m.to)
+      const surplus = have - Math.ceil(ps(e.c, p).men / 1100) - 1
+      if (need > 0 && surplus > 0) return m
+    }
+  }
+  return null
+}
+/** Rich prefectures feed the poor ones (E-12 `send`, 500 at a time): hunger and unpaid wages are how conquests are lost. */
+function campaignSupply(e: Env): Action | null {
+  for (const q of e.owned) {
+    const st = ps(e.c, q)
+    const needFood = runway(e.c, q) < 5 && st.men > 0
+    const needGold = st.gold < Math.ceil(st.men / 20) * 3 + 300
+    if (!needFood && !needGold) continue
+    for (const a of of(e, 'send', (x) => x.to === q)) {
+      const p = ps(e.c, a.pref)
+      if (needFood && a.food > 0 && p.food > upkeep(e, a.pref) * 10 + 1500) return a
+      if (needGold && a.gold > 0 && p.gold > reserve(e, a.pref) + 2500) return a
+    }
+  }
+  return null
+}
+/** Stage and assault: the army gathers at one capital neighbour (the owned one with most men and heroes); everything else marches towards it. */
+function campaignConcentrate(e: Env): Action | null {
+  const nbrs = capNeighbours(e).filter((n) => ps(e.c, n).owner === 'player')
+  if (!nbrs.length) return null
+  const score = (p: string): number => ps(e.c, p).men + 800 * ps(e.c, p).heroes.filter((h) => hs(e.c, h).faction === 'player').length
+  const S = [...nbrs].sort((a, b) => score(b) - score(a))[0] as string
+  const d = distFrom(e, S)
+  for (const p of e.owned) {
+    if (p === S || !(e.s.commandsLeft[p] ?? 0)) continue
+    const st = ps(e.c, p)
+    const mine = d[p] ?? 99
+    const opts = of(e, 'move', (a) => a.pref === p && (d[a.to] ?? 99) < mine && a.men >= st.men * 0.99 && a.heroes.length >= 1)
+    const m = [...opts].sort((a, b) => b.heroes.length - a.heroes.length)[0]
+    if (m && (st.men >= 200 || m.heroes.length > 1)) return m
+  }
+  return null
+}
+function campaignChoose(e: Env): Action | null {
+  const info = renownInfo(e.s)
+  const cap = e.c.x.capital
+  const d = distFrom(e, cap)
+  const t = e.s.t
+  const gao = hs(e.c, GAO_QIU)
+  const ownsNbr = capNeighbours(e).filter((n) => ps(e.c, n).owner === 'player')
+  let phase: 1 | 2 | 3 | 4 | 5
+  if (e.edict) phase = gao.flights > 0 || ownsNbr.length >= 2 || (ownsNbr.length >= 1 && t - (e.s.factions['player']!.edict ?? t) > 14) ? 5 : 4
+  else if (servingHeroes(e) < 7 && t < 30) phase = 1
+  else if (info.status !== 'green') phase = 3
+  else phase = 2
+  campaignPhaseNow = phase
+
+  // the shared helpers first: wages, food, loyalty, oaths, defence
+  const base = core(e) ?? defend(e) ?? campaignSupply(e) ?? readiness(e) ?? (phase >= 4 ? null : campaignRedistribute(e))
+  if (base) return base
+
+  if (phase >= 4) {
+    // chase target after a flight, else the capital
+    const goal = gao.flights > 0 && gao.loc ? gao.loc : cap
+    const dg = distFrom(e, goal)
+    const toGoal = of(e, 'attack', (x) => x.target === goal)
+    if (toGoal.length) {
+      const gv = { minRatio: goal === cap ? 0.7 : 0.25, maxShare: 1, skipSafe: true, value: (x: Of<'attack'>) => (x.target === goal ? 100 : null) }
+      const pick = campaignAttack(e, { ...gv, needGovernor: true }) ?? campaignAttack(e, { ...gv, needGovernor: false })
+      if (pick && (pick as Of<'attack'>).target === goal) return pick
+    }
+    // take the capital's neighbours (or the next step to Gao Qiu), most useful first
+    const stage = campaignAttack(e, { minRatio: 0.85, maxShare: 0.9, needGovernor: false, skipSafe: true, value: (a) => (capNeighbours(e).includes(a.target) || goal !== cap ? 40 + 20 * ((dg[a.target] ?? 9) < (Math.min(...e.owned.map((q) => dg[q] ?? 99)) as number) ? 1 : 0) + freeHeroesAt(e, a.target) * 5 : routeValue(e, dg, a) - 20) })
+    if (stage) return stage
+    return campaignConcentrate(e) ?? build(e, { levyTo: 0.95, train: 90, forge: true, byHeroes: true }) ?? recruit(e, 15) ?? persuadeCaptives(e) ?? idle(e)
+  }
+  if (phase === 3) {
+    const f = farm(e, { relief: true, hunt: 15, dykes: true })
+    if (f) return f
+    const ex = of(e, 'spy', (a) => a.op === 'expose')[0]
+    if (ex) return ex
+    const x = campaignAttack(e, { minRatio: 1.05, maxShare: 0.85, value: (a) => { const o = ps(e.c, a.target).owner; return o === 'court' ? (() => { const g = prefGraft(e.c, a.target); return g >= 40 ? 50 + g : 15 })() + routeValue(e, d, a) / 2 : routeValue(e, d, a) } })
+    if (x) return x
+  } else {
+    const x = campaignAttack(e, { minRatio: phase === 1 ? 1.1 : 1.0, maxShare: 0.85, value: (a) => {
+      if (phase === 1) { const o = ps(e.c, a.target).owner; const v = 30 * freeHeroesAt(e, a.target) + (e.c.x.campOf[o] ? 40 : 0); return v > 0 ? v + 5 : routeValue(e, d, a) / 3 }
+      return routeValue(e, d, a)
+    } })
+    if (x) return x
+  }
+  // otherwise: heroes, allies, army, Renown, in that order
+  const rc = recruit(e, phase === 1 ? 20 : 25)
+  if (rc) return rc
+  const pc = persuadeCaptives(e)
+  if (pc) return pc
+  for (const a of of(e, 'ally')) {
+    const f = e.s.factions[a.camp]!
+    if ((!allied(e.c, a.camp) || f.allyUntil - e.s.t <= 4) && free(e, a.pref) >= 260) return a
+  }
+  const b = build(e, { levyTo: phase === 1 ? 0.6 : 0.9, train: 85, forge: true, byHeroes: true })
+  if (b) return b
+  return campaignConsolidate(e, d) ?? farm(e, { relief: true, hunt: 30, dykes: false }) ?? idle(e)
+}

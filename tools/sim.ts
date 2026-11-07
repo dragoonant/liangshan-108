@@ -7,12 +7,12 @@ import { cpus } from 'node:os'
 import { createGame, step, legalActions, checkInvariants, replay, START_HEROES, STARTS, setTuning } from '../src/engine'
 import { CAMPAIGN_K } from '../src/engine/calendar'
 import type { Action, GameState, Difficulty } from '../src/engine'
-import { POLICIES, policyAction } from '../src/ai/policies'
+import { POLICIES, policyAction, campaignPhaseNow, CAMPAIGN_PHASES } from '../src/ai/policies'
 import type { PolicyId } from '../src/ai/policies'
 import { DEADLINE } from '../src/engine/calendar'
 
 export interface Job { policy: PolicyId; diff: Difficulty; start: string; seed: number }
-export interface Row extends Job { reason: string; outcome: string; t: number; renown: number; maxRenown: number; prefs: number; heroes: number; battles: number; edictT: number | null; flights: number; steps: number; ms: number; fails: string[] }
+export interface Row extends Job { reason: string; outcome: string; t: number; renown: number; maxRenown: number; prefs: number; heroes: number; battles: number; edictT: number | null; flights: number; steps: number; ms: number; fails: string[]; phaseT: number[] }
 
 function playOne(j: Job): Row {
   const t0 = Date.now()
@@ -20,6 +20,7 @@ function playOne(j: Job): Row {
   let s: GameState = createGame(setup)
   const actions: Action[] = []
   const fails: string[] = []
+  const phaseT: number[] = CAMPAIGN_PHASES.map(() => -1)
   let steps = 0, battles = 0, flights = 0, maxRenown = 0
   const tag = `${j.policy} d${j.diff} ${j.start} seed ${j.seed}`
   while (s.phase !== 'result') {
@@ -28,6 +29,7 @@ function playOne(j: Job): Row {
     const legal = legalActions(s)
     if (legal.length === 0) { fails.push(`${tag}: legalActions empty at t=${s.t} phase ${s.phase}`); break }
     let a = policyAction(j.policy, s, legal)
+    if (j.policy === 'campaign' && s.phase === 'strategic' && !s.pending && campaignPhaseNow > 0 && (phaseT[campaignPhaseNow - 1] as number) < 0) phaseT[campaignPhaseNow - 1] = s.t
     let r = step(s, a)
     if (!r.ok) {
       fails.push(`${tag}: ${j.policy} action ${a.t} rejected (${r.code}: ${r.message}) at t=${s.t}`)
@@ -47,7 +49,7 @@ function playOne(j: Job): Row {
   const f = s.factions['player']!
   const prefs = Object.values(s.prefectures).filter((p) => p.owner === 'player').length
   const heroes = Object.values(s.heroes).filter((h) => h.faction === 'player' && ['chieftain', 'sworn', 'ordinary'].includes(h.status)).length
-  return { ...j, reason: s.result?.reason ?? 'unfinished', outcome: s.result?.outcome ?? 'unfinished', t: s.t, renown: f.renown, maxRenown, prefs, heroes, battles, edictT: f.edict, flights, steps, ms: Date.now() - t0, fails }
+  return { ...j, reason: s.result?.reason ?? 'unfinished', outcome: s.result?.outcome ?? 'unfinished', t: s.t, renown: f.renown, maxRenown, prefs, heroes, battles, edictT: f.edict, flights, steps, ms: Date.now() - t0, fails, phaseT }
 }
 
 /** An experiment: knob overrides for this run. `starts` patches S-1 rows, `campaignK` the G-6 interval per difficulty. */
@@ -118,6 +120,10 @@ async function main(): Promise<void> {
     const rates = starts.map((s) => { const rs = sel(p, dd, s); return rs.length ? (100 * win(rs)) / rs.length : 0 })
     const mean = rates.reduce((a, b) => a + b, 0) / Math.max(1, rates.length)
     L.push(`| ${p} | ${starts.map((s, i) => { const rs = sel(p, dd, s); return `${Math.round(rates[i] as number)}% (${rs.length})` }).join(' | ')} | ${(Math.max(...rates) - mean).toFixed(0)} / min ${(mean - Math.min(...rates)).toFixed(0)} |`)
+  }
+  if (policies.includes('campaign')) {
+    L.push('', '### Campaign policy: median month at which each phase is first reached (games that reach it / games)', '', `| Phase | ${diffs.map((d) => `d${d}`).join(' | ')} |`, `|---|${diffs.map(() => '---').join('|')}|`)
+    CAMPAIGN_PHASES.forEach((name, i) => L.push(`| ${i + 1} ${name} | ${diffs.map((d) => { const rs = sel('campaign', d); const ts = rs.map((r) => r.phaseT[i] as number).filter((x) => x >= 0); return rs.length ? `${ts.length ? q(ts, 0.5) : '-'} (${ts.length}/${rs.length})` : '-' }).join(' | ')} |`))
   }
   L.push('', '### How games end (all difficulties)', '')
   for (const p of policies) {

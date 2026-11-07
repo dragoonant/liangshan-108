@@ -2,6 +2,7 @@
 import type { Ctx } from '../ctx'
 import { abil, compat, emit, has, heroName, hs, ps, rec, chieftainId, graftOf, EMPEROR, place, prefName } from '../ctx'
 import { clamp } from '../util'
+import { TUNE } from '../tuning'
 import { freeHero, joinHero } from './heroes'
 import { addRenown } from './renown'
 import { campFollow } from './camps'
@@ -34,6 +35,7 @@ export function recruitOdds(c: Ctx, faction: string, actor: string, target: stri
   const official = t.start.status === 'official'
   if (has(c, actor, 'forger') && official) terms.push({ label: 'forger', value: 10 })
   if (official) terms.push({ label: 'official', value: startGovernorGraft(c, t.start.prefecture) >= 60 ? 30 : -30 })
+  if (TUNE.inviteOdds) terms.push({ label: 'tuning', value: TUNE.inviteOdds })
   const b = hs(c, target).bonus
   if (b) terms.push({ label: 'standing offer', value: b })
   const raw = terms.reduce((a, x) => a + x.value, 0)
@@ -58,7 +60,7 @@ export function persuadeOdds(c: Ctx, faction: string, actor: string, captive: st
 }
 export function joinLoyalty(c: Ctx, hero: string, how: 'invite' | 'persuade' | 'rescue' | 'conquest'): number {
   if (how === 'rescue') return 80
-  const base = how === 'persuade' ? 50 : 40
+  const base = how === 'persuade' ? 50 : TUNE.inviteLoyalty
   return base + Math.floor(compatChief(c, hero) / 4)
 }
 

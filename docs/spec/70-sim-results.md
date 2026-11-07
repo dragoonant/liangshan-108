@@ -1,22 +1,24 @@
-# 70 - Sim results (B2: after D20 loyal governors and D21 waves, default numbers)
+# 70 - Sim results (B3: with the campaign policy; defaults plus G-3 cap pop/60)
 
-Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start all --seed 1000`. 576 games; seeds are `1000 + cell * 1000 + game` where cell counts policy x difficulty x start in the order printed (so every seed is reproducible: `createGame({ startHero, difficulty, seed })` and the policy). Policies are in `src/ai/policies.ts`; `greedy` is the A-rules decider.
+Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start all --seed 1000`. 672 games; seeds are `1000 + cell * 1000 + game` where cell counts policy x difficulty x start in the order printed (so every seed is reproducible: `createGame({ startHero, difficulty, seed })` and the policy). Policies are in `src/ai/policies.ts`; `greedy` is the A-rules decider.
 
 ### Win rate by policy and difficulty
 
 | Policy | d1 | d2 | d3 | d4 | Edict reached (d2) | Mean Renown (d2) |
 |---|---|---|---|---|---|---|
-| justice | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 54 |
-| benevolent | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 83 |
-| warlord | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 46 |
-| brotherhood | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 49 |
-| careless | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 19 |
-| greedy | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 29 |
+| campaign | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 99 |
+| justice | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 58 |
+| benevolent | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 100 |
+| warlord | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 52 |
+| brotherhood | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 73 |
+| careless | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 20 |
+| greedy | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 23 |
 
 ### Edict timing (games with an Edict, per policy and difficulty): median month as % of the deadline (median `t`)
 
 | Policy | d1 | d2 | d3 | d4 |
 |---|---|---|---|---|
+| campaign | - | - | - | - |
 | justice | - | - | - | - |
 | benevolent | - | - | - | - |
 | warlord | - | - | - | - |
@@ -28,6 +30,7 @@ Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start 
 
 | Policy | d1 | d2 | d3 | d4 |
 |---|---|---|---|---|
+| campaign | - | - | - | - |
 | justice | - | - | - | - |
 | benevolent | - | - | - | - |
 | warlord | - | - | - | - |
@@ -39,6 +42,7 @@ Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start 
 
 | Policy | song-jiang | chao-gai | lin-chong | wu-song | lu-zhishen | hu-sanniang | spread (max - mean, points) |
 |---|---|---|---|---|---|---|---|
+| campaign | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 | justice | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 | benevolent | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 | warlord | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
@@ -46,18 +50,113 @@ Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start 
 | careless | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 | greedy | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 
+### Campaign policy: median month at which each phase is first reached (games that reach it / games)
+
+| Phase | d1 | d2 | d3 | d4 |
+|---|---|---|---|---|
+| 1 grow | 0 (24/24) | 0 (24/24) | 0 (24/24) | 0 (24/24) |
+| 2 expand | 30 (9/24) | 22 (1/24) | - (0/24) | - (0/24) |
+| 3 renown | 30 (24/24) | 30 (23/24) | 12 (24/24) | 30 (24/24) |
+| 4 stage | - (0/24) | - (0/24) | - (0/24) | - (0/24) |
+| 5 assault | - (0/24) | - (0/24) | - (0/24) | - (0/24) |
+
 ### How games end (all difficulties)
 
-- justice: The court's patience ends 77; Your chieftain is captured and no sworn brother can lead 13; You hold no prefecture 6
-- benevolent: The court's patience ends 86; Your chieftain is captured and no sworn brother can lead 6; You hold no prefecture 4
-- warlord: The court's patience ends 91; Your chieftain is captured and no sworn brother can lead 3; You hold no prefecture 2
-- brotherhood: The court's patience ends 73; You hold no prefecture 16; Your chieftain is captured and no sworn brother can lead 7
-- careless: Your chieftain is captured and no sworn brother can lead 78; You hold no prefecture 17; The court's patience ends 1
-- greedy: You hold no prefecture 50; Your chieftain is captured and no sworn brother can lead 36; The court's patience ends 10
+- campaign: The court's patience ends 82; You hold no prefecture 8; Your chieftain is captured and no sworn brother can lead 6
+- justice: The court's patience ends 86; You hold no prefecture 6; Your chieftain is captured and no sworn brother can lead 4
+- benevolent: The court's patience ends 82; You hold no prefecture 8; Your chieftain is captured and no sworn brother can lead 6
+- warlord: The court's patience ends 91; Your chieftain is captured and no sworn brother can lead 4; You hold no prefecture 1
+- brotherhood: The court's patience ends 73; Your chieftain is captured and no sworn brother can lead 13; You hold no prefecture 10
+- careless: Your chieftain is captured and no sworn brother can lead 89; You hold no prefecture 7
+- greedy: You hold no prefecture 55; Your chieftain is captured and no sworn brother can lead 28; The court's patience ends 13
 
-Mean per game: 22.9 battles, 4.2 heroes at the end, 1.1 prefectures at the end, 1476.1 ms.
+Mean per game: 23.7 battles, 4.4 heroes at the end, 1.1 prefectures at the end, 1546.0 ms.
 
 Invariant, stall (50,000 steps) and replay failures: 0.
+
+
+## B3 reading (2026-11-07)
+**The campaign policy** (`src/ai/policies.ts`, phases 1 grow, 2 expand, 3 renown, 4 stage, 5 assault; the sim logs the first month of each) answers only through `legalActions`, reads foreign prefectures in bands (Z-5), and adds supply (`send`), hero/men balancing, concentration at one capital neighbour, three-wave assaults and a chase of Gao Qiu. **Generous probe** (Edict 100, tax x2.5, harvest x2, wages/upkeep x0.5, host 1000 + 8t, muster cap pop/120, invite loyalty 55; 60 games on d2): the policy won **4 of 60** (song-jiang, lin-chong x2, chao-gai; months 74-94, with 3 waves and the chase), 25 of 60 reached the assault, 54 of 60 reached staging. So the rules allow a win, but the policy does not convert reliably: it is the policy (hero losses to capture, conquests without a loyal governor, men and heroes in different prefectures) and one rule gap, below.
+
+**One rule gap found:** a conquered capital has no commands in the month after the assault (its heroes are only loyal after a feast), so the chase of Gao Qiu from the captured capital starts a month late or never; the policy now sends a loyal/sworn hero with the assault force and falls back to any force. Proposal (not made): a conquest grants the conquered prefecture 1 command in the month it is taken.
+
+**One rule bug found and fixed (a G-3 knob):** court prefectures kept mustering to `pop/30`, so the capital swelled to 16,000-28,000 men by month 60-80 against R-9's 6,000. The cap is now `pop/60` (`musterCapDiv`, 30 to 60; rule G-3).
+
+**Tuning (campaign counted as a sensible policy): targets still missed.** At the defaults (Edict 500, Renown 1/1/2) the Edict is not reached at all (0% on d2, mean Renown 99). The best candidate (below; **not adopted as defaults**, because twelve rule-number tests and the golden example would change for a setting that still misses the win targets) is Edict 300, Renown per hero/relief/hunt 4/4/5, invite loyalty 55 (H-10), invite odds +10 (Q-2), upkeep and wages x0.7, host 1500 + 15t:
+
+| Target | Candidate result | Met |
+|---|---|---|
+| best sensible win rate d1 80-95 / d2 55-70 / d3 30-45 / d4 10-25 | benevolent 3% / 0% ; campaign 0% / 0% / 3% / 0% | no |
+| every sensible policy at least 10% on d1; careless at most 5% on d2 | 0-3%; careless 0% | no / yes |
+| d2 median Edict month at 50-75% of the deadline | campaign 42%, benevolent 56%, brotherhood 50% (the Edict is reached in 50% / 67% / 43% of d2 games) | benevolent and brotherhood yes, campaign early |
+| d2 per-start spread of the best policy within 15 points | all 0%, spread 0 | trivially yes |
+| won games average 1-2 Gao Qiu flights | 1.0-2.0 (n = 2) | yes (tiny sample) |
+
+**Phase timings of the campaign policy, median month first reached (candidate settings, games reaching it / 30):**
+
+| Phase | d1 | d2 | d3 | d4 |
+|---|---|---|---|---|
+| 1 grow | 0 (30) | 0 (30) | 0 (30) | 0 (30) |
+| 2 expand | 30 (28) | 12 (29) | 12 (23) | 14 (14) |
+| 3 renown | 33 (24) | 30 (28) | 30 (30) | 26 (29) |
+| 4 stage | 99 (18) | 62 (15) | 41 (9) | 48 (9) |
+| 5 assault | 155 (4) | 86 (5) | 45 (5) | 72 (1) |
+
+**Measured cause of the missing wins:** the Edict is now reachable on the middle of the clock, but only about half of the games that earn it reach staging (hold or take a capital neighbour) and a tenth reach the assault: the policy holds 1-3 prefectures and 4-26 heroes; heroes are captured in the assaults and conquests revolt when the garrison hero is under loyalty 60 (D20), and the 8-unit cap with three waves is not the limit yet (4 probe wins show it can be done). **Proposal (no design change made):** (a) a conquered prefecture gets 1 command in the month it falls (helps every conquest and the chase); (b) a better governor model in the policy (feast the garrison to 60 before leaving) or a human bench (M3); (c) if the owner wants the targets reached by blunt policies, accept the candidate settings above and lower the win targets to what the bench shows.
+
+#### Candidate settings table (campaign, benevolent, brotherhood; 5 games per start and difficulty, seeds 20000+)
+#### Win rate by policy and difficulty
+
+| Policy | d1 | d2 | d3 | d4 | Edict reached (d2) | Mean Renown (d2) |
+|---|---|---|---|---|---|---|
+| campaign | 0% (30) | 0% (30) | 3% (30) | 0% (30) | 50% | 257 |
+| benevolent | 3% (30) | 0% (30) | 0% (30) | 0% (30) | 67% | 368 |
+| brotherhood | 0% (30) | 0% (30) | 0% (30) | 0% (30) | 43% | 258 |
+
+#### Edict timing (games with an Edict, per policy and difficulty): median month as % of the deadline (median `t`)
+
+| Policy | d1 | d2 | d3 | d4 |
+|---|---|---|---|---|
+| campaign | 54% (t=98, n=18) | 42% (t=61, n=15) | 44% (t=48, n=11) | 56% (t=47, n=9) |
+| benevolent | 40% (t=72, n=19) | 56% (t=81, n=20) | 49% (t=53, n=13) | 57% (t=48, n=6) |
+| brotherhood | 48% (t=86, n=11) | 50% (t=72, n=13) | 44% (t=48, n=7) | 71% (t=60, n=6) |
+
+#### Won games: Edict month (% of deadline, median) and Gao Qiu flights (mean)
+
+| Policy | d1 | d2 | d3 | d4 |
+|---|---|---|---|---|
+| campaign | - | - | 35%, 1.0 flights (n=1) | - |
+| benevolent | 26%, 2.0 flights (n=1) | - | - | - |
+| brotherhood | - | - | - | - |
+
+#### Win rate by start hero (difficulty 2)
+
+| Policy | song-jiang | chao-gai | lin-chong | wu-song | lu-zhishen | hu-sanniang | spread (max - mean, points) |
+|---|---|---|---|---|---|---|---|
+| campaign | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0 / min 0 |
+| benevolent | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0 / min 0 |
+| brotherhood | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0% (5) | 0 / min 0 |
+
+#### Campaign policy: median month at which each phase is first reached (games that reach it / games)
+
+| Phase | d1 | d2 | d3 | d4 |
+|---|---|---|---|---|
+| 1 grow | 0 (30/30) | 0 (30/30) | 0 (30/30) | 0 (30/30) |
+| 2 expand | 30 (28/30) | 12 (29/30) | 12 (23/30) | 14 (14/30) |
+| 3 renown | 33 (24/30) | 30 (28/30) | 30 (30/30) | 26 (29/30) |
+| 4 stage | 99 (18/30) | 62 (15/30) | 41 (9/30) | 48 (9/30) |
+| 5 assault | 155 (4/30) | 86 (5/30) | 45 (5/30) | 72 (1/30) |
+
+#### How games end (all difficulties)
+
+- campaign: The court's patience ends 107; You hold no prefecture 7; Your chieftain is captured and no sworn brother can lead 5; victory 1
+- benevolent: The court's patience ends 110; You hold no prefecture 5; Your chieftain is captured and no sworn brother can lead 4; victory 1
+- brotherhood: The court's patience ends 102; You hold no prefecture 12; Your chieftain is captured and no sworn brother can lead 6
+
+Mean per game: 27.3 battles, 5.7 heroes at the end, 1.2 prefectures at the end, 2036.0 ms.
+
+Invariant, stall (50,000 steps) and replay failures: 0.
+
 
 
 ## B2 reading (2026-11-07, defaults kept except the D20 rule value `conquestSupport` 15 to 5)

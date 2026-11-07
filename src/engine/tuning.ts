@@ -11,9 +11,13 @@ export interface Tuning {
   reliefRenown: number // R-2 relief
   huntRenown: number // R-2 bandits broken
   conquestSupport: number // W-27 support lost by a conquered prefecture
+  musterDiv: number // G-3 monthly muster = pop / musterDiv
+  musterCapDiv: number // G-3 muster cap = pop / musterCapDiv
+  inviteLoyalty: number // H-10 base loyalty of an invited hero (40) or a conquered garrison hero
+  inviteOdds: number // Q-2 flat bonus to invite odds
 }
 export const DEFAULT_TUNING: Tuning = {
-  edict: 500, hostBase: 2000, hostPerMonth: 25, hostMax: 9000, taxPct: 100, harvestPct: 100, wagePct: 100, upkeepPct: 100, joinRenown: 1, reliefRenown: 1, huntRenown: 2, conquestSupport: 5,
+  edict: 500, hostBase: 2000, hostPerMonth: 25, hostMax: 9000, taxPct: 100, harvestPct: 100, wagePct: 100, upkeepPct: 100, joinRenown: 1, reliefRenown: 1, huntRenown: 2, conquestSupport: 5, musterDiv: 2000, musterCapDiv: 60, inviteLoyalty: 40, inviteOdds: 0,
 }
 export const TUNE: Tuning = { ...DEFAULT_TUNING }
 export function setTuning(p: Partial<Tuning>): void { Object.assign(TUNE, DEFAULT_TUNING, p) }
