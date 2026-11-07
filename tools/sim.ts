@@ -16,7 +16,7 @@ const seed0 = Number(arg('seed', '1'))
 const write = args.includes('--write')
 const verbose = args.includes('--verbose')
 
-interface Row { diff: number; start: string; seed: number; outcome: string; t: number; renown: number; prefs: number; heroes: number; battles: number; edictT: number | null; flights: number; steps: number; ms: number }
+interface Row { reason: string; maxRenown: number; diff: number; start: string; seed: number; outcome: string; t: number; renown: number; prefs: number; heroes: number; battles: number; edictT: number | null; flights: number; steps: number; ms: number }
 const failures: string[] = []
 const rows: Row[] = []
 
@@ -25,7 +25,7 @@ function playOne(diff: Difficulty, start: string, seed: number): Row {
   const setup = { startHero: start, difficulty: diff, seed }
   let s: GameState = createGame(setup)
   const actions: Action[] = []
-  let steps = 0, battles = 0, flights = 0
+  let steps = 0, battles = 0, flights = 0, maxRenown = 0
   const tag = `d${diff} ${start} seed ${seed}`
   while (s.phase !== 'result') {
     if (steps++ > 50000) { failures.push(`${tag}: stall over 50,000 steps at t=${s.t}`); break }
@@ -43,6 +43,7 @@ function playOne(diff: Difficulty, start: string, seed: number): Row {
     for (const e of r.events) { if (e.k === 'battleStart') battles++; if (e.k === 'gaoFlees') flights++;}
     actions.push(a)
     s = r.state
+    maxRenown = Math.max(maxRenown, s.factions['player']!.renown)
     const bad = checkInvariants(s)
     if (bad.length) { failures.push(`${tag}: invariant at step ${steps}, t=${s.t}: ${bad.slice(0, 3).join(' | ')}`); break }
   }
@@ -51,7 +52,7 @@ function playOne(diff: Difficulty, start: string, seed: number): Row {
   const f = s.factions['player']!
   const prefs = Object.values(s.prefectures).filter((p) => p.owner === 'player').length
   const heroes = Object.values(s.heroes).filter((h) => h.faction === 'player' && ['chieftain', 'sworn', 'ordinary'].includes(h.status)).length
-  return { diff, start, seed, outcome: s.result?.outcome ?? 'unfinished', t: s.t, renown: f.renown, prefs, heroes, battles, edictT: f.edict, flights, steps, ms: Date.now() - t0 }
+  return { reason: s.result?.reason ?? 'unfinished', maxRenown, diff, start, seed, outcome: s.result?.outcome ?? 'unfinished', t: s.t, renown: f.renown, prefs, heroes, battles, edictT: f.edict, flights, steps, ms: Date.now() - t0 }
 }
 
 for (const diff of diffs) {
@@ -66,16 +67,19 @@ for (const diff of diffs) {
 const q = (xs: number[], p: number): number | string => { if (!xs.length) return '-'; const a = [...xs].sort((x, y) => x - y); return a[Math.min(a.length - 1, Math.floor(p * a.length))] as number }
 const label = (t: number | string): string => (typeof t === 'number' ? `${1101 + Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, '0')} (t=${t})` : t)
 const lines: string[] = []
-lines.push('| Difficulty | Games | Win rate | Edict reached | Edict month median | p10 | p90 | Edict after Edict-by or never | Gao Qiu flights / game | Battles / game | Heroes at end (mean) | Prefectures at end (mean) |')
-lines.push('|---|---|---|---|---|---|---|---|---|---|---|---|')
+lines.push('| Difficulty | Games | Win rate | Edict reached | Edict month median | p10 | p90 | Edict after Edict-by or never | Gao Qiu flights / game | Battles / game | Heroes at end (mean) | Prefectures at end (mean) | Renown at end (mean / max) | Median last month |')
+lines.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|')
 for (const d of diffs) {
   const rs = rows.filter((r) => r.diff === d)
   if (!rs.length) continue
   const ed = rs.filter((r) => r.edictT !== null).map((r) => r.edictT as number)
   const late = rs.filter((r) => r.edictT === null || (r.edictT as number) > DEADLINE[d] - 18).length
   const mean = (f: (r: Row) => number): string => (rs.reduce((a, r) => a + f(r), 0) / rs.length).toFixed(1)
-  lines.push(`| ${d} | ${rs.length} | ${((100 * rs.filter((r) => r.outcome === 'victory').length) / rs.length).toFixed(0)}% | ${((100 * ed.length) / rs.length).toFixed(0)}% | ${label(q(ed, 0.5))} | ${label(q(ed, 0.1))} | ${label(q(ed, 0.9))} | ${((100 * late) / rs.length).toFixed(0)}% | ${mean((r) => r.flights)} | ${mean((r) => r.battles)} | ${mean((r) => r.heroes)} | ${mean((r) => r.prefs)} |`)
+  lines.push(`| ${d} | ${rs.length} | ${((100 * rs.filter((r) => r.outcome === 'victory').length) / rs.length).toFixed(0)}% | ${((100 * ed.length) / rs.length).toFixed(0)}% | ${label(q(ed, 0.5))} | ${label(q(ed, 0.1))} | ${label(q(ed, 0.9))} | ${((100 * late) / rs.length).toFixed(0)}% | ${mean((r) => r.flights)} | ${mean((r) => r.battles)} | ${mean((r) => r.heroes)} | ${mean((r) => r.prefs)} | ${mean((r) => r.renown)} / ${Math.max(...rs.map((r) => r.maxRenown))} | ${q(rs.map((r) => r.t), 0.5)} |`)
 }
+const reasons: Record<string, number> = {}
+for (const r of rows) reasons[`d${r.diff}: ${r.reason}`] = (reasons[`d${r.diff}: ${r.reason}`] ?? 0) + 1
+lines.push('', 'Results by reason:', ...Object.entries(reasons).sort().map(([k, v]) => `- ${k}: ${v}`))
 console.log(lines.join('\n'))
 console.log(`\ngames ${rows.length}, invariant/stall/replay failures ${failures.length}, mean ${(rows.reduce((a, r) => a + r.ms, 0) / Math.max(1, rows.length)).toFixed(0)} ms/game`)
 for (const f of failures.slice(0, 30)) console.log('FAIL', f)

@@ -31,6 +31,22 @@ describe('X victory and defeat', () => {
     expect(gaoWin(36).result!.ending).toMatch(/^The Heavenly Thirty-Six/)
     expect(legalActions(none, D)).toEqual([])
   })
+  test('X-1 the chase: a third flight, or every link cut, ends in capture and victory', () => {
+    for (const mode of ['third', 'cut'] as const) {
+      const s = game('lin-chong')
+      const c = ctxOf(s)
+      s.factions['player']!.edict = 0
+      setPref(s, 'mengzhou', { men: 3000, arms: 3000 })
+      startBattle(c, { attacker: 'player', origin: 'mengzhou', target: 'dongjing', heroes: ['lin-chong'], men: 3000 })
+      s.battle!.units.find((u) => u.hero === 'gao-qiu')!.state = 'routed'
+      s.battle!.result = { winner: 'a', reason: 'gao-qiu' }
+      if (mode === 'third') s.heroes['gao-qiu']!.flights = 2
+      else for (const n of ['yingtianfu', 'mengzhou', 'chenzhou', 'zhangde', 'luoyang']) s.prefectures[n]!.owner = 'player'
+      finishBattle(c)
+      expect(s.phase, mode).toBe('result')
+      expect(s.result!.outcome).toBe('victory')
+    }
+  })
   test('X-2 after the Edict the capital can be taken in any month before the deadline', () => {
     const s = game('lin-chong')
     s.factions['player']!.edict = 0
