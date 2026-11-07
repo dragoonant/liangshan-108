@@ -17,7 +17,7 @@ export interface Tuning {
   inviteOdds: number // Q-2 flat bonus to invite odds
 }
 export const DEFAULT_TUNING: Tuning = {
-  edict: 500, hostBase: 2000, hostPerMonth: 25, hostMax: 9000, taxPct: 100, harvestPct: 100, wagePct: 100, upkeepPct: 100, joinRenown: 1, reliefRenown: 1, huntRenown: 2, conquestSupport: 5, musterDiv: 2000, musterCapDiv: 60, inviteLoyalty: 40, inviteOdds: 0,
+  edict: 300, hostBase: 1500, hostPerMonth: 15, hostMax: 9000, taxPct: 100, harvestPct: 100, wagePct: 70, upkeepPct: 70, joinRenown: 4, reliefRenown: 4, huntRenown: 5, conquestSupport: 5, musterDiv: 2000, musterCapDiv: 60, inviteLoyalty: 55, inviteOdds: 10,
 }
 export const TUNE: Tuning = { ...DEFAULT_TUNING }
 export function setTuning(p: Partial<Tuning>): void { Object.assign(TUNE, DEFAULT_TUNING, p) }

@@ -102,6 +102,7 @@ export function finishBattle(c: Ctx): void {
     tgt.men = Math.min(garrison, Math.floor(tgt.pop / 20)); tgt.arms = garrisonArms
     tgt.support = clamp(0, 100, tgt.support + (defFaction === 'court' && prevGraft >= 40 ? 10 : -TUNE.conquestSupport))
     tgt.unrest = false; tgt.tiger = tgt.tiger
+    if (attFaction === 'player') s.commandsLeft[b.target] = Math.max(1, s.commandsLeft[b.target] ?? 0) // W-33
     // attacking heroes occupy the prefecture
     for (const u of unitsA) if (isReal(u) && u.state !== 'captured') place(c, u.hero, b.target)
     const defenders = [...fled.map((f) => f.hero), ...reserve]

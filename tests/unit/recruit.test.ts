@@ -14,13 +14,13 @@ describe('Q recruitment', () => {
     expect(count((h) => h.faction === 'free' && h.status === 'free')).toBeGreaterThan(30)
     expect(count((h) => h.faction !== 'free' && h.status !== 'dormant')).toBeGreaterThan(10)
   })
-  test('Q-2 invite odds: every term is listed; success joins at 40 + compat/4 with Renown; failure blocks the month', () => {
+  test('Q-2 invite odds: every term is listed; success joins at 55 + compat/4 with Renown; failure blocks the month', () => {
     const s = game('song-jiang', 2, 3, [0])
     const c = ctxOf(s)
     const o = recruitOdds(c, 'player', 'song-jiang', 'song-qing')
     const cm = compat(c, 'song-jiang', 'song-qing')
     const t = D.heroes.find((h) => h.id === 'song-qing')!
-    const expected = 20 + Math.min(30, Math.floor(30 / 10)) + Math.floor(cm / 3) + Math.floor((78 - 50) / 5) + Math.floor((70 - 50) / 5) + (t.start.status === 'official' ? -30 : 0)
+    const expected = 20 + Math.min(30, Math.floor(30 / 10)) + Math.floor(cm / 3) + Math.floor((78 - 50) / 5) + Math.floor((70 - 50) / 5) + 10 + (t.start.status === 'official' ? -30 : 0)
     expect(o.pct).toBe(Math.max(5, Math.min(95, expected)))
     expect(o.terms.find((x) => x.label === 'base')?.value).toBe(20)
     const sj = ok(s, { t: 'recruit', pref: 'yunzhou', actor: 'song-jiang', target: 'song-qing', method: 'invite' })

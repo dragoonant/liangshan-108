@@ -37,7 +37,7 @@ describe('E economy', () => {
   test('E-5 upkeep: winter food x1.5, wages count ordinary heroes; unpaid wages cost loyalty and men', () => {
     const s = game()
     setPref(s, 'yunzhou', { men: 1000, gold: 0, pop: 40000, land: 0 })
-    expect(wagesOf(ctxOf(s), 'yunzhou')).toBe(50 + 10)
+    expect(wagesOf(ctxOf(s), 'yunzhou')).toBe(35 + 10) // ceil(0.7 * 50) + 5 per ordinary hero (B4)
     s.t = 11
     const e = endOf(s)
     expect(e.prefectures['yunzhou']!.men).toBe(1000 - 50)
@@ -46,8 +46,8 @@ describe('E economy', () => {
     setPref(f, 'yunzhou', { men: 1000, gold: 10000, food: 5000, pop: 400000 })
     f.t = 11
     const f2 = endOf(f)
-    expect(f2.prefectures['yunzhou']!.food).toBeLessThanOrEqual(5000 - 150 + 1)
-    expect(f2.prefectures['yunzhou']!.food).toBeGreaterThanOrEqual(5000 - 150 - 1)
+    expect(f2.prefectures['yunzhou']!.food).toBeLessThanOrEqual(5000 - 105 + 1)
+    expect(f2.prefectures['yunzhou']!.food).toBeGreaterThanOrEqual(5000 - 105 - 1)
   })
   test('E-6 harvest in October; drought cuts it by 40%', () => {
     const s = game()
@@ -85,12 +85,12 @@ describe('E economy', () => {
   test('E-9 runway counts the season factor; the view warns under 2 months (amber) and under 1 (red)', () => {
     const s = game()
     s.t = 9
-    setPref(s, 'yunzhou', { men: 1000, food: 190 })
+    setPref(s, 'yunzhou', { men: 1000, food: 130 })
     expect(runway(ctxOf(s), 'yunzhou')).toBe(1.9)
     expect(view(s, 'player', D).warnings.find((w) => w.rule === 'E-9')?.level).toBe('amber')
     s.t = 11
-    expect(query.runway(s, 'yunzhou', D)).toBe(1.3)
-    setPref(s, 'yunzhou', { food: 90 })
+    expect(query.runway(s, 'yunzhou', D)).toBe(1.2)
+    setPref(s, 'yunzhou', { food: 60 })
     expect(view(s, 'player', D).warnings.find((w) => w.rule === 'E-9')?.level).toBe('red')
     expect(query.advice(s, D).hints.some((h) => h.rule === 'E-9')).toBe(true)
   })
@@ -159,7 +159,7 @@ describe('E economy', () => {
     const r = ok(s, { t: 'hunt', pref: 'cangzhou', actor: 'wu-song', party: ['chai-jin'], men: 400 })
     expect(r.state.prefectures['cangzhou']!.bandits).toBe(30)
     expect(r.state.prefectures['cangzhou']!.gold).toBe(1050)
-    expect(r.state.factions['player']!.renown).toBe(45 + 2)
+    expect(r.state.factions['player']!.renown).toBe(45 + 5)
   })
   test('E-15 move: needs a hero; marsh-water needs a marine or swimmer; food costs 1 per 20 men; snow blocks passes', () => {
     const s = ruanGame()

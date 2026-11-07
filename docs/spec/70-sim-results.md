@@ -1,4 +1,4 @@
-# 70 - Sim results (B3: with the campaign policy; defaults plus G-3 cap pop/60)
+# 70 - Sim results (B4: the D25 numbers are the defaults; the sim is a safety check, not the balance gate)
 
 Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start all --seed 1000`. 672 games; seeds are `1000 + cell * 1000 + game` where cell counts policy x difficulty x start in the order printed (so every seed is reproducible: `createGame({ startHero, difficulty, seed })` and the policy). Policies are in `src/ai/policies.ts`; `greedy` is the A-rules decider.
 
@@ -6,33 +6,33 @@ Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start 
 
 | Policy | d1 | d2 | d3 | d4 | Edict reached (d2) | Mean Renown (d2) |
 |---|---|---|---|---|---|---|
-| campaign | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 99 |
-| justice | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 58 |
-| benevolent | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 100 |
-| warlord | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 52 |
-| brotherhood | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 73 |
-| careless | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 20 |
-| greedy | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 23 |
+| campaign | 4% (24) | 4% (24) | 0% (24) | 0% (24) | 58% | 279 |
+| justice | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 116 |
+| benevolent | 4% (24) | 0% (24) | 4% (24) | 0% (24) | 63% | 363 |
+| warlord | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 119 |
+| brotherhood | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 42% | 286 |
+| careless | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 0% | 31 |
+| greedy | 0% (24) | 0% (24) | 0% (24) | 0% (24) | 4% | 101 |
 
 ### Edict timing (games with an Edict, per policy and difficulty): median month as % of the deadline (median `t`)
 
 | Policy | d1 | d2 | d3 | d4 |
 |---|---|---|---|---|
-| campaign | - | - | - | - |
-| justice | - | - | - | - |
-| benevolent | - | - | - | - |
-| warlord | - | - | - | - |
-| brotherhood | - | - | - | - |
+| campaign | 40% (t=72, n=15) | 40% (t=58, n=14) | 40% (t=43, n=8) | 56% (t=47, n=7) |
+| justice | 79% (t=142, n=1) | - | - | - |
+| benevolent | 47% (t=85, n=19) | 53% (t=76, n=15) | 44% (t=48, n=7) | 83% (t=70, n=8) |
+| warlord | 80% (t=144, n=1) | - | 81% (t=87, n=1) | 67% (t=56, n=1) |
+| brotherhood | 47% (t=84, n=10) | 44% (t=63, n=10) | 53% (t=57, n=5) | 55% (t=46, n=1) |
 | careless | - | - | - | - |
-| greedy | - | - | - | - |
+| greedy | 48% (t=87, n=2) | 93% (t=134, n=1) | 47% (t=51, n=3) | - |
 
 ### Won games: Edict month (% of deadline, median) and Gao Qiu flights (mean)
 
 | Policy | d1 | d2 | d3 | d4 |
 |---|---|---|---|---|
-| campaign | - | - | - | - |
+| campaign | 22%, 1.0 flights (n=1) | 27%, 1.0 flights (n=1) | - | - |
 | justice | - | - | - | - |
-| benevolent | - | - | - | - |
+| benevolent | 29%, 2.0 flights (n=1) | - | 44%, 2.0 flights (n=1) | - |
 | warlord | - | - | - | - |
 | brotherhood | - | - | - | - |
 | careless | - | - | - | - |
@@ -42,7 +42,7 @@ Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start 
 
 | Policy | song-jiang | chao-gai | lin-chong | wu-song | lu-zhishen | hu-sanniang | spread (max - mean, points) |
 |---|---|---|---|---|---|---|---|
-| campaign | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
+| campaign | 0% (4) | 25% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 21 / min 4 |
 | justice | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 | benevolent | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
 | warlord | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0% (4) | 0 / min 0 |
@@ -55,25 +55,28 @@ Run 2026-11-07: `npm run sim -- --games 4 --policy all --difficulty all --start 
 | Phase | d1 | d2 | d3 | d4 |
 |---|---|---|---|---|
 | 1 grow | 0 (24/24) | 0 (24/24) | 0 (24/24) | 0 (24/24) |
-| 2 expand | 30 (9/24) | 22 (1/24) | - (0/24) | - (0/24) |
-| 3 renown | 30 (24/24) | 30 (23/24) | 12 (24/24) | 30 (24/24) |
-| 4 stage | - (0/24) | - (0/24) | - (0/24) | - (0/24) |
-| 5 assault | - (0/24) | - (0/24) | - (0/24) | - (0/24) |
+| 2 expand | 30 (23/24) | 30 (23/24) | 13 (22/24) | 13 (13/24) |
+| 3 renown | 30 (17/24) | 30 (21/24) | 30 (24/24) | 23 (24/24) |
+| 4 stage | 73 (15/24) | 49 (13/24) | 44 (8/24) | 48 (6/24) |
+| 5 assault | 95 (6/24) | 100 (4/24) | 53 (3/24) | 55 (3/24) |
 
 ### How games end (all difficulties)
 
-- campaign: The court's patience ends 82; You hold no prefecture 8; Your chieftain is captured and no sworn brother can lead 6
-- justice: The court's patience ends 86; You hold no prefecture 6; Your chieftain is captured and no sworn brother can lead 4
-- benevolent: The court's patience ends 82; You hold no prefecture 8; Your chieftain is captured and no sworn brother can lead 6
-- warlord: The court's patience ends 91; Your chieftain is captured and no sworn brother can lead 4; You hold no prefecture 1
-- brotherhood: The court's patience ends 73; Your chieftain is captured and no sworn brother can lead 13; You hold no prefecture 10
-- careless: Your chieftain is captured and no sworn brother can lead 89; You hold no prefecture 7
-- greedy: You hold no prefecture 55; Your chieftain is captured and no sworn brother can lead 28; The court's patience ends 13
+- campaign: The court's patience ends 82; Your chieftain is captured and no sworn brother can lead 8; You hold no prefecture 4; victory 2
+- justice: The court's patience ends 85; You hold no prefecture 8; Your chieftain is captured and no sworn brother can lead 3
+- benevolent: The court's patience ends 90; Your chieftain is captured and no sworn brother can lead 3; victory 2; You hold no prefecture 1
+- warlord: The court's patience ends 85; You hold no prefecture 7; Your chieftain is captured and no sworn brother can lead 4
+- brotherhood: The court's patience ends 77; You hold no prefecture 10; Your chieftain is captured and no sworn brother can lead 9
+- careless: Your chieftain is captured and no sworn brother can lead 90; You hold no prefecture 6
+- greedy: You hold no prefecture 41; Your chieftain is captured and no sworn brother can lead 36; The court's patience ends 19
 
-Mean per game: 23.7 battles, 4.4 heroes at the end, 1.1 prefectures at the end, 1546.0 ms.
+Mean per game: 25.1 battles, 5.1 heroes at the end, 1.3 prefectures at the end, 1652.8 ms.
 
 Invariant, stall (50,000 steps) and replay failures: 0.
 
+
+## B4 reading (2026-11-07)
+**Adopted (D25):** Edict 300, Renown per hero/relief/hunt 4/4/5 (heavenly hero 5, famine relief 6), invite loyalty 55 (H-10), invite odds +10 (Q-2), upkeep and wages x0.7 (E-5), court host 1500 + 15t (G-4), and rule W-33 (a conquered prefecture has 1 command in the month it falls). No further tuning. **The balance targets (best sensible policy 80-95 / 55-70 / 30-45 / 10-25 % by difficulty, every sensible policy at least 10% on d1, d2 per-start spread, flights) are deferred to the human bench (D25).** For the record, the table above (4 games per start): campaign wins 4% on d1 and d2, benevolent 4% on d1 and d3, the others 0%; the Edict is reached in 58% (campaign), 63% (benevolent) and 42% (brotherhood) of d2 games at 40-53% of the deadline; careless wins 0%. Invariant, stall and replay failures: 0 in 672 games. The B3 and earlier readings follow as history.
 
 ## B3 reading (2026-11-07)
 **The campaign policy** (`src/ai/policies.ts`, phases 1 grow, 2 expand, 3 renown, 4 stage, 5 assault; the sim logs the first month of each) answers only through `legalActions`, reads foreign prefectures in bands (Z-5), and adds supply (`send`), hero/men balancing, concentration at one capital neighbour, three-wave assaults and a chase of Gao Qiu. **Generous probe** (Edict 100, tax x2.5, harvest x2, wages/upkeep x0.5, host 1000 + 8t, muster cap pop/120, invite loyalty 55; 60 games on d2): the policy won **4 of 60** (song-jiang, lin-chong x2, chao-gai; months 74-94, with 3 waves and the chase), 25 of 60 reached the assault, 54 of 60 reached staging. So the rules allow a win, but the policy does not convert reliably: it is the policy (hero losses to capture, conquests without a loyal governor, men and heroes in different prefectures) and one rule gap, below.

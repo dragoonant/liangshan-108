@@ -77,10 +77,10 @@ describe('H heroes and loyalty', () => {
   test('H-9 loyalty stays within 0-100 for the player heroes through a long game', () => {
     playGreedy(game('lin-chong', 2, 9), 18, (s) => { for (const h of Object.values(s.heroes)) if (h.faction === 'player') expect(h.loyalty >= 0 && h.loyalty <= 100).toBe(true) })
   })
-  test('H-10 joining loyalty: invited 40 + compat/4, persuaded 50 + compat/4, rescued 80', () => {
+  test('H-10 joining loyalty: invited 55 + compat/4, persuaded 50 + compat/4, rescued 80', () => {
     const c = ctxOf(game())
     const cm = compat(c, 'song-jiang', 'song-qing')
-    expect(joinLoyalty(c, 'song-qing', 'invite')).toBe(40 + Math.floor(cm / 4))
+    expect(joinLoyalty(c, 'song-qing', 'invite')).toBe(55 + Math.floor(cm / 4))
     expect(joinLoyalty(c, 'song-qing', 'persuade')).toBe(50 + Math.floor(cm / 4))
     expect(joinLoyalty(c, 'song-qing', 'rescue')).toBe(80)
     joinHero(c, 'song-qing', 'player', 77, 'yunzhou')
@@ -220,11 +220,11 @@ describe('B brotherhood', () => {
     setPref(s, 'jizhou', { gold: 1000, men: 100 })
     expect(step(s, { t: 'train', pref: 'jizhou', actor: 'wu-yong' }, D).ok).toBe(true)
   })
-  test('B-7 brotherhood and recruits are visible Renown sources (sworn +1, heavenly joiner +2)', () => {
+  test('B-7 brotherhood and recruits are visible Renown sources (sworn +1, heavenly joiner +5)', () => {
     const r = ok(ready(), { t: 'swear', pref: 'yunzhou', hero: 'wu-yong' })
     expect(r.state.factions['player']!.ledger.at(-1)).toMatchObject({ amount: 1, rule: 'B-2', column: 'heroes' })
     const c = ctxOf(game())
     joinHero(c, 'lu-junyi', 'player', 50, 'yunzhou')
-    expect(c.s.factions['player']!.ledger.at(-1)).toMatchObject({ amount: 2, column: 'heroes' })
+    expect(c.s.factions['player']!.ledger.at(-1)).toMatchObject({ amount: 5, column: 'heroes' })
   })
 })

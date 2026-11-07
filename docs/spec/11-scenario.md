@@ -12,7 +12,7 @@ The one scenario of v1: January 1101, the outlaws are scattered, Gao Qiu's court
 | 3 Hard | 108 | Dec 1109 (107) | Jul 1108 (90) | 1.1 | 7 |
 | 4 Brutal | 84 | Dec 1107 (83) | Jul 1106 (66) | 0.9 | 5 |
 
-Nothing else differs between difficulties (S-4). `EDICT = 500` Renown for all.
+Nothing else differs between difficulties (S-4). `EDICT = 300` Renown (B4) for all.
 The dated rivals Tian Hu and Wang Qing (1118) and Fang La's rebels (1120) in `data/rivals.json` appear in January of their year (T-1 and Q-6); no difficulty lasts that long, so they never appear in v1. They stay in the data for a longer mode.
 
 ## 2. Who owns what at the start

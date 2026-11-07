@@ -1,6 +1,6 @@
 # 12 — Rules test checklist (v0.1)
 
-One line per rule id of `10-rules.md` (157 ids). The engine agent turns each into at least one test whose title starts with the id (`tests/unit/<file>`); `tests/unit/checklist.test.ts` reads this file and fails if an id has no test title. Tags: `unit` a pure function or state transition; `query` a `query.*` or `view` output; `sim` an invariant or behaviour over headless games; `ui` verified in the client or e2e test; `doc` a definition with no behaviour of its own (cover it through the rules that use it). Golden numbers for the core formulas are in `13-golden.md`.
+One line per rule id of `10-rules.md` (158 ids). The engine agent turns each into at least one test whose title starts with the id (`tests/unit/<file>`); `tests/unit/checklist.test.ts` reads this file and fails if an id has no test title. Tags: `unit` a pure function or state transition; `query` a `query.*` or `view` output; `sim` an invariant or behaviour over headless games; `ui` verified in the client or e2e test; `doc` a definition with no behaviour of its own (cover it through the rules that use it). Golden numbers for the core formulas are in `13-golden.md`.
 
 Format: `- [ ] ID [tag] what the test asserts (file)`.
 
@@ -178,3 +178,4 @@ Format: `- [ ] ID [tag] what the test asserts (file)`.
 
 ## 10a. Reinforcement waves
 - [ ] W-32 [unit] In a battle for the capital the player's bordering prefectures send a wave of up to 8 units on day 5, 10 and 15, leaving a third of their men and a hero at home; the view and query.wave show arrival day and size (battle.test.ts)
+- [ ] W-33 [unit] A conquered prefecture has 1 command in the month it falls (battle.test.ts)

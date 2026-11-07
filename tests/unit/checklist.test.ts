@@ -13,7 +13,7 @@ for (const f of files) {
 }
 
 describe('12 checklist coverage', () => {
-  test('the checklist lists 157 rule ids', () => { expect(ids.length).toBe(157) })
+  test('the checklist lists 158 rule ids', () => { expect(ids.length).toBe(158) })
   test('every rule id has a test or a test.todo whose title starts with it', () => {
     const missing = ids.filter((i) => !titles.has(i))
     expect(missing).toEqual([])

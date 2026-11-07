@@ -1,12 +1,12 @@
 # 13 — Golden examples (v0.1)
 
-Two worked examples with forced dice, for the engine agent to turn into `tests/unit/golden-month.test.ts` and `tests/unit/golden-battle.test.ts`. Every number below was recomputed by script from the formulas in `10-rules.md` on 2026-11-07. The fixtures are small hand-made states (`tests/fixtures/*.json`), not the 1101 scenario: they override prefecture numbers and use hero stats from `data/heroes.json` where named, and the stated values where marked *fixture*. Forced dice use `createGame(..., { forcedRolls })` (Arch, RNG): each `roll(n)` takes the next listed value, clamped to `0..n-1`; the variance roll is `roll(21)` and the value 10 means +0%.
+Two worked examples with forced dice, for the engine agent to turn into `tests/unit/golden-month.test.ts` and `tests/unit/golden-battle.test.ts`. Every number below was recomputed by script from the formulas in `10-rules.md` (example A again on 2026-11-07 after B4: Renown 4/4/5, Edict 300, upkeep and wages x0.7). The fixtures are small hand-made states (`tests/fixtures/*.json`), not the 1101 scenario: they override prefecture numbers and use hero stats from `data/heroes.json` where named, and the stated values where marked *fixture*. Forced dice use `createGame(..., { forcedRolls })` (Arch, RNG): each `roll(n)` takes the next listed value, clamped to `0..n-1`; the variance roll is `roll(21)` and the value 10 means +0%.
 
 ## A. A worked month: October 1101, Yunzhou
 
 **Fixture.** One prefecture only (no rivals, no court, so the AI phase is empty). `t = 9`, difficulty 2 (deadline 144, `edictBy` = 126).
 - `yunzhou` (player): pop 150,000; land 60; gold 1,000; food 1,200; men 1,000; arms 700; training 40; support 50; dyke 50; bandits 40; `heroes`: `song-jiang` (chieftain; might 60, command 92, cunning 78, vigour 70; virtues R9 C9 D4; skill scribe), `wu-yong` (ordinary, loyalty 60; command 84, cunning 98; virtues R6 C5 D4; skill strategist).
-- Renown 31 after the relief below (starts the month at 30); `renownHistory` for `t = 0..8` is nine entries of 30. No scheduled events. Map terrain `plains`, so no tiger.
+- Renown 34 after the relief below (starts the month at 30); `renownHistory` for `t = 0..8` is nine entries of 30. No scheduled events. Map terrain `plains`, so no tiger.
 - `commandsLeft.yunzhou = 2` (chieftain present, T-3).
 - Forced rolls: `[57]` (the only draw: the plague roll for Yunzhou in step 8).
 
@@ -15,7 +15,7 @@ Two worked examples with forced dice, for the engine agent to turn into `tests/u
 | # | Action | Rule | Result |
 |---|---|---|---|
 | 1 | `levy` actor `song-jiang` | E-12 | `N = floor(750 * 90 / 100) = 675`, then `floor(675 * 118 / 100) = 796` men. Cost 796 gold. gold 204; pop 149,204; men 1,796; support 47; `commandsLeft` 1. |
-| 2 | `relieve` actor `song-jiang` | E-12 | Food -300 (900). Support `+8 +2` (compassion 9 >= 7) = 57. Renown +1 (31), ledger line "relief, Yunzhou, +1, E-12/R-2". `commandsLeft` 0. |
+| 2 | `relieve` actor `song-jiang` | E-12 | Food -300 (900). Support `+8 +2` (compassion 9 >= 7) = 57. Renown +4 (34), ledger line "relief, Yunzhou, +4, E-12/R-2". `commandsLeft` 0. |
 | 3 | `endPhase` | T-2 | AI phase skipped (no AI factions). Month end runs. |
 
 **Month end (T-8), in order**
@@ -24,17 +24,17 @@ Two worked examples with forced dice, for the engine agent to turn into `tests/u
 |---|---|---|
 | 1 Tax (E-4) | `floor(149 * 60 * 107 / 5000) = 191`; scribe present +10%: `floor(191 * 110 / 100) = 210` | gold 414 |
 | 2 Harvest (E-6) | `floor(149 * 60 * 107 / 450) = 2125` | food 3,025 |
-| 3 Upkeep (E-5) | food `ceil(1796 / 10) = 180` (autumn, no winter factor); wages `ceil(1796 / 20) + 5 * 1 = 90 + 5 = 95` (`wu-yong` is ordinary; the chieftain is free) | food 2,845; gold 319 |
+| 3 Upkeep (E-5) | food `ceil(0.7 * 180) = 126` (autumn, no winter factor; 180 = `ceil(1796 / 10)`); wages `ceil(0.7 * 90) + 5 * 1 = 63 + 5 = 68` (`wu-yong` is ordinary; the chieftain is free) | food 2,899; gold 346 |
 | 3b Starvation | none (food stays positive) | |
 | 4 Scheduled events | none | |
 | 5 Growth (E-10) | `g = 1` (Sep-Feb): `+floor(149204 / 1000) = 149`; dyke 50 -> 49; bandits stay 40 (support 57 is between 50 and 69) | pop 149,353 |
-| 6 Support drift (E-11) | no famine, bandits under 150: 0; `+1` (no disaster, runway 15.8 >= 3, bandits 40 < 50); `+1` (compassion 9 hero present) | support 59 |
+| 6 Support drift (E-11) | no famine, bandits under 150: 0; `+1` (no disaster, runway 23.0 >= 3, bandits 40 < 50); `+1` (compassion 9 hero present) | support 59 |
 | 7 Loyalty (H-12) | `wu-yong`: virtue distance `|9-6| + |9-5| + |4-4| = 7`; `compat = 100 - 42 = 58`; resting level `40 + floor(58 / 2) = 69`; support 59 gives no modifier; loyalty `60 -> 62` | loyalty 62 |
 | 8 Roll events for next month (V-0) | Nov: no foreseeable event is in season (V-1..V-5 windows). Sudden events: plague (V-4) is eligible (pop >= 100,000): `roll(100) = 57`, `57 >= 2`, no plague. Tiger (V-6): terrain is plains, not eligible. | draws used: 1 |
 | 9 Court muster | none | |
-| 10 Renown and deadline | `renownHistory[9] = 31`; trend `(31 - renownHistory[3]) / 6 = 1/6` shown as 0.2; projected Edict `10 + ceil(469 / (1/6)) = 10 + 2814 = 2824`, beyond the last month 143, shown "after the deadline"; status red; required rate `469 / (126 - 10) = 4.0` per month vs current 0.2; deadline 144 months, 133 left; no banner | `t = 10` (November 1101) |
+| 10 Renown and deadline | `renownHistory[9] = 34`; trend `(34 - renownHistory[3]) / 6 = 2/3` shown as 0.7; projected Edict `10 + ceil(266 / (2/3)) = 10 + 399 = 409`, beyond the last month 143, shown "after the deadline"; status red; required rate `266 / (126 - 10) = 2.3` per month vs current 0.7; deadline 144 months, 133 left; no banner | `t = 10` (November 1101) |
 
-**Final state to assert:** `t = 10`; yunzhou: pop 149,353, gold 319, food 2,845, men 1,796, arms 700, training 40, support 59, land 60, dyke 49, bandits 40; `wu-yong` loyalty 62; Renown 31; `commandsLeft.yunzhou = 2`; `rng.draws = 1` and `rng.forced = []`; `pending = null`. Oath meter for `wu-yong` (B-1): loyalty 62 of 80 (missing 18), match 58 of 55 (met). The event log contains, in order: levy, relief, tax, harvest, upkeep, support change, loyalty change, "no plague", month advance. `query.runway = 15.8`. `query.advice` returns at most 3 hints and the first is the red Edict run-rate (R-8).
+**Final state to assert:** `t = 10`; yunzhou: pop 149,353, gold 346, food 2,899, men 1,796, arms 700, training 40, support 59, land 60, dyke 49, bandits 40; `wu-yong` loyalty 62; Renown 34; `commandsLeft.yunzhou = 2`; `rng.draws = 1` and `rng.forced = []`; `pending = null`. Oath meter for `wu-yong` (B-1): loyalty 62 of 80 (missing 18), match 58 of 55 (met). The event log contains, in order: levy, relief, tax, harvest, upkeep, support change, loyalty change, "no plague", month advance. `query.runway = 23.0` (2,899 / 126). `query.advice` returns at most 3 hints and the first is the red Edict run-rate (R-8).
 
 ## B. A worked battle round: Day 1 at a forest line
 

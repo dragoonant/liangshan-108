@@ -366,6 +366,19 @@ describe('W battle', () => {
     expect(s.rng.draws - draws).toBe(1) // one variance roll, none for capture or counter
     expect(s.battle!.result).toMatchObject({ winner: 'a', reason: 'gao-qiu' })
   })
+  test('W-33 a conquered prefecture has 1 command in the month it falls', () => {
+    const s = game('lin-chong')
+    const c = ctxOf(s)
+    setPref(s, 'mengzhou', { men: 2000, arms: 2000, gold: 100 })
+    setPref(s, 'luoyang', { men: 50 })
+    s.prefectures['luoyang']!.heroes = []
+    expect(s.commandsLeft['luoyang']).toBe(0)
+    startBattle(c, { attacker: 'player', origin: 'mengzhou', target: 'luoyang', heroes: ['lin-chong', 'shi-en'], men: 2000 })
+    s.battle!.auto.a = true
+    driveBattle(c)
+    expect(s.prefectures['luoyang']!.owner).toBe('player')
+    expect(s.commandsLeft['luoyang']).toBeGreaterThanOrEqual(1)
+  })
   test('W-27 a won attack takes the prefecture: stocks halve (spoils to the origin), support -5 (D20), the garrison stays, Renown follows R-2', () => {
     const s = game('lin-chong')
     const c = ctxOf(s)

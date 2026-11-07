@@ -31,13 +31,13 @@ describe('G court', () => {
     musterCourt(ctxOf(s))
     expect(s.prefectures['daming']!.men).toBe(Math.floor(pop / 30))
   })
-  test('G-4 host(t) = min(9000, 2000 + 25 t); the capital never holds fewer men than the host', () => {
-    expect([host(0), host(84), host(400)]).toEqual([2000, 4100, 9000])
+  test('G-4 host(t) = min(9000, 1500 + 15 t); the capital never holds fewer men than the host', () => {
+    expect([host(0), host(84), host(400)]).toEqual([1500, 2760, 7500])
     const s = game()
     s.t = 400
     setPref(s, 'dongjing', { men: 100 })
     musterCourt(ctxOf(s))
-    expect(s.prefectures['dongjing']!.men).toBeGreaterThanOrEqual(9000)
+    expect(s.prefectures['dongjing']!.men).toBeGreaterThanOrEqual(7500)
   })
   test('G-5 the capital cannot be attacked before the Edict: rejected and never listed; open afterwards', () => {
     const s = game('lin-chong')
