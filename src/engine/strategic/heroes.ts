@@ -3,6 +3,7 @@ import type { Ctx } from '../ctx'
 import { compat, emit, hs, ps, place, rec, heroName, prefName, chieftainId, rank, virt } from '../ctx'
 import { addRenown } from './renown'
 import { clamp } from '../util'
+import { TUNE } from '../tuning'
 
 export const OATH_LOYALTY = 80
 export const OATH_COMPAT = 55
@@ -51,7 +52,7 @@ export function joinHero(c: Ctx, hero: string, faction: string, loyalty: number,
   place(c, hero, pref)
   if (faction === 'player') {
     const star = rec(c, hero).star
-    addRenown(c, star?.group === 'heavenly' ? 2 : 1, pref, 'R-2', 'heroes', `${heroName(c, hero)} joined`)
+    addRenown(c, TUNE.joinRenown + (star?.group === 'heavenly' ? 1 : 0), pref, 'R-2', 'heroes', `${heroName(c, hero)} joined`)
     if (!c.s.fired.includes(`defeated:${hero}`)) c.s.fired.push(`defeated:${hero}`)
   }
 }

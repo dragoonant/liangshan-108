@@ -68,7 +68,7 @@ Each rule has an id such as `T-3`; `(C4)` after a rule means it answers complain
 
 | Command | Actor effect and rule |
 |---|---|
-| `levy` | `N = floor(floor(pop / 200) * (40 + support) / 100)`, then `N = floor(N * (100 + floor(command / 5)) / 100)`, spearman actor x1.10. Cost 1 gold per man; `pop -= N`, `men += N` (capped by E-2), support -3. Under support 30 Renown -1 (R-3). |
+| `levy` | `N = floor(floor(pop / 200) * (40 + support) / 100)`, then `N = floor(N * (100 + floor(command / 5)) / 100)`, spearman actor x1.10. Cost 1 gold per man; `pop -= N`, `men += N` (capped so that E-2 still holds after the loss: `N <= floor((pop - 20 * men) / 21)`), support -3. Under support 30 Renown -1 (R-3). |
 | `train` | `training += 8 + floor(command / 10)`, drillmaster actor +5, max 100. Cost `ceil(men / 20)` gold. |
 | `forge` | `arms += 400` (smith actor or present: 600). Cost 1 gold per arm made. |
 | `trade` | Convert up to 1,000 of one resource at the season's price (E-13); actor `cunning` adds `floor(cunning / 10)`%, horse-trader +20%. |

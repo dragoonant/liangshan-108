@@ -1,6 +1,7 @@
 // Shared helpers: the working context, events, hero lookups, abilities, links.
 import type { GameEvent, GameState, HeroState, Kind, PrefectureState } from './types'
 import { indexOf } from './data'
+import { TUNE } from './tuning'
 import type { Idx } from './data'
 import { isWinter, monthOf } from './calendar'
 import type { DataBundle, HeroRecord } from '../data'
@@ -89,7 +90,7 @@ export const winterNow = (c: Ctx): boolean => isWinter(c.s.t)
 
 export function foodUpkeep(c: Ctx, pref: string, t = c.s.t): number {
   const p = ps(c, pref)
-  let u = Math.ceil(p.men / 10)
+  let u = Math.ceil((Math.ceil(p.men / 10) * TUNE.upkeepPct) / 100)
   if (isWinter(t)) u = Math.ceil((u * 3) / 2)
   if (p.stormT === t) u += Math.ceil(u / 4)
   return u

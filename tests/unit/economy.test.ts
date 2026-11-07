@@ -16,7 +16,7 @@ describe('E economy', () => {
     expect([armedRatio(0, 5), armedRatio(100, 50), armedRatio(100, 400)]).toEqual([100, 50, 100])
     const s = game()
     setPref(s, 'yunzhou', { pop: 20000, men: 990, gold: 5000 })
-    expect(levyAmount(ctxOf(s), 'yunzhou', 'song-jiang')).toBe(10)
+    expect(levyAmount(ctxOf(s), 'yunzhou', 'song-jiang')).toBe(9) // (20000 - 20 * 990) / 21: the cap still holds after pop falls by N
   })
   test('E-3 initial values for ordinary, court and capital prefectures', () => {
     const s = game()

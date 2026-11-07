@@ -1,10 +1,11 @@
 // G rules: muster, host, campaigns, edict garrison.
 import { CAMPAIGN_K } from '../calendar'
+import { TUNE } from '../tuning'
 import type { Ctx } from '../ctx'
 import { abil, EMPEROR, emit, GAO_QIU, hs, place, prefName, ps, rank, snowedIn } from '../ctx'
 import { startBattle } from '../battle/setup'
 
-export const host = (t: number): number => Math.min(9000, 2000 + 25 * t)
+export const host = (t: number): number => Math.min(TUNE.hostMax, TUNE.hostBase + TUNE.hostPerMonth * t)
 
 /** G-3, G-4 */
 export function musterCourt(c: Ctx): void {

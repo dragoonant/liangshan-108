@@ -1,5 +1,6 @@
 // T-8 month-end resolution and the new month's dawn.
-import { DEADLINE, EDICT, isWinter, label, monthOf, lastT } from '../calendar'
+import { DEADLINE, isWinter, label, monthOf, lastT } from '../calendar'
+import { TUNE } from '../tuning'
 import type { Ctx } from '../ctx'
 import { emit, foodUpkeep, hs, ps, prefName, heroName, rec, place, chieftainId } from '../ctx'
 import { clamp, pct } from '../util'
@@ -132,7 +133,7 @@ export function monthEnd(c: Ctx): void {
   const pf = s.factions['player']!
   pf.renownHistory[s.t] = pf.renown
   checkTriggers(c)
-  if (pf.edict === null && pf.renown >= EDICT) {
+  if (pf.edict === null && pf.renown >= TUNE.edict) {
     pf.edict = s.t
     s.factions['court']!.edictBuild = 3
     emit(c, 'edict', 'R-9', `The Emperor's Edict is granted (${label(s.t)}): the capital may now be attacked`)

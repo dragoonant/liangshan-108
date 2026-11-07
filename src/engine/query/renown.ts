@@ -1,5 +1,7 @@
 // R-6..R-8, R-10 numbers.
-import { EDICT, edictBy, label, lastT } from '../calendar'
+import { edictBy, label, lastT } from '../calendar'
+import { TUNE } from '../tuning'
+const EDICT = (): number => TUNE.edict
 import type { GameState } from '../types'
 import type { Idx } from '../data'
 
@@ -23,15 +25,15 @@ export function renownInfo(s: GameState, _x?: Idx): RenownInfo {
   let projectedT: number | null = null
   let projectedLabel = 'never at this pace'
   if (granted) { projectedT = f.edict; projectedLabel = `granted ${label(f.edict as number)}` }
-  else if (f.renown >= EDICT) { projectedT = s.t; projectedLabel = label(s.t) }
+  else if (f.renown >= EDICT()) { projectedT = s.t; projectedLabel = label(s.t) }
   else if (trend > 0) {
-    projectedT = s.t + Math.ceil((EDICT - f.renown) / trend)
+    projectedT = s.t + Math.ceil((EDICT() - f.renown) / trend)
     projectedLabel = projectedT > lastT(s) ? 'after the deadline' : label(projectedT)
   }
   let status: RenownInfo['status'] = 'red'
   if (granted || (projectedT !== null && projectedT <= eb - 6)) status = 'green'
   else if (projectedT !== null && projectedT <= eb) status = 'amber'
   const left = eb - s.t
-  const required = granted ? 0 : left > 0 ? (EDICT - f.renown) / left : EDICT - f.renown
-  return { renown: f.renown, trend: Math.round(trend * 10) / 10, projectedT, projectedLabel, edictBy: eb, edictByLabel: label(eb), required: Math.max(0, required), rate: trend, status, granted, missing: Math.max(0, EDICT - f.renown) }
+  const required = granted ? 0 : left > 0 ? (EDICT() - f.renown) / left : EDICT() - f.renown
+  return { renown: f.renown, trend: Math.round(trend * 10) / 10, projectedT, projectedLabel, edictBy: eb, edictByLabel: label(eb), required: Math.max(0, required), rate: trend, status, granted, missing: Math.max(0, EDICT() - f.renown) }
 }

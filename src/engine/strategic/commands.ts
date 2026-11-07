@@ -6,6 +6,7 @@ import {
 } from '../ctx'
 import { roll } from '../rng'
 import { clamp } from '../util'
+import { TUNE } from '../tuning'
 import { dist } from '../data'
 import { harvestOf, levyAmount, priceOf, trainGain, tradeValue } from './economy'
 import { addLoyalty, addLoyaltyAt, oathStatus } from './heroes'
@@ -159,7 +160,7 @@ export function runCommand(c: Ctx, a: Action, faction: string, dry: boolean): Re
       emit(c, 'relief', 'E-12', `${name}: relief given, support +${g}`, a.pref, g)
       if (player && p.reliefT !== s.t) {
         p.reliefT = s.t
-        addRenown(c, p.famineT === s.t ? 3 : 1, a.pref, 'R-2', 'relief', `relief in ${name}`)
+        addRenown(c, p.famineT === s.t ? TUNE.reliefRenown + 2 : TUNE.reliefRenown, a.pref, 'R-2', 'relief', `relief in ${name}`)
       }
       return pv
     }
@@ -189,7 +190,7 @@ export function runCommand(c: Ctx, a: Action, faction: string, dry: boolean): Re
         const before = p.bandits
         p.bandits = Math.floor((before * 3) / 10); p.gold += Math.floor(before / 2); p.support = clamp(0, 100, p.support + 2)
         emit(c, 'hunt', 'E-14', `${name}: the bandits are broken (${P}%), gold +${Math.floor(before / 2)}`, a.pref)
-        if (player && p.huntT !== s.t) { p.huntT = s.t; addRenown(c, 2, a.pref, 'R-2', 'beasts', `bandits broken in ${name}`) }
+        if (player && p.huntT !== s.t) { p.huntT = s.t; addRenown(c, TUNE.huntRenown, a.pref, 'R-2', 'beasts', `bandits broken in ${name}`) }
       } else {
         const lost = Math.floor(men / 10)
         p.men = Math.max(0, p.men - lost)
@@ -404,6 +405,12 @@ export function legalFor(c: Ctx, faction: string, pref: string): Action[] {
     if (!q) continue
     if (q.owner === faction) {
       for (const h of actors) for (const f of [0, 0.5, 1]) cand.push({ t: 'move', pref, to: n.to, heroes: [h], men: Math.floor(p.men * f) })
+      if (able.length > 1) {
+        // marching the whole household: every able hero but the chieftain (the chieftain stays to keep the command), and every hero
+        const allBut = able.filter((h) => hs(c, h).status !== 'chieftain')
+        if (allBut.length > 1) cand.push({ t: 'move', pref, to: n.to, heroes: allBut, men: p.men })
+        cand.push({ t: 'move', pref, to: n.to, heroes: [...able], men: p.men })
+      }
       cand.push({ t: 'send', pref, to: n.to, gold: 500, food: 0, arms: 0, actor: best }, { t: 'send', pref, to: n.to, gold: 0, food: 500, arms: 0, actor: best }, { t: 'send', pref, to: n.to, gold: 0, food: 0, arms: 200, actor: best })
     } else {
       if (faction === 'player' && isCamp(c, q.owner)) {
@@ -413,7 +420,7 @@ export function legalFor(c: Ctx, faction: string, pref: string): Action[] {
       const byCmd = [...able].sort((x, y) => abil(c, y).command - abil(c, x).command || rank(c, x) - rank(c, y))
       const forces: string[][] = []
       const noChief = byCmd.filter((h) => h !== ch).slice(0, 8)
-      if (noChief.length) forces.push(noChief)
+      for (const k of new Set([Math.min(2, noChief.length), Math.min(4, noChief.length), noChief.length])) if (k > 0) forces.push(noChief.slice(0, k))
       if (ch && able.includes(ch)) forces.push([...noChief.slice(0, 7), ch])
       for (const force of forces) {
         cand.push({ t: 'attack', pref, target: n.to, heroes: force, men: Math.floor(p.men * 0.7) })
