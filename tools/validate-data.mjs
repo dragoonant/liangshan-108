@@ -83,6 +83,7 @@ const court = validateFile('court');
 const rivals = validateFile('rivals');
 const skills = validateFile('skills');
 const map = validateFile('map');
+const triggers = validateFile('triggers');
 
 // ---- map ----
 const prefIds = new Set();
@@ -200,6 +201,24 @@ if (Array.isArray(rivals)) {
   });
   for (const need of ['shi-wengong', 'luan-tingyu'])
     if (!rivals.some((c) => c.id === need)) err(`rivals: missing ${need}`);
+}
+
+// ---- triggers (RULING Q-5): one row per joinsLate hero, kinds closed, references exist ----
+if (triggers && heroes && map?.prefectures) {
+  const hid = new Set(heroes.map((h) => h.id));
+  const late = new Set(heroes.filter((h) => h.joinsLate).map((h) => h.id));
+  const seenT = new Set();
+  for (const t of triggers) {
+    if (!late.has(t.hero)) err(`triggers: ${t.hero} is not a joinsLate hero`);
+    if (seenT.has(t.hero)) err(`triggers: duplicate row for ${t.hero}`);
+    seenT.add(t.hero);
+    const need = { renown: ['min'], own: ['prefecture'], 'battle-won-at': ['prefecture'], attacked: ['prefecture'], 'defeated-hero': ['target'], brother: ['target'], 'campaign-announced': [] }[t.kind] ?? [];
+    for (const f of need) if (t[f] === undefined) err(`triggers: ${t.hero} (${t.kind}) needs "${f}"`);
+    if (t.prefecture && !prefIds.has(t.prefecture)) err(`triggers: ${t.hero} refers to unknown prefecture ${t.prefecture}`);
+    if (t.target && !hid.has(t.target)) err(`triggers: ${t.hero} refers to unknown hero ${t.target}`);
+    if (t.target === t.hero) err(`triggers: ${t.hero} waits for itself`);
+  }
+  for (const id of late) if (!seenT.has(id)) err(`triggers: joinsLate hero ${id} has no row`);
 }
 
 // ---- hygiene: forbidden words and private paths in every data/ and spec file I own ----
