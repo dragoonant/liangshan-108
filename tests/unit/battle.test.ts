@@ -8,7 +8,7 @@ import { fromOffset, hexDistance, key, toOffset } from '../../src/engine/battle/
 import { startBattle } from '../../src/engine/battle/setup'
 import { driveBattle } from '../../src/engine/step'
 import { ps, hs } from '../../src/engine/ctx'
-import { game, ctxOf, mkUnit, plainBattle, setPref, D } from './helpers'
+import { game, ctxOf, mkUnit, plainBattle, setPref, ruanGame, D } from './helpers'
 
 const play = (s: GameState, a: Action) => applyBattleAction(ctxOf(s), a)
 const must = (s: GameState, a: Action) => { const r = play(s, a); if (r) throw new Error(`${a.t}: ${r.message}`) }
@@ -24,7 +24,7 @@ describe('W battle', () => {
     const ok1 = bad({ heroes: ['lin-chong', 'shi-en'] })
     expect(ok1.ok).toBe(true)
     if (ok1.ok) { expect(ok1.state.phase).toBe('battle'); expect(ok1.state.battle!.units.find((u) => u.side === 'a' && u.commander)!.hero).toBe('lin-chong'); expect(ok1.state.battle!.human).toBe('a') }
-    const r = game('ruan-xiaoer')
+    const r = ruanGame()
     const marsh = (heroes: string[]) => step(r, { t: 'attack', pref: 'jizhou', target: 'yunzhou', heroes, men: 100 }, D)
     expect(marsh(['ruan-xiaowu']).ok).toBe(true) // ruan-xiaowu is a marine? falls through if not
     const frozen = game('lin-chong'); frozen.t = 11

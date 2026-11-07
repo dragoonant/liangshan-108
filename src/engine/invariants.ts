@@ -46,7 +46,7 @@ export function checkInvariants(s: GameState, data: DataBundle = defaultBundle):
     else accounted++
   }
   if (accounted !== 108) out.push(`heroes accounted ${accounted}`)
-  for (const h of [...data.court, ...data.rivals]) {
+  for (const h of [...data.extra, ...data.court, ...data.rivals]) {
     const n = where.get(h.id) ?? 0
     const hs = s.heroes[h.id]
     if (!hs) { out.push(`${h.id}: missing`); continue }

@@ -4,13 +4,15 @@ import type { Difficulty } from '../../src/engine'
 import { game, ok, D } from './helpers'
 
 const FOLLOWERS: Record<string, string[]> = {
-  'song-jiang': ['wu-yong', 'liu-tang'], 'lin-chong': ['shi-en', 'zhang-qing-gardener'], 'wu-song': ['chai-jin'], 'lu-zhishen': ['li-zhong'], 'hu-sanniang': ['li-ying'],
+  'song-jiang': ['wu-yong', 'liu-tang'], 'chao-gai': ['wu-yong', 'liu-tang'], 'lin-chong': ['shi-en', 'zhang-qing-gardener'], 'wu-song': ['chai-jin'], 'lu-zhishen': ['li-zhong'], 'hu-sanniang': ['li-ying'],
 }
 
 describe('S setup', () => {
   test('S-1 six starts: each has its own prefecture and the table numbers', () => {
     expect(Object.keys(STARTS)).toHaveLength(6)
-    expect(new Set(Object.values(STARTS).map((r) => r.pref)).size).toBe(6)
+    expect(new Set(Object.values(STARTS).map((r) => r.pref)).size).toBe(5) // Song Jiang and Chao Gai share yunzhou (only one start is chosen per game)
+    expect(Object.keys(STARTS)).toContain('chao-gai')
+    expect(Object.keys(STARTS)).not.toContain('ruan-xiaoer')
     for (const [hero, row] of Object.entries(STARTS)) {
       const s = game(hero)
       const p = s.prefectures[row.pref]!
@@ -53,11 +55,10 @@ describe('S setup', () => {
   })
   test.todo('S-7 the briefing screen (goal, deadline, six systems) is client work at M3; the data it needs is in query.deadline, query.renown, query.advice')
   test('S-8 the previous owner loses the start prefecture and its heroes there become free; a rival with no other prefecture is removed', () => {
-    const s = game('ruan-xiaoer')
-    expect(s.prefectures['jizhou']!.owner).toBe('player')
-    expect(s.heroes['wang-lun']!.faction).toBe('free')
-    expect(s.factions['old-liangshan']!.alive).toBe(false)
-    expect(s.heroes['song-wan']!.faction).toBe('free')
+    const s = game('chao-gai')
+    expect(s.prefectures['yunzhou']!.owner).toBe('player')
+    expect(s.heroes['song-jiang']!.faction).toBe('free') // the clerk is displaced with the court officers
+    expect(s.factions['old-liangshan']!.alive).toBe(true) // Jizhou stays Wang Lun's in a Chao Gai game
     const y = game('song-jiang')
     expect(y.prefectures['yunzhou']!.governor).toBeNull()
     for (const h of ['cheng-wanli', 'gao-lian', 'yin-tianxi', 'zhu-tong', 'lei-heng']) expect(y.heroes[h]!.faction).toBe('free')
@@ -70,8 +71,8 @@ describe('S setup', () => {
       const s = game(hero)
       for (const f of fs) { expect(s.heroes[f]!.faction).toBe('player'); expect(s.heroes[f]!.loyalty).toBe(60) }
     }
-    const r = game('ruan-xiaoer')
-    expect(Object.keys(r.heroes).filter((h) => r.heroes[h]!.faction === 'player' && r.heroes[h]!.status === 'ordinary').sort()).toEqual(['ruan-xiaoqi', 'ruan-xiaowu'])
+    const r = game('chao-gai')
+    expect(Object.keys(r.heroes).filter((h) => r.heroes[h]!.faction === 'player' && r.heroes[h]!.status === 'ordinary').sort()).toEqual(['liu-tang', 'wu-yong'])
     void step; void legalActions
   })
 })

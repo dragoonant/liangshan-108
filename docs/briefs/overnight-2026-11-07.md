@@ -63,7 +63,7 @@ Same shape as heroes minus `star`, plus `"office"`. At least: Gao Qiu (final vil
 - **M2 agent (engine), after both:** builds `src/engine` from the specs. Its brief is written after review.
 
 ## M2 engine agent (added by the coordinator after M0 and M1 landed)
-Owner questions are open (Chao Gai as a start, the quiet map, the 23 late joiners); keep the defaults in PLAN.md (Ruan Xiaoer is the sixth start; the map stays as `11-scenario.md` has it; 23 late joiners). Build:
+Owner questions are open (Chao Gai as a start, the quiet map, the 23 late joiners); keep the defaults in PLAN.md (Ruan Xiaoer was the sixth start (replaced by Chao Gai, PLAN D17); the map stays as `11-scenario.md` has it; 23 late joiners). Build:
 1. `src/data/`: typed loaders for every `data/*.json`, plus `data/triggers.json` (+ schema + validator check) from the table in `11-scenario.md` section 5 (RULING Q-5).
 2. `src/engine/` exactly per `00-architecture.md` and `10-rules.md`: rng (sfc32, forced rolls), createGame, legalActions, step (strategic commands, month end, events, court and rival AI phases, battles on the hex grid, chase, victory/defeat), view (Z-5 fog, forecast, warnings, ledger, advice), query.* for every displayed number, replay, the save envelope (KB rule 22) with a round-trip helper.
 3. `src/ai/greedy.ts`: the A-rules decider answering through `legalActions`, usable for every faction and for the player seat in sims, and for `bAuto` (W-28).

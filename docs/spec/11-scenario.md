@@ -41,7 +41,7 @@ The chosen start prefecture is then handed to the player (S-8). The three rivals
 | Start | Followers (loyalty 60) | Displaced (become free heroes) | Notes |
 |---|---|---|---|
 | Song Jiang `yunzhou` | Wu Yong, Liu Tang | Cheng Wanli (court governor); Gao Lian and Yin Tianxi are moved there in setup, so they are displaced too | Zhu Tong, Lei Heng (data: official) become free |
-| Ruan Xiaoer `jizhou` | Ruan Xiaowu, Ruan Xiaoqi | Old Liangshan (Wang Lun) loses its only prefecture and is removed; Wang Lun is free | Song Wan, Du Qian, Zhu Gui (outlaw) are free; Gao Lian and Yin Tianxi are not here (they went to `yunzhou`) |
+| Chao Gai `yunzhou` | Wu Yong, Liu Tang | as Song Jiang: Cheng Wanli, Gao Lian, Yin Tianxi | The Seven Stars band: Wu Yong and Liu Tang with him; the Ruan brothers (`jizhou`, across marsh-water) and Gongsun Sheng (`jizhou-north`) are free heroes to invite. Song Jiang (data: official), Zhu Tong and Lei Heng become free. Old Liangshan keeps `jizhou`. Ruan Xiaoer is an ordinary free hero again. |
 | Lin Chong `mengzhou` | Shi En, Zhang Qing (the gardener) | Zhang Dutian (court governor) | Capital one road away; two passes north |
 | Wu Song `cangzhou` | Chai Jin | none (free prefecture) | A scripted tiger arrives month 1 (V-6) |
 | Lu Zhishen `weizhou` | Li Zhong | none | Two links only (`jingzhao` road, `yanan` mountain pass); the pass is not snowed in because neither end is northern (T-6). |

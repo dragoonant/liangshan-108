@@ -1,0 +1,17 @@
+[
+  {
+    "id": "chao-gai",
+    "name": "Chao Gai",
+    "nameZh": "晁盖",
+    "nickname": "Pagoda-Bearing Heavenly King",
+    "nicknameZh": "托塔天王",
+    "star": null,
+    "abilities": { "might": 72, "command": 80, "cunning": 55, "vigour": 74 },
+    "virtues": { "righteousness": 9, "compassion": 7, "daring": 7 },
+    "skills": ["spearman", "innkeeper"],
+    "start": { "status": "free", "prefecture": "yunzhou", "year": 1101 },
+    "joinsLate": false,
+    "rationale": "Wealthy village headman of Dongxi Village who shelters fugitives and leads the Seven Stars band; first chief of Liangshan, killed at Zengtou (not one of the 108).",
+    "source": "Water Margin ch. 14-60; https://en.wikipedia.org/wiki/Chao_Gai"
+  }
+]

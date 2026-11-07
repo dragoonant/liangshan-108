@@ -79,6 +79,7 @@ function validateFile(name) {
 }
 
 const heroes = validateFile('heroes');
+const extra = validateFile('heroes-extra');
 const court = validateFile('court');
 const rivals = validateFile('rivals');
 const skills = validateFile('skills');
@@ -188,6 +189,15 @@ if (Array.isArray(heroes)) {
   for (const s of skillIds) if (!used.has(s)) err(`heroes: skill ${s} is used by no hero`);
   globalThis.__late = heroes.filter((h) => h.joinsLate).length;
 }
+if (Array.isArray(extra)) {
+  extra.forEach((h, i) => {
+    checkPerson('heroes-extra', h, i);
+    if (h.star !== null) err(`heroes-extra[${i}] ${h.id}: star must be null (the 108 are in heroes.json)`);
+    if (h.joinsLate) err(`heroes-extra[${i}] ${h.id}: extra heroes do not join late`);
+    if (heroes?.some((x) => x.nameZh === h.nameZh)) err(`heroes-extra[${i}] ${h.id}: nameZh duplicates a star hero`);
+  });
+  if (!extra.some((h) => h.id === 'chao-gai')) err('heroes-extra: missing chao-gai (PLAN D17)');
+}
 if (Array.isArray(court)) {
   court.forEach((c, i) => checkPerson('court', c, i));
   for (const need of ['gao-qiu', 'cai-jing', 'tong-guan', 'yang-jian', 'gao-lian', 'gao-yanei'])
@@ -205,7 +215,7 @@ if (Array.isArray(rivals)) {
 
 // ---- triggers (RULING Q-5): one row per joinsLate hero, kinds closed, references exist ----
 if (triggers && heroes && map?.prefectures) {
-  const hid = new Set(heroes.map((h) => h.id));
+  const hid = new Set([...heroes, ...(extra ?? [])].map((h) => h.id));
   const late = new Set(heroes.filter((h) => h.joinsLate).map((h) => h.id));
   const seenT = new Set();
   for (const t of triggers) {
@@ -244,6 +254,6 @@ for (const w of warnings) console.log(`warn  ${w}`);
 for (const e of errors) console.log(`ERROR ${e}`);
 const n = (a) => (Array.isArray(a) ? a.length : 0);
 console.log(
-  `validate-data: ${errors.length ? 'FAILED' : 'OK'} | heroes ${n(heroes)} (late ${globalThis.__late ?? 0}) | court ${n(court)} | rivals ${n(rivals)} | skills ${n(skills)} | prefectures ${map?.prefectures?.length ?? 0}, links ${globalThis.__links ?? 0}, capital ${globalThis.__capDist ?? '?'} links from Liangshan | ${errors.length} errors, ${warnings.length} warnings`
+  `validate-data: ${errors.length ? 'FAILED' : 'OK'} | heroes ${n(heroes)} + extra ${n(extra)} (late ${globalThis.__late ?? 0}) | court ${n(court)} | rivals ${n(rivals)} | skills ${n(skills)} | prefectures ${map?.prefectures?.length ?? 0}, links ${globalThis.__links ?? 0}, capital ${globalThis.__capDist ?? '?'} links from Liangshan | ${errors.length} errors, ${warnings.length} warnings`
 );
 process.exit(errors.length ? 1 : 0);

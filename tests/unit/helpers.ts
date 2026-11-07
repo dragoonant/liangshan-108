@@ -1,7 +1,7 @@
 import { createGame, step, legalActions, defaultBundle } from '../../src/engine'
 import type { Action, GameState, Difficulty } from '../../src/engine'
 import type { DataBundle } from '../../src/data'
-import { mkCtx } from '../../src/engine/ctx'
+import { mkCtx, place } from '../../src/engine/ctx'
 
 export const D = defaultBundle
 export const game = (start = 'song-jiang', difficulty: Difficulty = 2, seed = 7, forced?: number[]): GameState =>
@@ -36,7 +36,7 @@ export function monthBundle(): DataBundle {
     ...D,
     map: { prefectures: [{ ...yz, terrain: 'plains', special: ['capital'], base: { population: 150000, land: 60, flood: 50 } }], links: [] },
     heroes: D.heroes.filter((h) => h.id === 'song-jiang' || h.id === 'wu-yong').map((h) => ({ ...h })),
-    court: [], rivals: [], triggers: [],
+    extra: [], court: [], rivals: [], triggers: [],
   }
 }
 
@@ -101,4 +101,20 @@ export function fight(s: GameState, L: Launch, human: 'a' | 'd' | null = null) {
   if (human === null && s.battle) s.battle.human = null
   driveBattle(c)
   return c
+}
+
+/** The old Ruan Xiaoer start (no longer an S-1 row): a chao-gai game with Jizhou handed to the player and the three Ruan brothers in service. */
+export function ruanGame(): GameState {
+  const s = game('chao-gai')
+  const c = ctxOf(s)
+  const p = s.prefectures['jizhou']!
+  Object.assign(p, { owner: 'player', governor: null, gold: 2000, food: 2000, men: 500, arms: 400, training: 40, support: 45 })
+  for (const h of ['ruan-xiaoer', 'ruan-xiaowu', 'ruan-xiaoqi']) { const x = s.heroes[h]!; x.faction = 'player'; x.status = 'ordinary'; x.loyalty = 60 }
+  s.factions['old-liangshan']!.alive = false
+  place(c, 'chao-gai', 'jizhou')
+  for (const h of ['wu-yong', 'liu-tang']) place(c, h, 'jizhou')
+  Object.assign(s.prefectures['yunzhou']!, { owner: 'court', governor: 'gao-lian' })
+  s.commandsLeft['jizhou'] = 2
+  void c
+  return s
 }

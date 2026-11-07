@@ -6,7 +6,7 @@ import { D } from './helpers'
 
 describe('Arch replay', () => {
   test('Arch replay(setup, actions) equals the live state for five full-length stretches', () => {
-    for (const [hero, seed, diff] of [['song-jiang', 21, 1], ['lin-chong', 22, 2], ['lu-zhishen', 23, 3], ['hu-sanniang', 24, 4], ['ruan-xiaoer', 25, 2]] as const) {
+    for (const [hero, seed, diff] of [['song-jiang', 21, 1], ['lin-chong', 22, 2], ['lu-zhishen', 23, 3], ['hu-sanniang', 24, 4], ['chao-gai', 25, 2]] as const) {
       const setup = { startHero: hero, difficulty: diff, seed }
       let s = createGame(setup, D)
       const acts: Action[] = []

@@ -8,7 +8,7 @@ export interface RivalDef { id: string; name: string; stronghold: string; year: 
 export interface Idx {
   d: DataBundle
   hero: Record<string, HeroRecord>
-  kindOf: Record<string, 'star' | 'court' | 'rival'>
+  kindOf: Record<string, 'star' | 'extra' | 'court' | 'rival'>
   order: string[]
   orderIdx: Record<string, number>
   pref: Record<string, PrefectureRecord>
@@ -28,6 +28,7 @@ export function indexOf(d: DataBundle): Idx {
   const hero: Record<string, HeroRecord> = {}
   const kindOf: Idx['kindOf'] = {}
   for (const h of d.heroes) { hero[h.id] = h; kindOf[h.id] = 'star' }
+  for (const h of d.extra) { hero[h.id] = h; kindOf[h.id] = 'extra' }
   for (const h of d.court) { hero[h.id] = h; kindOf[h.id] = 'court' }
   for (const h of d.rivals) { hero[h.id] = h; kindOf[h.id] = 'rival' }
   const order = d.map.prefectures.map((p) => p.id)

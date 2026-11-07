@@ -37,7 +37,7 @@ function shapeError(a: unknown): string | null {
   for (const k of STRS) if (k in o && typeof o[k] !== 'string') return `${k} must be text`
   for (const k of NUMS) if (k in o && !(typeof o[k] === 'number' && Number.isFinite(o[k]))) return `${k} must be a number`
   for (const k of ['heroes', 'party']) if (k in o && !(Array.isArray(o[k]) && (o[k] as unknown[]).every((x) => typeof x === 'string'))) return `${k} must be a list of ids`
-  for (const [k, vs] of Object.entries(ENUMS)) if (k in o && !vs.includes(o[k] as string)) return `${k} is not a known value`
+  for (const [k, vs] of Object.entries(ENUMS)) if (k in o && !(k === 'dir' && o['t'] === 'bWeather') && !vs.includes(o[k] as string)) return `${k} is not a known value`
   if ('to' in o && o['t'] === 'move' && typeof o['to'] !== 'string') return 'to must be a prefecture id'
   for (const k of o['t'] === 'bMove' ? ['to'] : o['t'] === 'bFire' ? ['at'] : []) {
     const h = o[k] as Record<string, unknown> | null

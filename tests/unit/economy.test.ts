@@ -3,7 +3,7 @@ import { query, step, view } from '../../src/engine'
 import { taxOf, harvestOf, seedOf, wagesOf, armedRatio, priceOf, tradeValue, levyAmount, runway } from '../../src/engine/strategic/economy'
 import { graftOf } from '../../src/engine/ctx'
 import { spyOdds, huntOdds, spyRange } from '../../src/engine/strategic/commands'
-import { game, ctxOf, ok, endOf, setPref, D } from './helpers'
+import { game, ctxOf, ok, endOf, setPref, ruanGame, D } from './helpers'
 
 const A = (t: string, extra: object = {}) => ({ t, pref: 'yunzhou', actor: 'song-jiang', ...extra }) as never
 
@@ -162,7 +162,7 @@ describe('E economy', () => {
     expect(r.state.factions['player']!.renown).toBe(45 + 2)
   })
   test('E-15 move: needs a hero; marsh-water needs a marine or swimmer; food costs 1 per 20 men; snow blocks passes', () => {
-    const s = game('ruan-xiaoer')
+    const s = ruanGame()
     s.prefectures['yunzhou']!.owner = 'player'
     s.prefectures['yunzhou']!.heroes = []
     s.prefectures['yunzhou']!.men = 0

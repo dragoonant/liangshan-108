@@ -22,12 +22,12 @@ function mutate(a: Action, r: () => number): unknown {
 }
 
 describe('Arch fuzz: step never throws, never mutates its input, never breaks an invariant', () => {
-  test('Arch fuzz over random legal, mutated and junk actions on 4 games', () => {
+  test('Arch fuzz over random legal, mutated and junk actions on 6 games', () => {
     let accepted = 0, rejected = 0
-    for (const [hero, seed] of [['song-jiang', 3], ['wu-song', 4], ['lin-chong', 5], ['ruan-xiaoer', 6]] as const) {
+    for (const [hero, seed] of [['song-jiang', 3], ['wu-song', 4], ['lin-chong', 5], ['chao-gai', 12], ['hu-sanniang', 13], ['lu-zhishen', 14]] as const) {
       const r = rng(seed * 99)
       let s: GameState = createGame({ startHero: hero, difficulty: 2, seed }, D)
-      for (let i = 0; i < 260 && s.phase !== 'result'; i++) {
+      for (let i = 0; i < 400 && s.phase !== 'result'; i++) {
         const legal = legalActions(s, D)
         expect(legal.length).toBeGreaterThan(0)
         const roll = r()

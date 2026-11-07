@@ -14,7 +14,7 @@ export interface HeroRecord {
   nameZh: string
   nickname?: string
   nicknameZh?: string
-  star?: { rank: number; group: 'heavenly' | 'earthly'; nameZh: string; name: string }
+  star?: null | { rank: number; group: 'heavenly' | 'earthly'; nameZh: string; name: string }
   abilities: Abilities
   virtues: Virtues
   skills: SkillId[]
@@ -58,6 +58,8 @@ export interface TriggerRecord { hero: string; kind: TriggerKind; min?: number; 
 /** Everything the engine reads. The engine takes this as an argument (createGame's `data`). */
 export interface DataBundle {
   heroes: HeroRecord[]
+  /** Non-star heroes outside the 108 (data/heroes-extra.json, PLAN D17): chieftains and camp chiefs. */
+  extra: HeroRecord[]
   court: HeroRecord[]
   rivals: HeroRecord[]
   skills: SkillRecord[]

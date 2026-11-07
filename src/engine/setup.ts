@@ -12,7 +12,7 @@ import { raiseTiger } from './strategic/events'
 interface StartRow { pref: string; gold: number; food: number; men: number; arms: number; training: number; support: number; renown: number }
 export const STARTS: Record<string, StartRow> = {
   'song-jiang': { pref: 'yunzhou', gold: 1500, food: 2500, men: 600, arms: 300, training: 30, support: 70, renown: 30 },
-  'ruan-xiaoer': { pref: 'jizhou', gold: 2000, food: 2000, men: 500, arms: 400, training: 40, support: 45, renown: 15 },
+  'chao-gai': { pref: 'yunzhou', gold: 2000, food: 2500, men: 700, arms: 500, training: 45, support: 60, renown: 20 },
   'lin-chong': { pref: 'mengzhou', gold: 800, food: 1200, men: 900, arms: 700, training: 70, support: 35, renown: 10 },
   'wu-song': { pref: 'cangzhou', gold: 600, food: 1000, men: 400, arms: 400, training: 50, support: 60, renown: 45 },
   'lu-zhishen': { pref: 'weizhou', gold: 300, food: 1800, men: 700, arms: 600, training: 60, support: 50, renown: 15 },
@@ -92,7 +92,7 @@ export function createGame(setup: Setup, data: DataBundle = defaultBundle, opts?
 
   // 3. hero placement (Q-6)
   const prevOwner = ownerOf[start.pref] as string
-  for (const h of data.heroes) {
+  for (const h of [...data.heroes, ...data.extra]) {
     if (h.id === s.setup.startHero) continue
     const hsx = newHero('free', 'free', h.start.prefecture)
     if (h.joinsLate) { hsx.status = 'dormant'; hsx.loc = null; s.heroes[h.id] = hsx; continue }
@@ -135,7 +135,7 @@ export function createGame(setup: Setup, data: DataBundle = defaultBundle, opts?
   }
 
   // 5. followers (S-9): two lowest-rank free heroes whose data start is this prefecture
-  const followers = data.heroes
+  const followers = [...data.heroes, ...data.extra]
     .filter((h) => !h.joinsLate && h.start.status === 'free' && h.start.prefecture === start.pref && h.id !== s.setup.startHero)
     .sort((a, b) => (a.star?.rank ?? 999) - (b.star?.rank ?? 999))
     .slice(0, 2)

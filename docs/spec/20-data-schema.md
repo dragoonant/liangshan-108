@@ -28,6 +28,9 @@ Closed lists:
 
 Distribution checks (validator): each ability has standard deviation >= 12, 2-12 heroes at 90+, >= 20 distinct values; each virtue uses >= 7 of the 10 values; every skill is held by at least one hero. Of the 108, 23 are `joinsLate`.
 
+## `heroes-extra.json` (array, 1 or more)
+Non-star heroes outside the 108 (PLAN D17): same record as `heroes.json` but `star` is `null` (required, type null) and `joinsLate` is false. Currently Chao Gai (`chao-gai`, start `yunzhou`). Ids and Chinese names are unique across all files. Triggers (`brother`, `defeated-hero`) may point at these ids. The engine loads them as `DataBundle.extra`; they are not counted in the 108 or in the ending tiers (X-1).
+
 ## `court.json` (array)
 As a hero without `star` and with required `office`. `nickname`, `nicknameZh` optional. Must contain gao-qiu, cai-jing, tong-guan, yang-jian, gao-lian, gao-yanei (the validator accepts 16-26 records; there are 19, including the emperor).
 

@@ -21,7 +21,7 @@ describe('11-scenario facts (flag any drift between the data and the spec)', () 
   test('scenario 4-6: map facts, starting numbers, the capital begins with 7,222 men, invariants hold for every start', () => {
     const links = D.map.links
     expect([D.map.prefectures.length, links.length, links.filter((l) => l.kind === 'road').length, links.filter((l) => l.kind === 'mountain-pass').length, links.filter((l) => l.kind === 'river').length, links.filter((l) => l.kind === 'marsh-water').length]).toEqual([48, 73, 45, 16, 10, 2])
-    for (const h of ['song-jiang', 'ruan-xiaoer', 'lin-chong', 'wu-song', 'lu-zhishen', 'hu-sanniang']) {
+    for (const h of ['song-jiang', 'chao-gai', 'lin-chong', 'wu-song', 'lu-zhishen', 'hu-sanniang']) {
       const s = createGame({ startHero: h, difficulty: 2, seed: 1 }, D)
       expect(checkInvariants(s, D)).toEqual([])
       expect(s.prefectures['dongjing']!.men).toBe(7222)
