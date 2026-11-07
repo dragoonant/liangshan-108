@@ -39,3 +39,66 @@ export function monthBundle(): DataBundle {
     court: [], rivals: [], triggers: [],
   }
 }
+
+/** Answer decisions (last option) and auto-play battles until a command phase is open. */
+export function settle(s0: GameState, d: DataBundle = D): GameState {
+  let s = s0
+  let n = 0
+  while (s.phase !== 'result' && n++ < 200) {
+    if (s.pending) s = ok(s, { t: 'choose', option: s.pending.options[s.pending.options.length - 1] as string }, d).state
+    else if (s.phase === 'battle') s = ok(s, { t: 'bAuto' }, d).state
+    else break
+  }
+  return s
+}
+/** End the command phase and play on to the next command phase. */
+export function passMonth(s: GameState, d: DataBundle = D): GameState { return settle(ok(settle(s, d), { t: 'endPhase' }, d).state, d) }
+
+import { greedyAction } from '../../src/ai/greedy'
+/** Let the greedy decider play the player seat for `months` months (or to the result). */
+export function playGreedy(s0: GameState, months: number, each?: (s: GameState) => void, d: DataBundle = D): GameState {
+  let s = s0
+  const end = s.t + months
+  let n = 0
+  while (s.phase !== 'result' && s.t < end && n++ < 4000) { s = ok(s, greedyAction(s, d), d).state; each?.(s) }
+  return s
+}
+
+import { clone } from '../../src/engine/util'
+import { monthEnd } from '../../src/engine/strategic/month'
+/** Run the month-end resolution on a copy and return it (t advanced). */
+export function endOf(s: GameState, d: DataBundle = D): GameState { const t = clone(s); monthEnd(mkCtx(t, d)); return t }
+export const setPref = (s: GameState, id: string, patch: Partial<GameState['prefectures'][string]>): void => { Object.assign(s.prefectures[id]!, patch) }
+
+import type { BUnit, BattleState } from '../../src/engine'
+import { fromOffset, key } from '../../src/engine/battle/hex'
+import { startBattle } from '../../src/engine/battle/setup'
+import type { Launch } from '../../src/engine/battle/setup'
+import { driveBattle } from '../../src/engine/step'
+export function mkUnit(p: Partial<BUnit> & { id: string; hero: string; side: 'a' | 'd' }): BUnit {
+  return {
+    kind: 'infantry', skills: [], might: 40, command: 40, cunning: 40, vigour: 40, daring: 5, men: 100, maxMen: 100, guard: 0, armed: 100, training: 50, morale: 60, fatigue: 0,
+    pos: { q: 0, r: 0 }, hidden: false, state: 'active', commander: false, moved: false, acted: false, waited: false, dueled: false, hurt: false, startedHidable: false,
+    counsel: false, fatigueLog: [], specialUsed: false, capturedBy: null, ...p,
+  }
+}
+/** Hand-made battle on an all-plain w x h board between the player's yunzhou and jizhou. */
+export function plainBattle(units: BUnit[], opts: Partial<BattleState> = {}): GameState {
+  const s = game('song-jiang', 2, 1)
+  const terrain: Record<string, string> = {}
+  for (let y = 0; y < 9; y++) for (let x = 0; x < 11; x++) terrain[key(fromOffset(x, y))] = 'plain'
+  s.battle = {
+    w: 11, h: 9, terrain: terrain as never, burning: {}, weather: null, wind: 0, day: 1, toAct: 'a', units, origin: 'yunzhou', target: 'jizhou', human: 'a', auto: { a: false, d: false },
+    attacker: 'player', defender: 'free', imperial: false, walled: false, hungry: { a: false, d: false }, hunters: [], result: null, burned: 0, force: [], ...opts,
+  }
+  s.phase = 'battle'
+  return s
+}
+/** Launch a battle between two AI sides from the real map and play it out; returns the context. */
+export function fight(s: GameState, L: Launch, human: 'a' | 'd' | null = null) {
+  const c = mkCtx(s, D)
+  startBattle(c, L)
+  if (human === null && s.battle) s.battle.human = null
+  driveBattle(c)
+  return c
+}

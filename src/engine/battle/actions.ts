@@ -161,9 +161,9 @@ function declineDuel(c: Ctx, b: BattleState, tg: BUnit, stake: string): void {
   }
 }
 /** The human's answer to a duel offer (pending duelOffer). */
-export function answerDuel(c: Ctx, option: string): void {
+export function answerDuel(c: Ctx, option: string, data: Record<string, unknown>): void {
   const b = me(c)
-  const d = c.s.pending?.data as { unit: string; target: string; stake: 'honour' | 'capture' }
+  const d = data as { unit: string; target: string; stake: 'honour' | 'capture' }
   c.s.pending = null
   const ch = getUnit(b, d.unit), tg = getUnit(b, d.target)
   if (!ch || !tg) return

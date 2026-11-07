@@ -16,6 +16,37 @@ import { resolveConvoy, resolveInspection, resolveTiger } from './strategic/even
 import { aiBattleAction, decideStrategic } from '../ai/greedy'
 import { rank } from './ctx'
 
+const REQ: Record<string, string[]> = {
+  levy: ['pref', 'actor'], train: ['pref', 'actor'], forge: ['pref', 'actor'], dykes: ['pref', 'actor'], relieve: ['pref', 'actor'], rest: ['pref', 'actor'],
+  trade: ['pref', 'actor', 'dir', 'amount'], hunt: ['pref', 'actor', 'party', 'men'], move: ['pref', 'to', 'heroes', 'men'], send: ['pref', 'to', 'gold', 'food', 'arms', 'actor'],
+  spy: ['pref', 'actor', 'target', 'op'], recruit: ['pref', 'actor', 'target', 'method'], swear: ['pref', 'hero'], attack: ['pref', 'target', 'heroes', 'men'],
+  endPhase: [], choose: ['option'], bMove: ['unit', 'to'], bAttack: ['unit', 'target'], bVolley: ['unit', 'target'], bCharge: ['unit', 'target'], bFire: ['unit', 'at'],
+  bHide: ['unit'], bWait: ['unit'], bAmbush: ['unit'], bHeal: ['unit'], bScuttle: ['unit'], bCounsel: ['unit'], bWeather: ['unit', 'kind'], bDuel: ['unit', 'target', 'stake'],
+  bEndSide: [], bWithdraw: [], bAuto: [],
+}
+const STRS = ['pref', 'actor', 'target', 'hero', 'unit', 'option']
+const NUMS = ['men', 'amount', 'gold', 'food', 'arms']
+const ENUMS: Record<string, string[]> = { dir: ['buyFood', 'sellFood'], op: ['report', 'steal', 'discord', 'expose', 'burn', 'forged-order', 'jailbreak'], method: ['invite', 'persuade'], stake: ['honour', 'capture'], kind: ['wind', 'rain', 'fog'] }
+/** Arch: an action with the wrong shape is rejected, never thrown on. */
+function shapeError(a: unknown): string | null {
+  if (typeof a !== 'object' || a === null || Array.isArray(a)) return 'not an action'
+  const o = a as Record<string, unknown>
+  const need = typeof o['t'] === 'string' ? REQ[o['t'] as string] : undefined
+  if (!need) return 'unknown action type'
+  for (const k of need) if (!(k in o)) return `missing field ${k}`
+  for (const k of STRS) if (k in o && typeof o[k] !== 'string') return `${k} must be text`
+  for (const k of NUMS) if (k in o && !(typeof o[k] === 'number' && Number.isFinite(o[k]))) return `${k} must be a number`
+  for (const k of ['heroes', 'party']) if (k in o && !(Array.isArray(o[k]) && (o[k] as unknown[]).every((x) => typeof x === 'string'))) return `${k} must be a list of ids`
+  for (const [k, vs] of Object.entries(ENUMS)) if (k in o && !vs.includes(o[k] as string)) return `${k} is not a known value`
+  if ('to' in o && o['t'] === 'move' && typeof o['to'] !== 'string') return 'to must be a prefecture id'
+  for (const k of o['t'] === 'bMove' ? ['to'] : o['t'] === 'bFire' ? ['at'] : []) {
+    const h = o[k] as Record<string, unknown> | null
+    if (!h || typeof h !== 'object' || !Number.isInteger(h['q']) || !Number.isInteger(h['r'])) return `${k} must be a hex`
+  }
+  if ('dir' in o && o['t'] === 'bWeather' && !(typeof o['dir'] === 'number' && Number.isFinite(o['dir']))) return 'dir must be a number'
+  return null
+}
+
 function aiOrder(c: Ctx): string[] {
   return [...Object.keys(c.s.factions).filter((f) => f !== 'player' && f !== 'court' && c.s.factions[f]!.alive).sort(), 'court']
 }
@@ -79,7 +110,7 @@ function answer(c: Ctx, option: string): Reject | null {
   } else if (pd.kind === 'tiger') resolveTiger(c, d['pref'] as string, option)
   else if (pd.kind === 'inspection') resolveInspection(c, d['pref'] as string, option)
   else if (pd.kind === 'convoy') resolveConvoy(c, d['pref'] as string, option)
-  else if (pd.kind === 'duelOffer') answerDuel(c, option)
+  else if (pd.kind === 'duelOffer') answerDuel(c, option, d)
   return null
 }
 
@@ -119,7 +150,8 @@ function apply(c: Ctx, a: Action): Reject | null {
 
 export function step(state: GameState, action: Action, data: DataBundle = defaultBundle): StepResult {
   try {
-    if (!action || typeof (action as { t?: unknown }).t !== 'string') return { ok: false, code: 'unknown-action', message: 'Arch: not an action' }
+    const bad = shapeError(action)
+    if (bad) return { ok: false, code: 'unknown-action', message: `Arch: ${bad}` }
     const s = clone(state)
     const c = mkCtx(s, data)
     const r = apply(c, action)

@@ -85,8 +85,9 @@ export function decideStrategic(c: Ctx, faction: string, pref: string): Action |
       if (a) return a
     }
   }
-  // (6) bandits
-  if (p.bandits >= 100) { const h = best('hunt', (a) => a.party.length); if (h) return h }
+  // (6) bandits (the player seat also farms the Renown sources of R-2 while the purse allows)
+  if (p.bandits >= 100 || (player && p.bandits >= 30 && p.huntT !== c.s.t && p.gold >= 300)) { const h = best('hunt', (a) => a.party.length); if (h) return h }
+  if (player && p.reliefT !== c.s.t && p.food >= 1500) { const r = first('relieve'); if (r) return r }
   // (7) recruit
   let rb: Action | null = null
   let rp = 39
@@ -96,7 +97,8 @@ export function decideStrategic(c: Ctx, faction: string, pref: string): Action |
     if (!isReject(pv) && (pv.pct ?? 0) > rp) { rp = pv.pct ?? 0; rb = a }
   }
   if (rb) return rb
-  // (8) train, (9) rest
+  // (8) train, (9) rest; the player seat keeps a purse for wages
+  if (player && p.gold < 600) return null
   if (p.training < 100) { const t = best('train', (a) => abil(c, a.actor).command); if (t) return t }
   if (player && p.gold > 600) { const t = best('forge', () => 1); if (t && p.arms < p.men) return t }
   return first('rest') ?? null

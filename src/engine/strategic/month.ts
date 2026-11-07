@@ -74,6 +74,7 @@ export function monthEnd(c: Ctx): void {
     if (p.bandits >= 150) d -= 1
     if (p.disasterT !== s.t && runway(c, id) >= 3 && p.bandits < 50) d += 1
     if (p.heroes.some((h) => rec(c, h).virtues.compassion >= 8)) d += 1
+    if (p.owner === 'player' && !p.heroes.some((h) => hs(c, h).faction === 'player')) d -= 2 // T-4
     p.support = clamp(0, 100, p.support + d)
     if (d !== 0 && p.owner === 'player') emit(c, 'support', 'E-11', `${pn(id)}: support ${d > 0 ? '+' : ''}${d} (now ${p.support})`, id, d)
   }
