@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { createGame, step, legalActions, replay } from '../../src/engine'
+import { createGame, step, legalActions, replay, view } from '../../src/engine'
 import type { Action } from '../../src/engine'
 import { decideStrategic, aiBattleAction, perceive, greedyAction } from '../../src/ai/greedy'
 import { legalFor, runCommand, isReject } from '../../src/engine/strategic/commands'
@@ -97,7 +97,28 @@ describe('A artificial intelligence', () => {
     expect(s.prefectures['zhangde']!.governor).toBe('gao-qiu')
     expect(s.phase).toBe('strategic')
   })
-  test.todo('A-8 scouts warn of rival marches a month ahead: not built (rival marches are not scheduled a month ahead); court campaigns are always announced (G-6, court.test.ts)')
+  test('A-8 a scout in service names the marches the AI intends against you; court campaigns are always announced', () => {
+    const s = game('lin-chong')
+    const c = ctxOf(s)
+    const scout = D.heroes.find((h) => h.skills.includes('scout') && !h.joinsLate)!.id
+    s.heroes[scout] = { ...s.heroes[scout]!, faction: 'player', status: 'ordinary', loc: 'mengzhou' }
+    ps(c, 'mengzhou').heroes.push(scout)
+    // a strong rival neighbour of the player's prefecture
+    const nb = c.x.adj['mengzhou']!.map((n) => n.to).find((n) => ps(c, n).owner === 'court')!
+    ps(c, nb).owner = 'zeng-family-fortress'
+    s.factions['zeng-family-fortress']!.alive = true
+    s.heroes['zeng-tu'] = { ...s.heroes['zeng-tu']!, loc: nb }
+    ps(c, nb).heroes = ['zeng-tu']
+    s.heroes['zeng-tu']!.faction = 'zeng-family-fortress'
+    setPref(s, nb, { men: 20000, arms: 20000, support: 90, training: 90, food: 100000, gold: 9999, bandits: 0, dyke: 100 })
+    s.commandsLeft[nb] = 1
+    const warn = view(s, 'player', D).warnings.filter((w) => w.rule === 'A-8')
+    expect(warn.length).toBeGreaterThan(0)
+    s.heroes[scout]!.faction = 'free'
+    expect(view(s, 'player', D).warnings.some((w) => w.rule === 'A-8')).toBe(false)
+    s.factions['court']!.campaign = { staging: 'daming', objective: 'mengzhou', target: 'player', announcedT: 0 }
+    expect(view(s, 'player', D).warnings.some((w) => w.rule === 'G-6')).toBe(true)
+  })
   test('A-9 battle AI: duel when win% x accept% is 20 or more, charge, volley, strike the weakest neighbour, else advance, retreat when hurt', () => {
     const a = mkUnit({ id: 'a0', hero: 'lin-chong', side: 'a', commander: true, might: 92, vigour: 85, pos: { q: 3, r: 4 } })
     const d = mkUnit({ id: 'd0', hero: 'y', side: 'd', commander: true, might: 60, pos: { q: 4, r: 4 } })

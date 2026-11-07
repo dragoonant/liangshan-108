@@ -5,7 +5,7 @@ import type { DataBundle } from '../data'
 import { mkCtx, hs, ps, heroName, prefName } from './ctx'
 import { label } from './calendar'
 import { query } from './query'
-import { perceive } from '../ai/greedy'
+import { perceive, decideStrategic } from '../ai/greedy'
 import { runway } from './strategic/economy'
 import { visibleTo } from './battle/core'
 
@@ -62,6 +62,17 @@ export function view(s: GameState, seat: string = 'player', data: DataBundle = d
       if (h.faction !== 'player' || h.status !== 'ordinary') continue
       if (h.loyalty <= 25) warnings.push({ level: 'red', rule: 'H-14', text: `${heroName(c, id)} is wavering: will leave next month unless loyalty rises`, pref: h.loc ?? undefined })
       else if (h.loyalty < 40) warnings.push({ level: 'amber', rule: 'H-14', text: `${heroName(c, id)} is restless`, pref: h.loc ?? undefined })
+    }
+    // A-8: with a scout in service, the view names every march the AI intends against you this month
+    const scout = Object.keys(s.heroes).some((h) => hs(c, h).faction === 'player' && hs(c, h).loc && ['chieftain', 'sworn', 'ordinary'].includes(hs(c, h).status) && data.heroes.find((x) => x.id === h)?.skills.includes('scout'))
+    if (scout && s.phase === 'strategic' && s.flow.stage === 'commands') {
+      for (const f of [...Object.keys(s.factions).filter((x) => x !== 'player' && x !== 'court' && s.factions[x]!.alive).sort()]) {
+        for (const id of c.x.order) {
+          if (ps(c, id).owner !== f || (s.commandsLeft[id] ?? 0) <= 0) continue
+          const a = decideStrategic(c, f, id)
+          if (a && a.t === 'attack' && ps(c, a.target).owner === 'player') warnings.push({ level: 'amber', rule: 'A-8', text: `Scouts report: ${prefName(c, id)} may march on ${prefName(c, a.target)} this month`, pref: a.target })
+        }
+      }
     }
     const cp = s.factions['court']!.campaign
     if (cp) warnings.push({ level: 'red', rule: 'G-6', text: `The court musters at ${prefName(c, cp.staging)} to march on ${prefName(c, cp.objective)} next month`, pref: cp.objective })

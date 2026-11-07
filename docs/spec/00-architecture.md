@@ -171,3 +171,4 @@ No NaN or non-integer in state; `0 <= support, training, land, dyke <= 100`; `go
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.
+- 2026-11-07 v0.2 (M2): `GameState` gains `flow` and `fired`; `PrefectureState` gains bookkeeping fields; `view(state, seat)` also accepts a faction id (AI parity, A-1); `query.legal`; actions with the wrong shape are rejected with an "Arch:" message; module layout merged where files were small (`strategic/{economy,heroes,recruit,renown,court,events,commands,month,result}.ts`, `battle/{hex,terrain,core,actions,setup,resolve}.ts`, `query/{index,renown}.ts`). Rulings are in `PLAN.md`.
