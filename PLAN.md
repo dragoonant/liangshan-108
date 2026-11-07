@@ -21,6 +21,13 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 - **D14** The knowledge base is linked as a submodule at `docs/knowledge-base/` once the new repo exists (it is private; Pages does not check out submodules).
 - **D15** Every complaint fix in `docs/research/original-complaints.md` (C1-C13) is a design requirement, traced to rule ids in `10-rules.md`.
 
+## Decisions (owner, 2026-11-07 morning, do not re-ask)
+- **D16** Next step is **balance first**: simulate several blunt player strategies, tune only what every sensible one agrees on, then build the first playable (M3).
+- **D17** **Chao Gai** is added as a non-star hero (a 109th record outside the 108) and a starting chieftain, replacing Ruan Xiaoer as a start; Ruan Xiaoer goes back to being recruitable.
+- **D18** **More rivals:** the novel's mountain camps get their own active chiefs, so the early game has neighbours to fight, ally with and recruit from.
+- **D19** **Keep the 23 story-locked heroes**; the hero ledger shows each trigger.
+- Pages: the first deploy (2026-11-07) built cleanly and stopped at `configure-pages` because Pages is not enabled yet; the owner turns it on (Settings, Pages, Source "GitHub Actions"), then any push deploys.
+
 ## Design pillars
 1. **The outlaw fantasy, not a reskinned Romance of the Three Kingdoms** (C11): you are a wronged hero gathering sworn brothers in a marsh stronghold, fighting corrupt officials for justice, until the Emperor's Edict lets you strike Gao Qiu.
 2. **Brotherhood is the core system** (what players loved): recruiting by deed and reputation, sworn brotherhood gated by loyalty and matching personality, and heroes whose stats visibly change what you can do (C6).
@@ -35,6 +42,7 @@ An original browser strategy game set in the world of *Water Margin* (*Shuihu Zh
 | M0 | Scaffold (copied config) + specs 00/10/11/20 | overnight 2026-11-07 |
 | M1 | Data: 108 heroes, Gao Qiu's court, full prefecture map, items, events; `validate:data` | overnight 2026-11-07 |
 | M2 | Engine: strategic turn + hex battle, sim, tests by rule id | overnight 2026-11-07 |
+| B1 | Balance pass: player policies in the sim, Chao Gai, mountain-camp rivals (D16-D18) | 2026-11-07 |
 | M3 | First playable on Pages: hideout-ledger skin, full map, battles, greedy AI, autosave | next |
 | M4 | Utility AI in a worker, bench gate | |
 | M5 | Art: 108 hero figures in the house style, portraits as wanted posters | |
