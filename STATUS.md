@@ -11,3 +11,9 @@
 - Open items: see the `RULING` lines in `PLAN.md` and `test.todo` in `tests/unit` (client-only rules, the famine story event).
 
 Moved to `dragoonant/liangshan-108` on 2026-11-07 (D1). Next: the owner picks balance-first or playable-first (see the sim table).
+
+## B1 balance pass (2026-11-07)
+- Chao Gai (`data/heroes-extra.json`, start `yunzhou`) replaces Ruan Xiaoer as a start (D17). Eight mountain camps (`data/camps.json`, rules K-1..K-8: raids from their stronghold, slow growth, alliance, joining together, persuaded chiefs) give the map active neighbours (D18).
+- `src/ai/policies.ts` and the worker-thread `tools/sim.ts`: justice, benevolent, warlord, brotherhood, careless and greedy by difficulty and start; the table is in `docs/spec/70-sim-results.md`. Balance knobs live in `src/engine/tuning.ts`.
+- Stage 4: targets missed by a wide margin (0 wins in 576 games); no knob changed; a design change is proposed in 70-sim-results.md and logged in PLAN. Decide before M3.
+- Not done: the KB entry `liangshan-108.md` (outside this repo's paths) was not updated.
