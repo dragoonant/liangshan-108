@@ -1,0 +1,3839 @@
+[
+ {
+  "id": "song-jiang",
+  "name": "Song Jiang",
+  "nameZh": "宋江",
+  "nickname": "Timely Rain, Protector of Justice",
+  "nicknameZh": "呼保义",
+  "star": {
+   "rank": 1,
+   "group": "heavenly",
+   "nameZh": "天魁星",
+   "name": "Leader Star"
+  },
+  "abilities": {
+   "might": 60,
+   "command": 92,
+   "cunning": 78,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 9,
+   "compassion": 9,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Kind-hearted county clerk who shelters fugitives; every outlaw trusts his word.",
+  "source": "Water Margin ch. 18 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "lu-junyi",
+  "name": "Lu Junyi",
+  "nameZh": "卢俊义",
+  "nickname": "Jade Unicorn",
+  "nicknameZh": "玉麒麟",
+  "star": {
+   "rank": 2,
+   "group": "heavenly",
+   "nameZh": "天罡星",
+   "name": "Strength Star"
+  },
+  "abilities": {
+   "might": 96,
+   "command": 91,
+   "cunning": 72,
+   "vigour": 88
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 7
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Chao Gai dies at Zengtou and Wu Yong lures him north-bound to Liangshan's snare",
+  "rationale": "Wealthy Daming master of the staff and spear, the only man the marsh chiefs fear in open combat.",
+  "source": "Water Margin ch. 60 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "wu-yong",
+  "name": "Wu Yong",
+  "nameZh": "吴用",
+  "nickname": "Many-Schemes Star",
+  "nicknameZh": "智多星",
+  "star": {
+   "rank": 3,
+   "group": "heavenly",
+   "nameZh": "天机星",
+   "name": "Knowledge Star"
+  },
+  "abilities": {
+   "might": 28,
+   "command": 84,
+   "cunning": 98,
+   "vigour": 45
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 4
+  },
+  "skills": [
+   "strategist"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Village schoolmaster who plans the birthday-convoy robbery and every later ruse.",
+  "source": "Water Margin ch. 14 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "gongsun-sheng",
+  "name": "Gongsun Sheng",
+  "nameZh": "公孙胜",
+  "nickname": "Dragon Among the Clouds",
+  "nicknameZh": "入云龙",
+  "star": {
+   "rank": 4,
+   "group": "heavenly",
+   "nameZh": "天闲星",
+   "name": "Leisure Star"
+  },
+  "abilities": {
+   "might": 55,
+   "command": 70,
+   "cunning": 92,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 6,
+   "daring": 5
+  },
+  "skills": [
+   "sorcerer",
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou-north",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Daoist who calls wind and fog; the marsh's weather-worker.",
+  "source": "Water Margin ch. 14 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "guan-sheng",
+  "name": "Guan Sheng",
+  "nameZh": "关胜",
+  "nickname": "Great Blade",
+  "nicknameZh": "大刀",
+  "star": {
+   "rank": 5,
+   "group": "heavenly",
+   "nameZh": "天勇星",
+   "name": "Brave Star"
+  },
+  "abilities": {
+   "might": 91,
+   "command": 90,
+   "cunning": 62,
+   "vigour": 80
+  },
+  "virtues": {
+   "righteousness": 10,
+   "compassion": 6,
+   "daring": 7
+  },
+  "skills": [
+   "horseman",
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "puzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Liangshan besieges Daming and Cai Jing sends Guan Sheng to relieve it",
+  "rationale": "Upright descendant-in-spirit of the red-faced general; wields a crescent blade on horseback.",
+  "source": "Water Margin ch. 63 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "lin-chong",
+  "name": "Lin Chong",
+  "nameZh": "林冲",
+  "nickname": "Panther Head",
+  "nicknameZh": "豹子头",
+  "star": {
+   "rank": 6,
+   "group": "heavenly",
+   "nameZh": "天雄星",
+   "name": "Majestic Star"
+  },
+  "abilities": {
+   "might": 92,
+   "command": 85,
+   "cunning": 60,
+   "vigour": 85
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 8
+  },
+  "skills": [
+   "spearman",
+   "drillmaster"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Arms instructor of the imperial guard, framed by Gao Qiu's household over his wife.",
+  "source": "Water Margin ch. 7 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "qin-ming",
+  "name": "Qin Ming",
+  "nameZh": "秦明",
+  "nickname": "Fiery Thunderbolt",
+  "nicknameZh": "霹雳火",
+  "star": {
+   "rank": 7,
+   "group": "heavenly",
+   "nameZh": "天猛星",
+   "name": "Fierce Star"
+  },
+  "abilities": {
+   "might": 90,
+   "command": 86,
+   "cunning": 40,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 9
+  },
+  "skills": [
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Hot-tempered Qingzhou commander with a spiked mace; easily provoked into rash charges.",
+  "source": "Water Margin ch. 34 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "huyan-zhuo",
+  "name": "Huyan Zhuo",
+  "nameZh": "呼延灼",
+  "nickname": "Twin Iron Whips",
+  "nicknameZh": "双鞭",
+  "star": {
+   "rank": 8,
+   "group": "heavenly",
+   "nameZh": "天威星",
+   "name": "Prestige Star"
+  },
+  "abilities": {
+   "might": 91,
+   "command": 89,
+   "cunning": 64,
+   "vigour": 82
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 4,
+   "daring": 7
+  },
+  "skills": [
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Gao Qiu names Huyan Zhuo to crush Liangshan with chain-linked cavalry",
+  "rationale": "Descendant of a founding general who fights with two steel whips and linked horse.",
+  "source": "Water Margin ch. 54 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "hua-rong",
+  "name": "Hua Rong",
+  "nameZh": "花荣",
+  "nickname": "Little Archer Li",
+  "nicknameZh": "小李广",
+  "star": {
+   "rank": 9,
+   "group": "heavenly",
+   "nameZh": "天英星",
+   "name": "Hero Star"
+  },
+  "abilities": {
+   "might": 88,
+   "command": 80,
+   "cunning": 70,
+   "vigour": 78
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 7
+  },
+  "skills": [
+   "archer",
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "qingfeng-zhai",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Deputy commander of Qingfeng Fort whose arrows never miss; shelters Song Jiang.",
+  "source": "Water Margin ch. 33 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "chai-jin",
+  "name": "Chai Jin",
+  "nameZh": "柴进",
+  "nickname": "Little Whirlwind",
+  "nicknameZh": "小旋风",
+  "star": {
+   "rank": 10,
+   "group": "heavenly",
+   "nameZh": "天贵星",
+   "name": "Noble Star"
+  },
+  "abilities": {
+   "might": 55,
+   "command": 60,
+   "cunning": 78,
+   "vigour": 55
+  },
+  "virtues": {
+   "righteousness": 9,
+   "compassion": 10,
+   "daring": 4
+  },
+  "skills": [],
+  "start": {
+   "status": "free",
+   "prefecture": "cangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Descendant of the former dynasty with an iron-clad charter; open-handed host to every exile.",
+  "source": "Water Margin ch. 9 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-ying",
+  "name": "Li Ying",
+  "nameZh": "李应",
+  "nickname": "Soaring Hawk",
+  "nicknameZh": "扑天雕",
+  "star": {
+   "rank": 11,
+   "group": "heavenly",
+   "nameZh": "天富星",
+   "name": "Wealth Star"
+  },
+  "abilities": {
+   "might": 80,
+   "command": 82,
+   "cunning": 64,
+   "vigour": 76
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 7,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Master of the Li Family Village with flying knives; ally of the Zhu clan until the feud.",
+  "source": "Water Margin ch. 47 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhu-tong",
+  "name": "Zhu Tong",
+  "nameZh": "朱仝",
+  "nickname": "Long-Bearded Lord",
+  "nicknameZh": "美髯公",
+  "star": {
+   "rank": 12,
+   "group": "heavenly",
+   "nameZh": "天满星",
+   "name": "Fulfillment Star"
+  },
+  "abilities": {
+   "might": 82,
+   "command": 72,
+   "cunning": 66,
+   "vigour": 80
+  },
+  "virtues": {
+   "righteousness": 9,
+   "compassion": 9,
+   "daring": 5
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Yuncheng constable with a famous beard who twice lets prisoners go.",
+  "source": "Water Margin ch. 13 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "lu-zhishen",
+  "name": "Lu Zhishen",
+  "nameZh": "鲁智深",
+  "nickname": "Flowery Monk",
+  "nicknameZh": "花和尚",
+  "star": {
+   "rank": 13,
+   "group": "heavenly",
+   "nameZh": "天孤星",
+   "name": "Solitary Star"
+  },
+  "abilities": {
+   "might": 95,
+   "command": 70,
+   "cunning": 58,
+   "vigour": 92
+  },
+  "virtues": {
+   "righteousness": 10,
+   "compassion": 8,
+   "daring": 9
+  },
+  "skills": [
+   "monk",
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "weizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Frontier officer who kills a butcher to save a girl and hides in a monastery; staff-wielding giant.",
+  "source": "Water Margin ch. 3 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "wu-song",
+  "name": "Wu Song",
+  "nameZh": "武松",
+  "nickname": "Pilgrim Wu",
+  "nicknameZh": "行者",
+  "star": {
+   "rank": 14,
+   "group": "heavenly",
+   "nameZh": "天伤星",
+   "name": "Harm Star"
+  },
+  "abilities": {
+   "might": 96,
+   "command": 66,
+   "cunning": 64,
+   "vigour": 95
+  },
+  "virtues": {
+   "righteousness": 9,
+   "compassion": 6,
+   "daring": 10
+  },
+  "skills": [
+   "beast-slayer",
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "cangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Tiger-killing constable who takes bloody revenge for his brother.",
+  "source": "Water Margin ch. 23 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "dong-ping",
+  "name": "Dong Ping",
+  "nameZh": "董平",
+  "nickname": "Twin-Spear General",
+  "nicknameZh": "双枪将",
+  "star": {
+   "rank": 15,
+   "group": "heavenly",
+   "nameZh": "天立星",
+   "name": "Steadfast Star"
+  },
+  "abilities": {
+   "might": 87,
+   "command": 80,
+   "cunning": 56,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "spearman",
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Song Jiang demands grain from Dongping Fu and its commander Dong Ping is drawn out",
+  "rationale": "Dongping garrison commander, brilliant with two spears and careless about honour.",
+  "source": "Water Margin ch. 69 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhang-qing",
+  "name": "Zhang Qing",
+  "nameZh": "张清",
+  "nickname": "Featherless Arrow",
+  "nicknameZh": "没羽箭",
+  "star": {
+   "rank": 16,
+   "group": "heavenly",
+   "nameZh": "天捷星",
+   "name": "Agile Star"
+  },
+  "abilities": {
+   "might": 80,
+   "command": 78,
+   "cunning": 70,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 8
+  },
+  "skills": [
+   "archer",
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongchang",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Dong Ping falls and Liangshan turns on Dongchang",
+  "rationale": "Dongchang cavalry captain who throws stones with deadly aim.",
+  "source": "Water Margin ch. 70 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yang-zhi",
+  "name": "Yang Zhi",
+  "nameZh": "杨志",
+  "nickname": "Blue-Faced Beast",
+  "nicknameZh": "青面兽",
+  "star": {
+   "rank": 17,
+   "group": "heavenly",
+   "nameZh": "天暗星",
+   "name": "Dark Star"
+  },
+  "abilities": {
+   "might": 89,
+   "command": 81,
+   "cunning": 55,
+   "vigour": 77
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 5,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman",
+   "horseman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Disgraced officer who sells his ancestral blade in the capital and kills a bully.",
+  "source": "Water Margin ch. 12 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xu-ning",
+  "name": "Xu Ning",
+  "nameZh": "徐宁",
+  "nickname": "Golden Spear",
+  "nicknameZh": "金枪手",
+  "star": {
+   "rank": 18,
+   "group": "heavenly",
+   "nameZh": "天祐星",
+   "name": "Guardian Star"
+  },
+  "abilities": {
+   "might": 86,
+   "command": 80,
+   "cunning": 56,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 6,
+   "daring": 6
+  },
+  "skills": [
+   "spearman",
+   "drillmaster"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Tang Long steals his armour and lures him south with a forged story",
+  "rationale": "Imperial guard instructor who teaches the hooked-spear drill and owns a famous mail coat.",
+  "source": "Water Margin ch. 56 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "suo-chao",
+  "name": "Suo Chao",
+  "nameZh": "索超",
+  "nickname": "Hasty Vanguard",
+  "nicknameZh": "急先锋",
+  "star": {
+   "rank": 19,
+   "group": "heavenly",
+   "nameZh": "天空星",
+   "name": "Flight Star"
+  },
+  "abilities": {
+   "might": 85,
+   "command": 78,
+   "cunning": 38,
+   "vigour": 80
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 9
+  },
+  "skills": [
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Daming vanguard with a heavy axe who charges first and thinks later.",
+  "source": "Water Margin ch. 13 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "dai-zong",
+  "name": "Dai Zong",
+  "nameZh": "戴宗",
+  "nickname": "Magic Courier",
+  "nicknameZh": "神行太保",
+  "star": {
+   "rank": 20,
+   "group": "heavenly",
+   "nameZh": "天速星",
+   "name": "Speed Star"
+  },
+  "abilities": {
+   "might": 48,
+   "command": 55,
+   "cunning": 72,
+   "vigour": 98
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 6,
+   "daring": 4
+  },
+  "skills": [
+   "runner"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jiangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Jiangzhou jail superintendent who can run hundreds of li a day with charmed leg-wraps.",
+  "source": "Water Margin ch. 38 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "liu-tang",
+  "name": "Liu Tang",
+  "nameZh": "刘唐",
+  "nickname": "Red-Haired Fiend",
+  "nicknameZh": "赤发鬼",
+  "star": {
+   "rank": 21,
+   "group": "heavenly",
+   "nameZh": "天异星",
+   "name": "Deviance Star"
+  },
+  "abilities": {
+   "might": 74,
+   "command": 45,
+   "cunning": 50,
+   "vigour": 76
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 3,
+   "daring": 9
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Roving ruffian with a red birthmark who brings the news of the birthday convoy.",
+  "source": "Water Margin ch. 14 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-kui",
+  "name": "Li Kui",
+  "nameZh": "李逵",
+  "nickname": "Black Whirlwind",
+  "nicknameZh": "黑旋风",
+  "star": {
+   "rank": 22,
+   "group": "heavenly",
+   "nameZh": "天杀星",
+   "name": "Killer Star"
+  },
+  "abilities": {
+   "might": 91,
+   "command": 40,
+   "cunning": 22,
+   "vigour": 98
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 5,
+   "daring": 10
+  },
+  "skills": [
+   "swordsman",
+   "beast-slayer"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jiangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Jiangzhou jailer who swings twin axes, kills tigers, and obeys only Song Jiang.",
+  "source": "Water Margin ch. 37 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "shi-jin",
+  "name": "Shi Jin",
+  "nameZh": "史进",
+  "nickname": "Nine-Dragon Tattoo",
+  "nicknameZh": "九纹龙",
+  "star": {
+   "rank": 23,
+   "group": "heavenly",
+   "nameZh": "天微星",
+   "name": "Minute Star"
+  },
+  "abilities": {
+   "might": 87,
+   "command": 68,
+   "cunning": 50,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 7,
+   "daring": 8
+  },
+  "skills": [
+   "spearman",
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "huazhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Young village headman with dragon tattoos who trained under a disgraced master.",
+  "source": "Water Margin ch. 2 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "mu-hong",
+  "name": "Mu Hong",
+  "nameZh": "穆弘",
+  "nickname": "Unfettered",
+  "nicknameZh": "没遮拦",
+  "star": {
+   "rank": 24,
+   "group": "heavenly",
+   "nameZh": "天究星",
+   "name": "Investigative Star"
+  },
+  "abilities": {
+   "might": 78,
+   "command": 66,
+   "cunning": 52,
+   "vigour": 76
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Landowner of Jieyang who rules the town's ferries with his brother.",
+  "source": "Water Margin ch. 37 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "lei-heng",
+  "name": "Lei Heng",
+  "nameZh": "雷横",
+  "nickname": "Winged Tiger",
+  "nicknameZh": "插翅虎",
+  "star": {
+   "rank": 25,
+   "group": "heavenly",
+   "nameZh": "天退星",
+   "name": "Retreat Star"
+  },
+  "abilities": {
+   "might": 76,
+   "command": 62,
+   "cunning": 50,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 6,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Yuncheng constable and former smith, fast on his feet.",
+  "source": "Water Margin ch. 13 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-jun",
+  "name": "Li Jun",
+  "nameZh": "李俊",
+  "nickname": "River-Stirring Dragon",
+  "nicknameZh": "混江龙",
+  "star": {
+   "rank": 26,
+   "group": "heavenly",
+   "nameZh": "天寿星",
+   "name": "Longevity Star"
+  },
+  "abilities": {
+   "might": 78,
+   "command": 88,
+   "cunning": 78,
+   "vigour": 88
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 7,
+   "daring": 7
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Salt-smuggling river captain who leads his own band of boatmen.",
+  "source": "Water Margin ch. 36 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ruan-xiaoer",
+  "name": "Ruan Xiaoer",
+  "nameZh": "阮小二",
+  "nickname": "Standing Fierce Star",
+  "nicknameZh": "立地太岁",
+  "star": {
+   "rank": 27,
+   "group": "heavenly",
+   "nameZh": "天剑星",
+   "name": "Sword Star"
+  },
+  "abilities": {
+   "might": 74,
+   "command": 70,
+   "cunning": 70,
+   "vigour": 82
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 7
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Oldest of three fishing brothers who know every channel of the marsh.",
+  "source": "Water Margin ch. 15 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhang-heng",
+  "name": "Zhang Heng",
+  "nameZh": "张横",
+  "nickname": "Boat Fire",
+  "nicknameZh": "船火儿",
+  "star": {
+   "rank": 28,
+   "group": "heavenly",
+   "nameZh": "天平星",
+   "name": "Balance Star"
+  },
+  "abilities": {
+   "might": 72,
+   "command": 66,
+   "cunning": 62,
+   "vigour": 88
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 9
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Ferryman who robs midstream passengers and throws them overboard.",
+  "source": "Water Margin ch. 37 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ruan-xiaowu",
+  "name": "Ruan Xiaowu",
+  "nameZh": "阮小五",
+  "nickname": "Short-Lived Second Son",
+  "nicknameZh": "短命二郎",
+  "star": {
+   "rank": 29,
+   "group": "heavenly",
+   "nameZh": "天罪星",
+   "name": "Guilt Star"
+  },
+  "abilities": {
+   "might": 78,
+   "command": 64,
+   "cunning": 68,
+   "vigour": 84
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 5,
+   "daring": 9
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Middle Ruan brother, a reckless swimmer and gambler.",
+  "source": "Water Margin ch. 15 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhang-shun",
+  "name": "Zhang Shun",
+  "nameZh": "张顺",
+  "nickname": "White Streak in the Waves",
+  "nicknameZh": "浪里白跳",
+  "star": {
+   "rank": 30,
+   "group": "heavenly",
+   "nameZh": "天损星",
+   "name": "Damage Star"
+  },
+  "abilities": {
+   "might": 78,
+   "command": 70,
+   "cunning": 66,
+   "vigour": 96
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 8
+  },
+  "skills": [
+   "swimmer",
+   "marine"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jiangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Fish broker who can stay under water for hours; the finest swimmer of the hundred and eight.",
+  "source": "Water Margin ch. 37 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ruan-xiaoqi",
+  "name": "Ruan Xiaoqi",
+  "nameZh": "阮小七",
+  "nickname": "Living Yama",
+  "nicknameZh": "活阎罗",
+  "star": {
+   "rank": 31,
+   "group": "heavenly",
+   "nameZh": "天败星",
+   "name": "Defeat Star"
+  },
+  "abilities": {
+   "might": 82,
+   "command": 64,
+   "cunning": 64,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 10
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Youngest Ruan, blunt and fearless, mocks officials and fights best afloat.",
+  "source": "Water Margin ch. 15 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yang-xiong",
+  "name": "Yang Xiong",
+  "nameZh": "杨雄",
+  "nickname": "Sickly Guan Suo",
+  "nicknameZh": "病关索",
+  "star": {
+   "rank": 32,
+   "group": "heavenly",
+   "nameZh": "天牢星",
+   "name": "Secure Star"
+  },
+  "abilities": {
+   "might": 80,
+   "command": 64,
+   "cunning": 58,
+   "vigour": 78
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jizhou-north",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Executioner and jail officer of Ji prefecture, dutiful until his wife betrays him.",
+  "source": "Water Margin ch. 44 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "shi-xiu",
+  "name": "Shi Xiu",
+  "nameZh": "石秀",
+  "nickname": "Reckless Third Brother",
+  "nicknameZh": "拼命三郎",
+  "star": {
+   "rank": 33,
+   "group": "heavenly",
+   "nameZh": "天慧星",
+   "name": "Wisdom Star"
+  },
+  "abilities": {
+   "might": 84,
+   "command": 66,
+   "cunning": 76,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 9,
+   "compassion": 4,
+   "daring": 9
+  },
+  "skills": [
+   "swordsman",
+   "scout"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou-north",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Wood seller who sworn-brothers Yang Xiong and exposes his wife's affair.",
+  "source": "Water Margin ch. 44 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xie-zhen",
+  "name": "Xie Zhen",
+  "nameZh": "解珍",
+  "nickname": "Two-Headed Serpent",
+  "nicknameZh": "两头蛇",
+  "star": {
+   "rank": 34,
+   "group": "heavenly",
+   "nameZh": "天暴星",
+   "name": "Savage Star"
+  },
+  "abilities": {
+   "might": 80,
+   "command": 50,
+   "cunning": 52,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 9
+  },
+  "skills": [
+   "beast-slayer",
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "dengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Hunter whose tiger is stolen by a rich neighbour.",
+  "source": "Water Margin ch. 49 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xie-bao",
+  "name": "Xie Bao",
+  "nameZh": "解宝",
+  "nickname": "Twin-Tailed Scorpion",
+  "nicknameZh": "双尾蝎",
+  "star": {
+   "rank": 35,
+   "group": "heavenly",
+   "nameZh": "天哭星",
+   "name": "Crying Star"
+  },
+  "abilities": {
+   "might": 79,
+   "command": 50,
+   "cunning": 50,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 9
+  },
+  "skills": [
+   "beast-slayer",
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "dengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Xie Zhen's brother, a trap-setter and a steel-fork fighter.",
+  "source": "Water Margin ch. 49 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yan-qing",
+  "name": "Yan Qing",
+  "nameZh": "燕青",
+  "nickname": "Wanderer",
+  "nicknameZh": "浪子",
+  "star": {
+   "rank": 36,
+   "group": "heavenly",
+   "nameZh": "天巧星",
+   "name": "Skilful Star"
+  },
+  "abilities": {
+   "might": 84,
+   "command": 64,
+   "cunning": 92,
+   "vigour": 88
+  },
+  "virtues": {
+   "righteousness": 9,
+   "compassion": 8,
+   "daring": 7
+  },
+  "skills": [
+   "archer",
+   "scout"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Lu Junyi falls to Liangshan's plot and is jailed at Daming",
+  "rationale": "Lu Junyi's servant; a wrestler, archer, singer and quick-witted go-between.",
+  "source": "Water Margin ch. 60 (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhu-wu",
+  "name": "Zhu Wu",
+  "nameZh": "朱武",
+  "nickname": "Divine Machine Strategist",
+  "nicknameZh": "神机军师",
+  "star": {
+   "rank": 37,
+   "group": "earthly",
+   "nameZh": "地魁星",
+   "name": "Leader Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 78,
+   "cunning": 90,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 6,
+   "daring": 4
+  },
+  "skills": [
+   "strategist"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "shaohua-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Chief of Mount Shaohua; quiet planner who reads the battlefield.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "huang-xin",
+  "name": "Huang Xin",
+  "nameZh": "黄信",
+  "nickname": "Mountain-Quelling Three",
+  "nicknameZh": "镇三山",
+  "star": {
+   "rank": 38,
+   "group": "earthly",
+   "nameZh": "地煞星",
+   "name": "Malignant Star"
+  },
+  "abilities": {
+   "might": 80,
+   "command": 76,
+   "cunning": 52,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Qingzhou garrison officer who boasts he can crush three mountain camps.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "sun-li",
+  "name": "Sun Li",
+  "nameZh": "孙立",
+  "nickname": "Sickly Yuchi",
+  "nicknameZh": "病尉迟",
+  "star": {
+   "rank": 39,
+   "group": "earthly",
+   "nameZh": "地勇星",
+   "name": "Brave Star"
+  },
+  "abilities": {
+   "might": 85,
+   "command": 76,
+   "cunning": 56,
+   "vigour": 78
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 6,
+   "daring": 7
+  },
+  "skills": [
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Dengzhou garrison commander with a steel whip and a mighty bow arm.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xuan-zan",
+  "name": "Xuan Zan",
+  "nameZh": "宣赞",
+  "nickname": "Ugly Son-in-Law",
+  "nicknameZh": "丑郡马",
+  "star": {
+   "rank": 40,
+   "group": "earthly",
+   "nameZh": "地杰星",
+   "name": "Prominence Star"
+  },
+  "abilities": {
+   "might": 76,
+   "command": 70,
+   "cunning": 48,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman",
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Guan Sheng is sent against Liangshan and Xuan Zan accompanies him",
+  "rationale": "Ugly-faced imperial son-in-law who still leads a heavy cavalry blade.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "hao-siwen",
+  "name": "Hao Siwen",
+  "nameZh": "郝思文",
+  "nickname": "Well Wood Hound",
+  "nicknameZh": "井木犴",
+  "star": {
+   "rank": 41,
+   "group": "earthly",
+   "nameZh": "地雄星",
+   "name": "Magnificent Star"
+  },
+  "abilities": {
+   "might": 74,
+   "command": 68,
+   "cunning": 46,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 6,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "puzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Guan Sheng is sent against Liangshan and Hao Siwen is captured beside him",
+  "rationale": "Guan Sheng's sworn brother, steady fighter and loyal friend.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "han-tao",
+  "name": "Han Tao",
+  "nameZh": "韩滔",
+  "nickname": "Hundred-Win General",
+  "nicknameZh": "百胜将",
+  "star": {
+   "rank": 42,
+   "group": "earthly",
+   "nameZh": "地威星",
+   "name": "Majestic Star"
+  },
+  "abilities": {
+   "might": 72,
+   "command": 72,
+   "cunning": 54,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "chenzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Gao Qiu sends Huyan Zhuo and gathers the Chenzhou and Yingzhou troops",
+  "rationale": "Chenzhou army commander with a long lance.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "peng-qi",
+  "name": "Peng Qi",
+  "nameZh": "彭玘",
+  "nickname": "Heaven-Eyed General",
+  "nicknameZh": "天目将",
+  "star": {
+   "rank": 43,
+   "group": "earthly",
+   "nameZh": "地英星",
+   "name": "Hero Star"
+  },
+  "abilities": {
+   "might": 70,
+   "command": 70,
+   "cunning": 52,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "chenzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Gao Qiu sends Huyan Zhuo and gathers the Chenzhou and Yingzhou troops",
+  "rationale": "Yingzhou commander wielding a three-pointed blade, who joins the campaign against the marsh.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "shan-tinggui",
+  "name": "Shan Tinggui",
+  "nameZh": "单廷圭",
+  "nickname": "Water General",
+  "nicknameZh": "圣水将",
+  "star": {
+   "rank": 44,
+   "group": "earthly",
+   "nameZh": "地奇星",
+   "name": "Unique Star"
+  },
+  "abilities": {
+   "might": 78,
+   "command": 74,
+   "cunning": 58,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "spearman",
+   "archer"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "lingzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Song Jiang marches on Lingzhou in the campaign against the Zeng clan's allies",
+  "rationale": "Lingzhou garrison commander who uses water-based tactics.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "wei-dingguo",
+  "name": "Wei Dingguo",
+  "nameZh": "魏定国",
+  "nickname": "Divine Fire General",
+  "nicknameZh": "神火将",
+  "star": {
+   "rank": 45,
+   "group": "earthly",
+   "nameZh": "地猛星",
+   "name": "Fierce Star"
+  },
+  "abilities": {
+   "might": 76,
+   "command": 74,
+   "cunning": 60,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "firebrand"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "lingzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Song Jiang marches on Lingzhou in the campaign against the Zeng clan's allies",
+  "rationale": "Lingzhou commander whose fire-throwing troops scorch enemy lines.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xiao-rang",
+  "name": "Xiao Rang",
+  "nameZh": "萧让",
+  "nickname": "Sagely Calligrapher",
+  "nicknameZh": "圣手书生",
+  "star": {
+   "rank": 46,
+   "group": "earthly",
+   "nameZh": "地文星",
+   "name": "Literature Star"
+  },
+  "abilities": {
+   "might": 20,
+   "command": 36,
+   "cunning": 70,
+   "vigour": 40
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 5,
+   "daring": 2
+  },
+  "skills": [
+   "scribe",
+   "forger"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Jizhou scholar who can copy any hand and seal.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "pei-xuan",
+  "name": "Pei Xuan",
+  "nameZh": "裴宣",
+  "nickname": "Iron-Faced Clerk",
+  "nicknameZh": "铁面孔目",
+  "star": {
+   "rank": 47,
+   "group": "earthly",
+   "nameZh": "地正星",
+   "name": "Upright Star"
+  },
+  "abilities": {
+   "might": 52,
+   "command": 60,
+   "cunning": 80,
+   "vigour": 56
+  },
+  "virtues": {
+   "righteousness": 10,
+   "compassion": 6,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jingzhao",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Incorruptible legal clerk who judges on the evidence.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ou-peng",
+  "name": "Ou Peng",
+  "nameZh": "欧鹏",
+  "nickname": "Cloud-Skimming Golden Wing",
+  "nicknameZh": "摩云金翅",
+  "star": {
+   "rank": 48,
+   "group": "earthly",
+   "nameZh": "地阔星",
+   "name": "Wide Star"
+  },
+  "abilities": {
+   "might": 72,
+   "command": 62,
+   "cunning": 48,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman",
+   "horseman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "huangmen-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Huangmen Mountain chief, once a frontier soldier.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "deng-fei",
+  "name": "Deng Fei",
+  "nameZh": "邓飞",
+  "nickname": "Fiery-Eyed Lion",
+  "nicknameZh": "火眼狻猊",
+  "star": {
+   "rank": 49,
+   "group": "earthly",
+   "nameZh": "地阖星",
+   "name": "Whole Star"
+  },
+  "abilities": {
+   "might": 70,
+   "command": 60,
+   "cunning": 52,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 8
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "xiangyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Xiangyang brawler with a chain-and-iron weapon and flashing eyes.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yan-shun",
+  "name": "Yan Shun",
+  "nameZh": "燕顺",
+  "nickname": "Brocade-Haired Tiger",
+  "nicknameZh": "锦毛虎",
+  "star": {
+   "rank": 50,
+   "group": "earthly",
+   "nameZh": "地强星",
+   "name": "Strong Star"
+  },
+  "abilities": {
+   "might": 72,
+   "command": 64,
+   "cunning": 48,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "qingfeng-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Leader of the Qingfeng Mountain band.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yang-lin",
+  "name": "Yang Lin",
+  "nameZh": "杨林",
+  "nickname": "Brocade Leopard",
+  "nicknameZh": "锦豹子",
+  "star": {
+   "rank": 51,
+   "group": "earthly",
+   "nameZh": "地暗星",
+   "name": "Dark Star"
+  },
+  "abilities": {
+   "might": 64,
+   "command": 58,
+   "cunning": 66,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 6
+  },
+  "skills": [
+   "scout",
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "zhangde",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Wandering fighter who joins friends at Mount Mangdang.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ling-zhen",
+  "name": "Ling Zhen",
+  "nameZh": "凌振",
+  "nickname": "Sky-Shaking Thunder",
+  "nicknameZh": "轰天雷",
+  "star": {
+   "rank": 52,
+   "group": "earthly",
+   "nameZh": "地轴星",
+   "name": "Axis Star"
+  },
+  "abilities": {
+   "might": 52,
+   "command": 56,
+   "cunning": 76,
+   "vigour": 56
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 5
+  },
+  "skills": [
+   "firebrand"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Huyan Zhuo is defeated and Ling Zhen, the imperial gunner, is captured",
+  "rationale": "Imperial cannoneer who builds powder-fired thunder engines.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "jiang-jing",
+  "name": "Jiang Jing",
+  "nameZh": "蒋敬",
+  "nickname": "Divine Accountant",
+  "nicknameZh": "神算子",
+  "star": {
+   "rank": 53,
+   "group": "earthly",
+   "nameZh": "地会星",
+   "name": "Meet Star"
+  },
+  "abilities": {
+   "might": 30,
+   "command": 52,
+   "cunning": 82,
+   "vigour": 44
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 3
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "tanzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Failed examination candidate who turns merchant, then bookkeeper.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "lyu-fang",
+  "name": "Lyu Fang",
+  "nameZh": "吕方",
+  "nickname": "Little Marquis Wen",
+  "nicknameZh": "小温侯",
+  "star": {
+   "rank": 54,
+   "group": "earthly",
+   "nameZh": "地佐星",
+   "name": "Aid Star"
+  },
+  "abilities": {
+   "might": 76,
+   "command": 68,
+   "cunning": 42,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 7
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "duiying-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Duiying Mountain chief with a halberd, a Lü Bu admirer.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "guo-sheng",
+  "name": "Guo Sheng",
+  "nameZh": "郭盛",
+  "nickname": "Rival of Ren Gui",
+  "nicknameZh": "赛仁贵",
+  "star": {
+   "rank": 55,
+   "group": "earthly",
+   "nameZh": "地祐星",
+   "name": "Help Star"
+  },
+  "abilities": {
+   "might": 74,
+   "command": 66,
+   "cunning": 42,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 7
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "duiying-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Duiying Mountain chief with a halberd, rival of Lü Fang.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "an-daoquan",
+  "name": "An Daoquan",
+  "nameZh": "安道全",
+  "nickname": "Divine Physician",
+  "nicknameZh": "神医",
+  "star": {
+   "rank": 56,
+   "group": "earthly",
+   "nameZh": "地灵星",
+   "name": "Efficacious Star"
+  },
+  "abilities": {
+   "might": 24,
+   "command": 36,
+   "cunning": 76,
+   "vigour": 48
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 10,
+   "daring": 2
+  },
+  "skills": [
+   "physician"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jiankang",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Song Jiang falls ill with a malignant abscess and no marsh healer can help",
+  "rationale": "Jiankang physician of imperial fame, kept from the marsh by his own comforts.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "huangfu-duan",
+  "name": "Huangfu Duan",
+  "nameZh": "皇甫端",
+  "nickname": "Purple-Bearded Earl",
+  "nicknameZh": "紫髯伯",
+  "star": {
+   "rank": 57,
+   "group": "earthly",
+   "nameZh": "地兽星",
+   "name": "Beast Star"
+  },
+  "abilities": {
+   "might": 28,
+   "command": 34,
+   "cunning": 68,
+   "vigour": 50
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 8,
+   "daring": 3
+  },
+  "skills": [
+   "horse-trader",
+   "physician"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "youzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Liangshan's war horses sicken and need a veterinary expert",
+  "rationale": "Northern horse doctor with a purple beard.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "wang-ying",
+  "name": "Wang Ying",
+  "nameZh": "王英",
+  "nickname": "Short-Legged Tiger",
+  "nicknameZh": "矮脚虎",
+  "star": {
+   "rank": 58,
+   "group": "earthly",
+   "nameZh": "地微星",
+   "name": "Minute Star"
+  },
+  "abilities": {
+   "might": 68,
+   "command": 48,
+   "cunning": 40,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "qingfeng-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Lecherous short bandit of Qingfeng Mountain; fierce but unreliable.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "hu-sanniang",
+  "name": "Hu Sanniang",
+  "nameZh": "扈三娘",
+  "nickname": "Ten-Foot Green",
+  "nicknameZh": "一丈青",
+  "star": {
+   "rank": 59,
+   "group": "earthly",
+   "nameZh": "地慧星",
+   "name": "Bright Star"
+  },
+  "abilities": {
+   "might": 82,
+   "command": 64,
+   "cunning": 56,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 5,
+   "daring": 8
+  },
+  "skills": [
+   "swordsman",
+   "horseman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Daughter of the Hu Family Village, expert with twin blades and a red lasso.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "bao-xu",
+  "name": "Bao Xu",
+  "nameZh": "鲍旭",
+  "nickname": "Ill-Omen God",
+  "nicknameZh": "丧门神",
+  "star": {
+   "rank": 60,
+   "group": "earthly",
+   "nameZh": "地暴星",
+   "name": "Savage Star"
+  },
+  "abilities": {
+   "might": 76,
+   "command": 50,
+   "cunning": 36,
+   "vigour": 80
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 9
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "lingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Dead-Tree Mountain chief, short-tempered and given to killing travellers.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "fan-rui",
+  "name": "Fan Rui",
+  "nameZh": "樊瑞",
+  "nickname": "Chaos-Bringing Demon King",
+  "nicknameZh": "混世魔王",
+  "star": {
+   "rank": 61,
+   "group": "earthly",
+   "nameZh": "地然星",
+   "name": "Correct Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 64,
+   "cunning": 82,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "sorcerer"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "mangdang-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mangdang Mountain wizard-bandit who commands storm spirits.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "kong-ming",
+  "name": "Kong Ming",
+  "nameZh": "孔明",
+  "nickname": "Hairy-Headed Star",
+  "nicknameZh": "毛头星",
+  "star": {
+   "rank": 62,
+   "group": "earthly",
+   "nameZh": "地猖星",
+   "name": "Wild Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 50,
+   "cunning": 44,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Qingzhou estate heir, headstrong with a spear.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "kong-liang",
+  "name": "Kong Liang",
+  "nameZh": "孔亮",
+  "nickname": "Solitary Fire Star",
+  "nicknameZh": "独火星",
+  "star": {
+   "rank": 63,
+   "group": "earthly",
+   "nameZh": "地狂星",
+   "name": "Crazy Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 46,
+   "cunning": 42,
+   "vigour": 64
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Kong Ming's younger brother, impetuous.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xiang-chong",
+  "name": "Xiang Chong",
+  "nameZh": "项充",
+  "nickname": "Eight-Armed Nezha",
+  "nicknameZh": "八臂哪吒",
+  "star": {
+   "rank": 64,
+   "group": "earthly",
+   "nameZh": "地飞星",
+   "name": "Flying Star"
+  },
+  "abilities": {
+   "might": 74,
+   "command": 58,
+   "cunning": 48,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "mangdang-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mangdang Mountain chief with a shield bristling with knives.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-gun",
+  "name": "Li Gun",
+  "nameZh": "李衮",
+  "nickname": "Sky-Flying Great Sage",
+  "nicknameZh": "飞天大圣",
+  "star": {
+   "rank": 65,
+   "group": "earthly",
+   "nameZh": "地走星",
+   "name": "Walking Star"
+  },
+  "abilities": {
+   "might": 70,
+   "command": 52,
+   "cunning": 44,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "mangdang-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mangdang Mountain chief with a shield and flying spears.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "jin-dajian",
+  "name": "Jin Dajian",
+  "nameZh": "金大坚",
+  "nickname": "Jade-Armed Craftsman",
+  "nicknameZh": "玉臂匠",
+  "star": {
+   "rank": 66,
+   "group": "earthly",
+   "nameZh": "地巧星",
+   "name": "Skilful Star"
+  },
+  "abilities": {
+   "might": 22,
+   "command": 38,
+   "cunning": 60,
+   "vigour": 40
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 2
+  },
+  "skills": [
+   "forger"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Seal carver who forges stamped documents.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ma-lin",
+  "name": "Ma Lin",
+  "nameZh": "马麟",
+  "nickname": "Iron Flute Immortal",
+  "nicknameZh": "铁笛仙",
+  "star": {
+   "rank": 67,
+   "group": "earthly",
+   "nameZh": "地明星",
+   "name": "Bright Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 56,
+   "cunning": 56,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 5
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "huangmen-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Huangmen Mountain chief, a flute-playing swordsman.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "tong-wei",
+  "name": "Tong Wei",
+  "nameZh": "童威",
+  "nickname": "Dragon Out of the Cave",
+  "nicknameZh": "出洞蛟",
+  "star": {
+   "rank": 68,
+   "group": "earthly",
+   "nameZh": "地进星",
+   "name": "Forward Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 52,
+   "cunning": 54,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 7
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Salt-boat smuggler, brother of Tong Meng.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "tong-meng",
+  "name": "Tong Meng",
+  "nameZh": "童猛",
+  "nickname": "River-Churning Clam",
+  "nicknameZh": "翻江蜃",
+  "star": {
+   "rank": 69,
+   "group": "earthly",
+   "nameZh": "地退星",
+   "name": "Retreating Star"
+  },
+  "abilities": {
+   "might": 64,
+   "command": 52,
+   "cunning": 50,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 7
+  },
+  "skills": [
+   "marine",
+   "swimmer"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Salt-boat smuggler, brother of Tong Wei.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "meng-kang",
+  "name": "Meng Kang",
+  "nameZh": "孟康",
+  "nickname": "Jade Banner Pole",
+  "nicknameZh": "玉幡竿",
+  "star": {
+   "rank": 70,
+   "group": "earthly",
+   "nameZh": "地满星",
+   "name": "Full Star"
+  },
+  "abilities": {
+   "might": 52,
+   "command": 56,
+   "cunning": 66,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 4
+  },
+  "skills": [
+   "builder",
+   "marine"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "zhending",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Shipwright who knows how to build towering river barges.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "hou-jian",
+  "name": "Hou Jian",
+  "nameZh": "侯健",
+  "nickname": "Long-Armed Ape",
+  "nicknameZh": "通臂猿",
+  "star": {
+   "rank": 71,
+   "group": "earthly",
+   "nameZh": "地遂星",
+   "name": "Succeed Star"
+  },
+  "abilities": {
+   "might": 30,
+   "command": 40,
+   "cunning": 60,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 3
+  },
+  "skills": [
+   "scout"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "hongzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Tailor who can climb and sew banners and clothes.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "chen-da",
+  "name": "Chen Da",
+  "nameZh": "陈达",
+  "nickname": "Leaping-Stream Tiger",
+  "nicknameZh": "跳涧虎",
+  "star": {
+   "rank": 72,
+   "group": "earthly",
+   "nameZh": "地周星",
+   "name": "Complete Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 52,
+   "cunning": 40,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 7
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "shaohua-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mount Shaohua chief, foolhardy rider.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yang-chun",
+  "name": "Yang Chun",
+  "nameZh": "杨春",
+  "nickname": "White-Flower Serpent",
+  "nicknameZh": "白花蛇",
+  "star": {
+   "rank": 73,
+   "group": "earthly",
+   "nameZh": "地隐星",
+   "name": "Latent Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 52,
+   "cunning": 44,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "shaohua-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mount Shaohua chief with a long blade.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zheng-tianshou",
+  "name": "Zheng Tianshou",
+  "nameZh": "郑天寿",
+  "nickname": "Pale-Faced Gentleman",
+  "nicknameZh": "白面郎君",
+  "star": {
+   "rank": 74,
+   "group": "earthly",
+   "nameZh": "地异星",
+   "name": "Different Star"
+  },
+  "abilities": {
+   "might": 56,
+   "command": 44,
+   "cunning": 50,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 5
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "qingfeng-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Qingfeng Mountain bandit with delicate looks.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "tao-zongwang",
+  "name": "Tao Zongwang",
+  "nameZh": "陶宗旺",
+  "nickname": "Nine-Tailed Turtle",
+  "nicknameZh": "九尾龟",
+  "star": {
+   "rank": 75,
+   "group": "earthly",
+   "nameZh": "地理星",
+   "name": "Manage Star"
+  },
+  "abilities": {
+   "might": 56,
+   "command": 50,
+   "cunning": 52,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 5
+  },
+  "skills": [
+   "builder"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "huangmen-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Farmhand turned digger, handy with a spade and earthworks.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "song-qing",
+  "name": "Song Qing",
+  "nameZh": "宋清",
+  "nickname": "Iron Fan",
+  "nicknameZh": "铁扇子",
+  "star": {
+   "rank": 76,
+   "group": "earthly",
+   "nameZh": "地俊星",
+   "name": "Handsome Star"
+  },
+  "abilities": {
+   "might": 40,
+   "command": 48,
+   "cunning": 64,
+   "vigour": 50
+  },
+  "virtues": {
+   "righteousness": 8,
+   "compassion": 7,
+   "daring": 3
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Song Jiang's younger brother, a careful farmer and cook.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yue-he",
+  "name": "Yue He",
+  "nameZh": "乐和",
+  "nickname": "Iron Whistle",
+  "nicknameZh": "铁叫子",
+  "star": {
+   "rank": 77,
+   "group": "earthly",
+   "nameZh": "地乐星",
+   "name": "Music Star"
+  },
+  "abilities": {
+   "might": 50,
+   "command": 52,
+   "cunning": 70,
+   "vigour": 58
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 6,
+   "daring": 4
+  },
+  "skills": [
+   "scout"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Dengzhou jailer, singer and linguist, quick with languages.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "gong-wang",
+  "name": "Gong Wang",
+  "nameZh": "龚旺",
+  "nickname": "Flowery-Necked Tiger",
+  "nicknameZh": "花项虎",
+  "star": {
+   "rank": 78,
+   "group": "earthly",
+   "nameZh": "地捷星",
+   "name": "Victorious Star"
+  },
+  "abilities": {
+   "might": 70,
+   "command": 56,
+   "cunning": 40,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongchang",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Dong Ping falls and Liangshan turns on Dongchang",
+  "rationale": "Dongchang lancer with a tiger tattoo on his neck.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "ding-desun",
+  "name": "Ding Desun",
+  "nameZh": "丁得孙",
+  "nickname": "Arrow-Struck Tiger",
+  "nicknameZh": "中箭虎",
+  "star": {
+   "rank": 79,
+   "group": "earthly",
+   "nameZh": "地速星",
+   "name": "Speed Star"
+  },
+  "abilities": {
+   "might": 68,
+   "command": 54,
+   "cunning": 40,
+   "vigour": 64
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongchang",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Dong Ping falls and Liangshan turns on Dongchang",
+  "rationale": "Dongchang lancer with flying spears.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "mu-chun",
+  "name": "Mu Chun",
+  "nameZh": "穆春",
+  "nickname": "Little Unfettered",
+  "nicknameZh": "小遮拦",
+  "star": {
+   "rank": 80,
+   "group": "earthly",
+   "nameZh": "地镇星",
+   "name": "Guardian Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 50,
+   "cunning": 44,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mu Hong's younger brother, a minor local bully.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "cao-zheng",
+  "name": "Cao Zheng",
+  "nameZh": "曹正",
+  "nickname": "Knife-Wielding Fiend",
+  "nicknameZh": "操刀鬼",
+  "star": {
+   "rank": 81,
+   "group": "earthly",
+   "nameZh": "地稽星",
+   "name": "Check Star"
+  },
+  "abilities": {
+   "might": 60,
+   "command": 52,
+   "cunning": 52,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 5
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Butcher turned innkeeper, a pupil of Lin Chong.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "song-wan",
+  "name": "Song Wan",
+  "nameZh": "宋万",
+  "nickname": "Cloud-Scraping Giant",
+  "nicknameZh": "云里金刚",
+  "star": {
+   "rank": 82,
+   "group": "earthly",
+   "nameZh": "地魔星",
+   "name": "Devil Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 60,
+   "cunning": 38,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 5
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Liangshan's early lieutenant under Wang Lun.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "du-qian",
+  "name": "Du Qian",
+  "nameZh": "杜迁",
+  "nickname": "Sky-Touching",
+  "nicknameZh": "摸着天",
+  "star": {
+   "rank": 83,
+   "group": "earthly",
+   "nameZh": "地妖星",
+   "name": "Demon Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 56,
+   "cunning": 40,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 5
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "One of Liangshan's founding bandits, a loyal subordinate.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "xue-yong",
+  "name": "Xue Yong",
+  "nameZh": "薛永",
+  "nickname": "Sickly Tiger",
+  "nicknameZh": "病大虫",
+  "star": {
+   "rank": 84,
+   "group": "earthly",
+   "nameZh": "地幽星",
+   "name": "Tranquil Star"
+  },
+  "abilities": {
+   "might": 64,
+   "command": 50,
+   "cunning": 56,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 6,
+   "daring": 5
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jiangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Wandering medicine seller who performs spear displays.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "shi-en",
+  "name": "Shi En",
+  "nameZh": "施恩",
+  "nickname": "Golden-Eyed Cub",
+  "nicknameZh": "金眼彪",
+  "star": {
+   "rank": 85,
+   "group": "earthly",
+   "nameZh": "地伏星",
+   "name": "Concealment Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 56,
+   "cunning": 60,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "mengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Son of the Mengzhou prison warden who runs the Happy Forest racket; a brawler by training.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-zhong",
+  "name": "Li Zhong",
+  "nameZh": "李忠",
+  "nickname": "Tiger-Fighting General",
+  "nicknameZh": "打虎将",
+  "star": {
+   "rank": 86,
+   "group": "earthly",
+   "nameZh": "地僻星",
+   "name": "Remote Star"
+  },
+  "abilities": {
+   "might": 60,
+   "command": 48,
+   "cunning": 44,
+   "vigour": 62
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 4
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "weizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Wandering performer and medicine seller who stumbles into the story early.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhou-tong",
+  "name": "Zhou Tong",
+  "nameZh": "周通",
+  "nickname": "Little Conqueror",
+  "nicknameZh": "小霸王",
+  "star": {
+   "rank": 87,
+   "group": "earthly",
+   "nameZh": "地空星",
+   "name": "Empty Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 50,
+   "cunning": 40,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "taohua-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Mount Taohua chieftain, bully and would-be groom.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "tang-long",
+  "name": "Tang Long",
+  "nameZh": "汤隆",
+  "nickname": "Gold-Coin Leopard",
+  "nicknameZh": "金钱豹子",
+  "star": {
+   "rank": 88,
+   "group": "earthly",
+   "nameZh": "地孤星",
+   "name": "Solitary Star"
+  },
+  "abilities": {
+   "might": 56,
+   "command": 40,
+   "cunning": 64,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 4
+  },
+  "skills": [
+   "smith"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "yanan",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Wu Yong needs a smith who knows the hooked-spear secret",
+  "rationale": "Master blacksmith, son of a famous weaponsmith.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "du-xing",
+  "name": "Du Xing",
+  "nameZh": "杜兴",
+  "nickname": "Ghost Face",
+  "nicknameZh": "鬼脸儿",
+  "star": {
+   "rank": 89,
+   "group": "earthly",
+   "nameZh": "地全星",
+   "name": "Complete Star"
+  },
+  "abilities": {
+   "might": 50,
+   "command": 46,
+   "cunning": 62,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 5,
+   "daring": 4
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jizhou-north",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Steward of the Li household who turns up in Ji prefecture on his master's business.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zou-yuan",
+  "name": "Zou Yuan",
+  "nameZh": "邹渊",
+  "nickname": "Forest Dragon",
+  "nicknameZh": "出林龙",
+  "star": {
+   "rank": 90,
+   "group": "earthly",
+   "nameZh": "地短星",
+   "name": "Short Star"
+  },
+  "abilities": {
+   "might": 64,
+   "command": 52,
+   "cunning": 44,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "dengyun-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Dengyun Mountain chief, uncle of Zou Run.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zou-run",
+  "name": "Zou Run",
+  "nameZh": "邹润",
+  "nickname": "Single-Horned Dragon",
+  "nicknameZh": "独角龙",
+  "star": {
+   "rank": 91,
+   "group": "earthly",
+   "nameZh": "地角星",
+   "name": "Horn Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 50,
+   "cunning": 42,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "dengyun-shan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Zou Yuan's nephew, strong-headed.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhu-gui",
+  "name": "Zhu Gui",
+  "nameZh": "朱贵",
+  "nickname": "Dry-Land Crocodile",
+  "nicknameZh": "旱地忽律",
+  "star": {
+   "rank": 92,
+   "group": "earthly",
+   "nameZh": "地囚星",
+   "name": "Prisoner Star"
+  },
+  "abilities": {
+   "might": 48,
+   "command": 60,
+   "cunning": 70,
+   "vigour": 56
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 4
+  },
+  "skills": [
+   "innkeeper",
+   "scout"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Liangshan's lookout innkeeper who watches the marsh road.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhu-fu",
+  "name": "Zhu Fu",
+  "nameZh": "朱富",
+  "nickname": "Smiling Tiger",
+  "nicknameZh": "笑面虎",
+  "star": {
+   "rank": 93,
+   "group": "earthly",
+   "nameZh": "地藏星",
+   "name": "Hidden Star"
+  },
+  "abilities": {
+   "might": 40,
+   "command": 44,
+   "cunning": 64,
+   "vigour": 46
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 3
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "yizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Zhu Gui's younger brother, tavern keeper.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "cai-fu",
+  "name": "Cai Fu",
+  "nameZh": "蔡福",
+  "nickname": "Iron Arm",
+  "nicknameZh": "铁臂膊",
+  "star": {
+   "rank": 94,
+   "group": "earthly",
+   "nameZh": "地平星",
+   "name": "Level Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 52,
+   "cunning": 54,
+   "vigour": 58
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 5
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Lu Junyi falls to Liangshan's plot and is jailed at Daming",
+  "rationale": "Daming executioner who sells his services.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "cai-qing",
+  "name": "Cai Qing",
+  "nameZh": "蔡庆",
+  "nickname": "Single Flower",
+  "nicknameZh": "一枝花",
+  "star": {
+   "rank": 95,
+   "group": "earthly",
+   "nameZh": "地损星",
+   "name": "Harm Star"
+  },
+  "abilities": {
+   "might": 58,
+   "command": 48,
+   "cunning": 52,
+   "vigour": 56
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 4
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Lu Junyi falls to Liangshan's plot and is jailed at Daming",
+  "rationale": "Cai Fu's brother, flower-wearing executioner.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-li",
+  "name": "Li Li",
+  "nameZh": "李立",
+  "nickname": "Life-Taking Judge",
+  "nicknameZh": "催命判官",
+  "star": {
+   "rank": 96,
+   "group": "earthly",
+   "nameZh": "地奴星",
+   "name": "Slave Star"
+  },
+  "abilities": {
+   "might": 58,
+   "command": 46,
+   "cunning": 44,
+   "vigour": 62
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 1,
+   "daring": 6
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jieyang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Tavern keeper who drugs travellers on the Yangtze road.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "li-yun",
+  "name": "Li Yun",
+  "nameZh": "李云",
+  "nickname": "Green-Eyed Tiger",
+  "nicknameZh": "青眼虎",
+  "star": {
+   "rank": 97,
+   "group": "earthly",
+   "nameZh": "地察星",
+   "name": "Detective Star"
+  },
+  "abilities": {
+   "might": 64,
+   "command": 50,
+   "cunning": 50,
+   "vigour": 64
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "yizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Yishui constable, a friend of Li Kui.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "jiao-ting",
+  "name": "Jiao Ting",
+  "nameZh": "焦挺",
+  "nickname": "Faceless",
+  "nicknameZh": "没面目",
+  "star": {
+   "rank": 98,
+   "group": "earthly",
+   "nameZh": "地恶星",
+   "name": "Evil Star"
+  },
+  "abilities": {
+   "might": 68,
+   "command": 46,
+   "cunning": 36,
+   "vigour": 76
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "zhongshan",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Wrestler of Zhongshan, rude and rough-handed.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "shi-yong",
+  "name": "Shi Yong",
+  "nameZh": "石勇",
+  "nickname": "Stone General",
+  "nicknameZh": "石将军",
+  "star": {
+   "rank": 99,
+   "group": "earthly",
+   "nameZh": "地丑星",
+   "name": "Ugly Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 42,
+   "cunning": 40,
+   "vigour": 62
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Gambler and wandering fighter of Daming.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "sun-xin",
+  "name": "Sun Xin",
+  "nameZh": "孙新",
+  "nickname": "Little Yuchi",
+  "nicknameZh": "小尉迟",
+  "star": {
+   "rank": 100,
+   "group": "earthly",
+   "nameZh": "地数星",
+   "name": "Number Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 54,
+   "cunning": 48,
+   "vigour": 64
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 5,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "dengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Dengzhou tavern keeper, brother-in-law of Xie Zhen.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "gu-dasao",
+  "name": "Gu Dasao",
+  "nameZh": "顾大嫂",
+  "nickname": "Female Tiger",
+  "nicknameZh": "母大虫",
+  "star": {
+   "rank": 101,
+   "group": "earthly",
+   "nameZh": "地阴星",
+   "name": "Yin Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 48,
+   "cunning": 56,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 7,
+   "compassion": 6,
+   "daring": 9
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "dengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Tavern keeper's wife, a spirited fighter.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "zhang-qing-gardener",
+  "name": "Zhang Qing",
+  "nameZh": "张青",
+  "nickname": "Vegetable Gardener",
+  "nicknameZh": "菜园子",
+  "star": {
+   "rank": 102,
+   "group": "earthly",
+   "nameZh": "地刑星",
+   "name": "Execute Star"
+  },
+  "abilities": {
+   "might": 64,
+   "command": 50,
+   "cunning": 52,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 3,
+   "daring": 5
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "mengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Ten-Foot Slope innkeeper and gardener.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "sun-erniang",
+  "name": "Sun Erniang",
+  "nameZh": "孙二娘",
+  "nickname": "Female Yaksha",
+  "nicknameZh": "母夜叉",
+  "star": {
+   "rank": 103,
+   "group": "earthly",
+   "nameZh": "地壮星",
+   "name": "Strong Star"
+  },
+  "abilities": {
+   "might": 66,
+   "command": 52,
+   "cunning": 58,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 2,
+   "daring": 7
+  },
+  "skills": [
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "mengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Zhang Qing's wife, runs a notorious inn.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "wang-dingliu",
+  "name": "Wang Dingliu",
+  "nameZh": "王定六",
+  "nickname": "Lightning Goddess",
+  "nicknameZh": "活闪婆",
+  "star": {
+   "rank": 104,
+   "group": "earthly",
+   "nameZh": "地劣星",
+   "name": "Inferior Star"
+  },
+  "abilities": {
+   "might": 42,
+   "command": 40,
+   "cunning": 52,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 5,
+   "daring": 4
+  },
+  "skills": [
+   "runner",
+   "innkeeper"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "jiankang",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After Zhang Shun is sent to fetch An Daoquan from Jiankang",
+  "rationale": "Jiankang tavern keeper and fast messenger.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "yu-baosi",
+  "name": "Yu Baosi",
+  "nameZh": "郁保四",
+  "nickname": "Road-Dangerous God",
+  "nicknameZh": "险道神",
+  "star": {
+   "rank": 105,
+   "group": "earthly",
+   "nameZh": "地健星",
+   "name": "Healthy Star"
+  },
+  "abilities": {
+   "might": 62,
+   "command": 40,
+   "cunning": 42,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Tall roadside bandit; the novel gives little detail.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "bai-sheng",
+  "name": "Bai Sheng",
+  "nameZh": "白胜",
+  "nickname": "Daylight Rat",
+  "nicknameZh": "白日鼠",
+  "star": {
+   "rank": 106,
+   "group": "earthly",
+   "nameZh": "地耗星",
+   "name": "Rat Star"
+  },
+  "abilities": {
+   "might": 36,
+   "command": 28,
+   "cunning": 60,
+   "vigour": 52
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 4,
+   "daring": 3
+  },
+  "skills": [
+   "thief"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Gambler and petty thief caught in the birthday-convoy affair.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "shi-qian",
+  "name": "Shi Qian",
+  "nameZh": "时迁",
+  "nickname": "Flea on a Drum",
+  "nicknameZh": "鼓上蚤",
+  "star": {
+   "rank": 107,
+   "group": "earthly",
+   "nameZh": "地贼星",
+   "name": "Thief Star"
+  },
+  "abilities": {
+   "might": 60,
+   "command": 36,
+   "cunning": 76,
+   "vigour": 80
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "thief",
+   "scout"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "rationale": "Rooftop thief and tomb-raider; breaks into any house.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ },
+ {
+  "id": "duan-jingzhu",
+  "name": "Duan Jingzhu",
+  "nameZh": "段景住",
+  "nickname": "Golden-Haired Hound",
+  "nicknameZh": "金毛犬",
+  "star": {
+   "rank": 108,
+   "group": "earthly",
+   "nameZh": "地狗星",
+   "name": "Hound Star"
+  },
+  "abilities": {
+   "might": 52,
+   "command": 40,
+   "cunning": 60,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 4,
+   "daring": 5
+  },
+  "skills": [
+   "horse-trader",
+   "thief"
+  ],
+  "start": {
+   "status": "free",
+   "prefecture": "youzhou",
+   "year": 1101
+  },
+  "joinsLate": true,
+  "joinTrigger": "After he steals the Zeng fortress's famous white charger",
+  "rationale": "Northern horse thief.",
+  "source": "Water Margin ch.  (first appearance); https://en.wikipedia.org/wiki/108_Heroes"
+ }
+]

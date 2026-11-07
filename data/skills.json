@@ -1,0 +1,134 @@
+[
+ {
+  "id": "spearman",
+  "name": "Spearman",
+  "effect": "Fights well with spear, halberd or staff on foot; counts toward line-holding and reach attacks.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "swordsman",
+  "name": "Swordsman",
+  "effect": "Skilled with blades and axes; better in melee duels and ambushes.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "archer",
+  "name": "Archer",
+  "effect": "Trained bowman or thrower; adds range attacks and covering fire.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "horseman",
+  "name": "Horseman",
+  "effect": "Rides and charges; leads cavalry and gains on open ground.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "marine",
+  "name": "Marine",
+  "effect": "Fights and commands on water and in boats; crews marsh and river fleets.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "swimmer",
+  "name": "Swimmer",
+  "effect": "Moves through deep water unseen; can scuttle boats and cross rivers without ferries.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "scout",
+  "name": "Scout",
+  "effect": "Reads terrain and enemy numbers; reveals hidden forces and routes.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "thief",
+  "name": "Thief",
+  "effect": "Steals, picks locks and breaks into walled towns; opens gates from inside.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "strategist",
+  "name": "Strategist",
+  "effect": "Plans stratagems and ambushes; improves army orders and trap setting.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "scribe",
+  "name": "Scribe",
+  "effect": "Writes, reckons and keeps records; improves administration and diplomacy.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "physician",
+  "name": "Physician",
+  "effect": "Heals wounds and illness; speeds recovery of the injured and the sick.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "smith",
+  "name": "Smith",
+  "effect": "Forges and mends arms and armour; raises equipment quality.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "builder",
+  "name": "Builder",
+  "effect": "Builds and repairs walls, boats and dykes; speeds construction.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "horse-trader",
+  "name": "Horse trader",
+  "effect": "Buys, judges and tends horses; improves mounts and cavalry supply.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "innkeeper",
+  "name": "Innkeeper",
+  "effect": "Runs inns and taverns as lookouts; gathers news and shelters travellers.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "monk",
+  "name": "Monk",
+  "effect": "Holy-order fighter or hermit; can shelter fugitives in temples and calm mobs.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "sorcerer",
+  "name": "Sorcerer",
+  "effect": "Novel-style weather and terrain stratagems; may call wind, fog or storms.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "drillmaster",
+  "name": "Drillmaster",
+  "effect": "Trains soldiers in formation drill; raises troop quality over time.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "firebrand",
+  "name": "Firebrand",
+  "effect": "Fire and powder specialist; sets blazes, gunpowder engines and fire-ships.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "forger",
+  "name": "Forger",
+  "effect": "Copies seals, hands and papers; produces forged orders and letters.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "runner",
+  "name": "Runner",
+  "effect": "Fast messenger on foot; carries orders and news at several times normal speed.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ },
+ {
+  "id": "beast-slayer",
+  "name": "Beast-slayer",
+  "effect": "Hunter of tigers and wild beasts; clears monster-infested ground and boosts morale on kills.",
+  "source": "Closed list fixed in docs/briefs (frozen contract); effect hook for the rules spec to fill with numbers"
+ }
+]

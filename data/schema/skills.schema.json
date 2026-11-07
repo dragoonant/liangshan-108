@@ -1,0 +1,58 @@
+{
+ "$schema": "http://json-schema.org/draft/2020-12/schema",
+ "title": "Skills",
+ "type": "array",
+ "items": {
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "name",
+   "effect",
+   "source"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "enum": [
+     "spearman",
+     "swordsman",
+     "archer",
+     "horseman",
+     "marine",
+     "swimmer",
+     "scout",
+     "thief",
+     "strategist",
+     "scribe",
+     "physician",
+     "smith",
+     "builder",
+     "horse-trader",
+     "innkeeper",
+     "monk",
+     "sorcerer",
+     "drillmaster",
+     "firebrand",
+     "forger",
+     "runner",
+     "beast-slayer"
+    ]
+   },
+   "name": {
+    "type": "string",
+    "minLength": 1
+   },
+   "effect": {
+    "type": "string",
+    "minLength": 1
+   },
+   "source": {
+    "type": "string",
+    "minLength": 1
+   }
+  }
+ },
+ "minItems": 22,
+ "maxItems": 22
+}
