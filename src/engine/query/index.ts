@@ -138,7 +138,7 @@ export const query = {
     const c = mkCtx(s, data)
     const out: Hint[] = []
     const r = renownInfo(s)
-    if (!r.granted && r.status !== 'green') out.push({ rule: 'R-8', text: `Edict pace is ${r.status}: you need ${r.required.toFixed(1)} Renown a month and earn ${r.rate.toFixed(1)}. Relieve, hunt bandits and win battles.`, command: 'relieve' })
+    if (!r.granted && r.status !== 'green' && r.status !== 'measuring') out.push({ rule: 'R-8', text: `Edict pace is ${r.status}: you need ${r.required.toFixed(1)} Renown a month and earn ${r.rate.toFixed(1)}. Relieve, hunt bandits and win battles.`, command: 'relieve' })
     for (const id of c.x.order) {
       const p = ps(c, id)
       if (p.owner !== 'player') continue
@@ -155,7 +155,7 @@ export const query = {
     }
     const cp = s.factions['court']!.campaign
     if (cp) out.push({ rule: 'G-6', text: `The court marches on ${prefName(c, cp.objective)} next month`, command: 'attack' })
-    const idle = Object.values(s.commandsLeft).reduce((a, b) => a + b, 0)
+    const idle = Object.entries(s.commandsLeft).filter(([id]) => s.prefectures[id]?.owner === 'player').reduce((a, [, n]) => a + n, 0) // only the player's own prefectures
     if (idle > 0 && s.phase === 'strategic') out.push({ rule: 'T-3', text: `${idle} command(s) unused this month` })
     return { pinned: s.t < 3, hints: out.slice(0, 3) }
   },

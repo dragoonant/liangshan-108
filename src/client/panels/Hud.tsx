@@ -4,7 +4,7 @@ import type { GameState } from '../../engine'
 import { useGame, viewOf } from '../store/game'
 import { Meter, Tip, signed } from '../ui'
 
-const STATUS_TEXT = { green: 'On pace', amber: 'Tight', red: 'Behind' } as const
+const STATUS_TEXT = { measuring: 'Measuring', green: 'On pace', amber: 'Tight', red: 'Behind' } as const
 
 export function Hud({ s }: { s: GameState }) {
   const { set2, backToTitle, storageNote } = useGame()
@@ -31,12 +31,12 @@ export function Hud({ s }: { s: GameState }) {
         ) : (
           <>
             <b className="num"><span data-testid="renown-n">{r.renown}</span> / {need} <span className={`trend ${r.trend > 0 ? 'up' : r.trend < 0 ? 'down' : ''}`}>{arrow} {signed(r.trend)}/mo</span></b>
-            <Meter value={r.renown} max={need} label={`Renown ${r.renown} of ${need}`} tone={r.status === 'green' ? 'ok' : r.status === 'amber' ? 'warn' : 'bad'} />
+            <Meter value={r.renown} max={need} label={`Renown ${r.renown} of ${need}`} tone={r.status === 'green' || r.status === 'measuring' ? 'ok' : r.status === 'amber' ? 'warn' : 'bad'} />
             <small data-testid="edict-projection">Edict {r.projectedLabel}; needed by {r.edictByLabel}. Needs {r.required.toFixed(1)}/mo, earning {r.rate.toFixed(1)}/mo.</small>
           </>
         )}
       </div>
-      <Tip text={r.granted ? 'The Edict is granted. The capital can now be attacked.' : `Edict pace: ${STATUS_TEXT[r.status]}. Green means the projection lands 6 or more months before the Edict-by date; amber means on or before it; red means later or never.`}>
+      <Tip text={r.granted ? 'The Edict is granted. The capital can now be attacked.' : `Edict pace: ${STATUS_TEXT[r.status]}. Green means the projection lands 6 or more months before the Edict-by date; amber means on or before it; red means later or never; measuring means too few months have passed to judge.`}>
         <span className={`lamp-status ${r.status}`} data-testid="edict-status"><i />{r.granted ? 'Edict' : STATUS_TEXT[r.status]}</span>
       </Tip>
       <div className="hud-menu">

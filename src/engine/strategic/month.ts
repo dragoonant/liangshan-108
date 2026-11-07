@@ -146,9 +146,9 @@ export function monthEnd(c: Ctx): void {
   emit(c, 'month', 'T-1', `${label(s.t)} begins`)
   // statusWorst toast (R-8)
   const info = renownInfo(c.s, c.x)
-  const st = info.status === 'green' ? 0 : info.status === 'amber' ? 1 : 2
-  if (st > pf.statusWorst) emit(c, 'toast', 'R-8', `Edict pace is now ${info.status}: ${info.rate.toFixed(1)} a month against ${info.required.toFixed(1)} needed`)
-  pf.statusWorst = st
+  const st = info.status === 'measuring' ? -1 : info.status === 'green' ? 0 : info.status === 'amber' ? 1 : 2
+  if (st >= 0 && st > pf.statusWorst) emit(c, 'toast', 'R-8', `Edict pace is now ${info.status}: ${info.rate.toFixed(1)} a month against ${info.required.toFixed(1)} needed`)
+  if (st >= 0) pf.statusWorst = st
   void DEADLINE; void isWinter; void pct
 }
 

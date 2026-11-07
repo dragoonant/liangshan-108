@@ -4,7 +4,7 @@ import { EDICT } from '../../src/engine/calendar'
 import { ps } from '../../src/engine/ctx'
 import { startBattle } from '../../src/engine/battle/setup'
 import { driveBattle } from '../../src/engine/step'
-import { game, ctxOf, ok, endOf, setPref, D } from './helpers'
+import { game, ctxOf, ok, endOf, setPref, toMonth, D } from './helpers'
 
 const A = (t: string, extra: object = {}) => ({ t, pref: 'yunzhou', actor: 'song-jiang', ...extra }) as never
 
@@ -101,7 +101,23 @@ describe('R renown and the Edict', () => {
     expect(mk(40).status).toBe('green')
     expect(mk(50).required).toBeGreaterThan(2)
     const t = endOf(game())
-    expect(t.log.some((l) => l.kind === 'toast' && l.rule === 'R-8')).toBe(true)
+    expect(t.log.some((l) => l.kind === 'toast' && l.rule === 'R-8')).toBe(false) // still measuring
+    const u = toMonth(game(), 3)
+    expect(u.log.some((l) => l.kind === 'toast' && l.rule === 'R-8')).toBe(true)
+  })
+  test('R-8 measuring: before 3 month-ends the pace is not judged, no advice or toast; from month 3 it is', () => {
+    const s = game()
+    const q = query.renown(s)
+    expect([q.status, q.projectedT, q.projectedLabel]).toEqual(['measuring', null, 'measuring until Apr 1101'])
+    expect(query.advice(s, D).hints.some((h) => h.rule === 'R-8')).toBe(false)
+    s.t = 3
+    expect(query.renown(s).status).not.toBe('measuring')
+  })
+  test('T-3 advice counts unused commands only in the player\'s own prefectures', () => {
+    const s = game()
+    const mine = Object.entries(s.commandsLeft).filter(([id]) => s.prefectures[id]!.owner === 'player').reduce((a, [, n]) => a + n, 0)
+    const hint = query.advice(s, D).hints.find((h) => h.rule === 'T-3')
+    expect(hint?.text).toBe(`${mine} command(s) unused this month`)
   })
   test('R-9 at month end with Renown 500 the Edict is granted, the capital opens and is garrisoned to 6000 over 3 months; it stays', () => {
     let s = game()

@@ -1,4 +1,5 @@
 import { Footer } from '../ui'
+import { clientQuery } from '../../engine'
 
 export function HelpBody() {
   return (
@@ -13,7 +14,7 @@ export function HelpBody() {
         <li><b>Food.</b> A prefecture with less than two months of food is warned in amber; with less than one, in red, and men desert.</li>
         <li><b>Support.</b> At 15 or less the people revolt next month.</li>
         <li><b>Loyalty.</b> Ordinary heroes who fall to 25 or less will leave. Sworn brothers never do.</li>
-        <li><b>Renown.</b> Earned by justice, relief, beasts and bandits, battles and heroes. The ledger shows each source. 500 earns the Edict.</li>
+        <li><b>Renown.</b> Earned by justice, relief, beasts and bandits, battles and heroes. The ledger shows each source. {clientQuery.edictThreshold()} earns the Edict.</li>
         <li><b>Forecast.</b> Snowed-in passes and scheduled disasters are shown a month ahead.</li>
         <li><b>The court's campaigns.</b> The court announces a march one month before it arrives.</li>
       </ul>
