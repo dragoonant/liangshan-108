@@ -10,4 +10,4 @@
 - `tools/sim.ts` and `docs/spec/70-sim-results.md` (balance table; read it before touching numbers).
 - Open items: see the `RULING` lines in `PLAN.md` and `test.todo` in `tests/unit` (client-only rules, the famine story event).
 
-Waiting on the owner to create the new repo and enable Pages (D1).
+Moved to `dragoonant/liangshan-108` on 2026-11-07 (D1). Next: the owner picks balance-first or playable-first (see the sim table).

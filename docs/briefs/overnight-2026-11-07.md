@@ -1,6 +1,6 @@
 # Overnight brief, 2026-11-07 (M0 + M1, then M2)
 
-Shared by every agent tonight. Read `PLAN.md`, `CLAUDE.md` and `docs/research/original-complaints.md` first. Working copy: `/home/user/liangshan-108` (branch `claude/inspiring-hypatia-73p6th`, orphan, this game only). The sibling game to copy patterns from is `/home/user/three-kingdoms-tactics` (read-only for you). The KB is `/home/user/tabletop-kb` (read-only; read only `rules.md` rules 2, 3, 8, 22, 23).
+Shared by every agent tonight. Read `PLAN.md`, `CLAUDE.md` and `docs/research/original-complaints.md` first. Working copy: this repo (branch `claude/inspiring-hypatia-73p6th`, orphan, this game only). The sibling game to copy patterns from is a clone of `dragoonant/three-kingdoms-tactics` (read-only for you). The KB is `docs/knowledge-base/` (read-only; read only `rules.md` rules 2, 3, 8, 22, 23).
 
 ## Hard constraints
 - **IP:** people, places, nicknames and events come from the public-domain novel *Water Margin*. All prose, system names, UI text and numbers are ours. Do **not** look up or reproduce Koei's stat values, stat lists, event texts, map layout or UI from *Bandit Kings of Ancient China*; we answer its complaints (C1-C13), we do not copy it. Never write "Bandit Kings" or "Tenmei no Chikai" in game text, UI, specs or data; the lineage statements in `PLAN.md`, `CLAUDE.md`, the KB entry and `docs/research/` are the only exceptions (coordinator amendment, 2026-11-07).
