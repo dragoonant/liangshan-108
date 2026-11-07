@@ -1,0 +1,185 @@
+{
+ "$schema": "http://json-schema.org/draft/2020-12/schema",
+ "title": "Court",
+ "type": "array",
+ "items": {
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Court figure",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+   "id",
+   "name",
+   "nameZh",
+   "abilities",
+   "virtues",
+   "skills",
+   "start",
+   "joinsLate",
+   "rationale",
+   "source",
+   "office"
+  ],
+  "properties": {
+   "id": {
+    "type": "string",
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+   },
+   "name": {
+    "type": "string",
+    "pattern": "^[A-Za-z' ]+$"
+   },
+   "nameZh": {
+    "type": "string",
+    "minLength": 1
+   },
+   "nickname": {
+    "type": "string",
+    "minLength": 1
+   },
+   "nicknameZh": {
+    "type": "string",
+    "minLength": 1
+   },
+   "abilities": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "might",
+     "command",
+     "cunning",
+     "vigour"
+    ],
+    "properties": {
+     "might": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+     },
+     "command": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+     },
+     "cunning": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+     },
+     "vigour": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+     }
+    }
+   },
+   "virtues": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "righteousness",
+     "compassion",
+     "daring"
+    ],
+    "properties": {
+     "righteousness": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "compassion": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     },
+     "daring": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+     }
+    }
+   },
+   "skills": {
+    "type": "array",
+    "maxItems": 3,
+    "uniqueItems": true,
+    "items": {
+     "type": "string",
+     "enum": [
+      "spearman",
+      "swordsman",
+      "archer",
+      "horseman",
+      "marine",
+      "swimmer",
+      "scout",
+      "thief",
+      "strategist",
+      "scribe",
+      "physician",
+      "smith",
+      "builder",
+      "horse-trader",
+      "innkeeper",
+      "monk",
+      "sorcerer",
+      "drillmaster",
+      "firebrand",
+      "forger",
+      "runner",
+      "beast-slayer"
+     ]
+    }
+   },
+   "start": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "status",
+     "prefecture",
+     "year"
+    ],
+    "properties": {
+     "status": {
+      "type": "string",
+      "enum": [
+       "free",
+       "official",
+       "outlaw",
+       "captive-of-court"
+      ]
+     },
+     "prefecture": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+     },
+     "year": {
+      "type": "integer",
+      "minimum": 1100,
+      "maximum": 1130
+     }
+    }
+   },
+   "joinsLate": {
+    "type": "boolean"
+   },
+   "joinTrigger": {
+    "type": "string",
+    "minLength": 1
+   },
+   "rationale": {
+    "type": "string",
+    "minLength": 1
+   },
+   "source": {
+    "type": "string",
+    "minLength": 1
+   },
+   "office": {
+    "type": "string",
+    "minLength": 1
+   }
+  }
+ },
+ "minItems": 16
+}

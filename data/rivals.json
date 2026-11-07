@@ -1,0 +1,673 @@
+[
+ {
+  "id": "zhu-chaofeng",
+  "name": "Zhu Chaofeng",
+  "nameZh": "祝朝奉",
+  "abilities": {
+   "might": 30,
+   "command": 60,
+   "cunning": 56,
+   "vigour": 44
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Head of the Zhu clan",
+  "rationale": "Patriarch of the Zhu Family Village; trusts in his walls and his three sons.",
+  "source": "Water Margin ch. 46-50; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zhu Family Village",
+  "stronghold": "zhujiazhuang"
+ },
+ {
+  "id": "zhu-long",
+  "name": "Zhu Long",
+  "nameZh": "祝龙",
+  "abilities": {
+   "might": 72,
+   "command": 60,
+   "cunning": 40,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Eldest son of the Zhu clan",
+  "rationale": "Eldest Zhu son, killed by Lin Chong.",
+  "source": "Water Margin ch. 47-50; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zhu Family Village",
+  "stronghold": "zhujiazhuang"
+ },
+ {
+  "id": "zhu-hu",
+  "name": "Zhu Hu",
+  "nameZh": "祝虎",
+  "abilities": {
+   "might": 70,
+   "command": 58,
+   "cunning": 40,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Second son of the Zhu clan",
+  "rationale": "Second Zhu son.",
+  "source": "Water Margin ch. 47-50; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zhu Family Village",
+  "stronghold": "zhujiazhuang"
+ },
+ {
+  "id": "zhu-biao",
+  "name": "Zhu Biao",
+  "nameZh": "祝彪",
+  "abilities": {
+   "might": 76,
+   "command": 62,
+   "cunning": 46,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 7
+  },
+  "skills": [
+   "archer",
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Youngest son of the Zhu clan",
+  "rationale": "Youngest Zhu son, engaged to Hu Sanniang; kills Chao Gai's allies.",
+  "source": "Water Margin ch. 47-50, 55-56; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zhu Family Village",
+  "stronghold": "zhujiazhuang"
+ },
+ {
+  "id": "luan-tingyu",
+  "name": "Luan Tingyu",
+  "nameZh": "栾廷玉",
+  "nickname": "Iron Staff",
+  "nicknameZh": "铁棒",
+  "abilities": {
+   "might": 88,
+   "command": 78,
+   "cunning": 56,
+   "vigour": 80
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "spearman",
+   "drillmaster"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zhujiazhuang",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Arms instructor of the Zhu clan",
+  "rationale": "Iron-staff arms master and defender of the Zhu clan; Sun Li's old classmate.",
+  "source": "Water Margin ch. 47-50; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zhu Family Village",
+  "stronghold": "zhujiazhuang"
+ },
+ {
+  "id": "zeng-nong",
+  "name": "Zeng Nong",
+  "nameZh": "曾弄",
+  "abilities": {
+   "might": 35,
+   "command": 58,
+   "cunning": 50,
+   "vigour": 46
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Head of the Zeng clan",
+  "rationale": "Head of the Zeng Family Fortress; kills Liangshan's chief by proxy and then refuses peace.",
+  "source": "Water Margin ch. 59-60, 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "zeng-tu",
+  "name": "Zeng Tu",
+  "nameZh": "曾涂",
+  "abilities": {
+   "might": 74,
+   "command": 62,
+   "cunning": 42,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "horseman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Eldest son of the Zeng clan",
+  "rationale": "Eldest Zeng son, killed by Lyu Fang and Guo Sheng.",
+  "source": "Water Margin ch. 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "zeng-mi",
+  "name": "Zeng Mi",
+  "nameZh": "曾密",
+  "abilities": {
+   "might": 70,
+   "command": 58,
+   "cunning": 40,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Second son of the Zeng clan",
+  "rationale": "Second Zeng son.",
+  "source": "Water Margin ch. 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "zeng-suo",
+  "name": "Zeng Suo",
+  "nameZh": "曾索",
+  "abilities": {
+   "might": 68,
+   "command": 52,
+   "cunning": 38,
+   "vigour": 66
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Third son of the Zeng clan",
+  "rationale": "Third Zeng son; lays ambushes.",
+  "source": "Water Margin ch. 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "zeng-kui",
+  "name": "Zeng Kui",
+  "nameZh": "曾魁",
+  "abilities": {
+   "might": 70,
+   "command": 54,
+   "cunning": 38,
+   "vigour": 68
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Fourth son of the Zeng clan",
+  "rationale": "Fourth Zeng son.",
+  "source": "Water Margin ch. 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "zeng-sheng",
+  "name": "Zeng Sheng",
+  "nameZh": "曾升",
+  "abilities": {
+   "might": 55,
+   "command": 40,
+   "cunning": 36,
+   "vigour": 56
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 5
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Youngest son of the Zeng clan",
+  "rationale": "Youngest Zeng son, hostage during the truce talks.",
+  "source": "Water Margin ch. 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "shi-wengong",
+  "name": "Shi Wengong",
+  "nameZh": "史文恭",
+  "abilities": {
+   "might": 95,
+   "command": 84,
+   "cunning": 60,
+   "vigour": 90
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "archer",
+   "horseman",
+   "drillmaster"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Arms instructor of the Zeng clan",
+  "rationale": "Peerless arms master whose poisoned arrow kills the marsh's first chief; the final prize of the Zeng campaign.",
+  "source": "Water Margin ch. 59-68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "su-ding",
+  "name": "Su Ding",
+  "nameZh": "苏定",
+  "abilities": {
+   "might": 78,
+   "command": 68,
+   "cunning": 44,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "zengtou-shi",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Deputy arms instructor of the Zeng clan",
+  "rationale": "Zeng clan's second arms master.",
+  "source": "Water Margin ch. 68; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Zeng Family Fortress",
+  "stronghold": "zengtou-shi"
+ },
+ {
+  "id": "wang-lun",
+  "name": "Wang Lun",
+  "nameZh": "王伦",
+  "nickname": "White-Robed Scholar",
+  "nicknameZh": "白衣秀士",
+  "abilities": {
+   "might": 40,
+   "command": 46,
+   "cunning": 60,
+   "vigour": 44
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 3
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "First chief of Liangshan",
+  "rationale": "Failed examination candidate and first chief of Liangshan; too jealous to keep better men.",
+  "source": "Water Margin ch. 11, 19; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Old Liangshan",
+  "stronghold": "jizhou"
+ },
+ {
+  "id": "tian-hu",
+  "name": "Tian Hu",
+  "nameZh": "田虎",
+  "abilities": {
+   "might": 80,
+   "command": 66,
+   "cunning": 50,
+   "vigour": 76
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 1,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "taiyuan",
+   "year": 1118
+  },
+  "joinsLate": false,
+  "office": "Self-declared king",
+  "rationale": "Rebel king of the Hedong territories in the later campaign.",
+  "source": "Water Margin ch. 91-99; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Tian Hu's rebels",
+  "stronghold": "taiyuan"
+ },
+ {
+  "id": "wang-qing",
+  "name": "Wang Qing",
+  "nameZh": "王庆",
+  "abilities": {
+   "might": 72,
+   "command": 62,
+   "cunning": 56,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 1,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "xiangyang",
+   "year": 1118
+  },
+  "joinsLate": false,
+  "office": "Self-declared king",
+  "rationale": "Rebel leader in the Huaixi territories in the later campaign.",
+  "source": "Water Margin ch. 101-110; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Wang Qing's rebels",
+  "stronghold": "xiangyang"
+ },
+ {
+  "id": "fang-la",
+  "name": "Fang La",
+  "nameZh": "方腊",
+  "abilities": {
+   "might": 78,
+   "command": 70,
+   "cunning": 64,
+   "vigour": 76
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 7
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "hangzhou",
+   "year": 1120
+  },
+  "joinsLate": false,
+  "office": "Rebel emperor",
+  "rationale": "Southern rebel emperor whose uprising closes the novel.",
+  "source": "Water Margin ch. 110-119; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Fang La's rebels",
+  "stronghold": "hangzhou"
+ },
+ {
+  "id": "fang-tianding",
+  "name": "Fang Tianding",
+  "nameZh": "方天定",
+  "abilities": {
+   "might": 90,
+   "command": 72,
+   "cunning": 40,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 9
+  },
+  "skills": [
+   "horseman",
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "suzhou",
+   "year": 1120
+  },
+  "joinsLate": false,
+  "office": "Rebel general",
+  "rationale": "Fang La's son and a feared lancer.",
+  "source": "Water Margin ch. 110-119; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Fang La's rebels",
+  "stronghold": "suzhou"
+ },
+ {
+  "id": "shi-bao",
+  "name": "Shi Bao",
+  "nameZh": "石宝",
+  "abilities": {
+   "might": 92,
+   "command": 80,
+   "cunning": 56,
+   "vigour": 86
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "horseman",
+   "swordsman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "suzhou",
+   "year": 1120
+  },
+  "joinsLate": false,
+  "office": "Rebel general",
+  "rationale": "Fang La's champion with meteor hammers.",
+  "source": "Water Margin ch. 110-119; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Fang La's rebels",
+  "stronghold": "suzhou"
+ },
+ {
+  "id": "deng-yuanjue",
+  "name": "Deng Yuanjue",
+  "nameZh": "邓元觉",
+  "abilities": {
+   "might": 94,
+   "command": 70,
+   "cunning": 50,
+   "vigour": 92
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "monk",
+   "spearman"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "hangzhou",
+   "year": 1120
+  },
+  "joinsLate": false,
+  "office": "Rebel general",
+  "rationale": "Fang La's warrior-monk.",
+  "source": "Water Margin ch. 110-119; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Fang La's rebels",
+  "stronghold": "hangzhou"
+ },
+ {
+  "id": "pang-wanchun",
+  "name": "Pang Wanchun",
+  "nameZh": "庞万春",
+  "abilities": {
+   "might": 78,
+   "command": 66,
+   "cunning": 56,
+   "vigour": 74
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 8
+  },
+  "skills": [
+   "archer"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "hangzhou",
+   "year": 1120
+  },
+  "joinsLate": false,
+  "office": "Rebel general",
+  "rationale": "Fang La's archer who shoots true at a great distance.",
+  "source": "Water Margin ch. 110-119; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Fang La's rebels",
+  "stronghold": "hangzhou"
+ },
+ {
+  "id": "bao-daoyi",
+  "name": "Bao Daoyi",
+  "nameZh": "包道乙",
+  "abilities": {
+   "might": 52,
+   "command": 58,
+   "cunning": 86,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 1,
+   "daring": 5
+  },
+  "skills": [
+   "sorcerer"
+  ],
+  "start": {
+   "status": "outlaw",
+   "prefecture": "hangzhou",
+   "year": 1120
+  },
+  "joinsLate": false,
+  "office": "Rebel priest",
+  "rationale": "Fang La's sorcerer-priest.",
+  "source": "Water Margin ch. 110-119; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters",
+  "faction": "Fang La's rebels",
+  "stronghold": "hangzhou"
+ }
+]

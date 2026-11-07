@@ -1,0 +1,532 @@
+[
+ {
+  "id": "gao-qiu",
+  "name": "Gao Qiu",
+  "nameZh": "高俅",
+  "abilities": {
+   "might": 60,
+   "command": 80,
+   "cunning": 70,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 6
+  },
+  "skills": [
+   "horseman",
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Grand Marshal",
+  "rationale": "Football-playing favourite promoted to Grand Marshal; ruins Lin Chong and every honest officer.",
+  "source": "Water Margin ch. 1-2, 7; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "cai-jing",
+  "name": "Cai Jing",
+  "nameZh": "蔡京",
+  "abilities": {
+   "might": 15,
+   "command": 70,
+   "cunning": 92,
+   "vigour": 30
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 3
+  },
+  "skills": [
+   "scribe",
+   "strategist"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Grand Preceptor",
+  "rationale": "Grand Preceptor and chief minister; sells offices, takes the birthday convoy.",
+  "source": "Water Margin ch. 16; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "tong-guan",
+  "name": "Tong Guan",
+  "nameZh": "童贯",
+  "abilities": {
+   "might": 40,
+   "command": 76,
+   "cunning": 66,
+   "vigour": 56
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 4
+  },
+  "skills": [
+   "drillmaster"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Commissioner of Military Affairs",
+  "rationale": "Eunuch general who commands the northern armies and the campaigns against the marsh.",
+  "source": "Water Margin ch. 75-76; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "yang-jian",
+  "name": "Yang Jian",
+  "nameZh": "杨戬",
+  "abilities": {
+   "might": 25,
+   "command": 50,
+   "cunning": 76,
+   "vigour": 40
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 1,
+   "daring": 3
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Palace Eunuch",
+  "rationale": "Court eunuch who profits from the emperor's pleasure projects and grain tolls.",
+  "source": "Water Margin ch. 101; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "gao-lian",
+  "name": "Gao Lian",
+  "nameZh": "高廉",
+  "abilities": {
+   "might": 62,
+   "command": 66,
+   "cunning": 72,
+   "vigour": 60
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 1,
+   "daring": 6
+  },
+  "skills": [
+   "sorcerer"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Prefect of Gaotang",
+  "rationale": "Gao Qiu's cousin and governor of Gaotang; a sorcerer-general who lays fog on Liangshan.",
+  "source": "Water Margin ch. 51-54; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "gao-yanei",
+  "name": "Gao Yanei",
+  "nameZh": "高衙内",
+  "abilities": {
+   "might": 30,
+   "command": 10,
+   "cunning": 20,
+   "vigour": 40
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 5
+  },
+  "skills": [],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Young Master of the Gao household",
+  "rationale": "Gao Qiu's adopted son and bully; his lust sets Lin Chong's ruin in motion.",
+  "source": "Water Margin ch. 6-7; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "emperor-huizong",
+  "name": "Emperor Huizong",
+  "nameZh": "宋徽宗",
+  "abilities": {
+   "might": 15,
+   "command": 50,
+   "cunning": 40,
+   "vigour": 35
+  },
+  "virtues": {
+   "righteousness": 5,
+   "compassion": 6,
+   "daring": 2
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Emperor",
+  "rationale": "Art-loving emperor who leaves government to his favourites and issues the Edict.",
+  "source": "Water Margin ch. 1, 72, 81; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "liang-shijie",
+  "name": "Liang Shijie",
+  "nameZh": "梁世杰",
+  "abilities": {
+   "might": 25,
+   "command": 55,
+   "cunning": 60,
+   "vigour": 40
+  },
+  "virtues": {
+   "righteousness": 3,
+   "compassion": 2,
+   "daring": 3
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Governor of Daming",
+  "rationale": "Cai Jing's son-in-law and governor of Daming; sends the birthday gifts south.",
+  "source": "Water Margin ch. 12, 61; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "li-cheng",
+  "name": "Li Cheng",
+  "nameZh": "李成",
+  "abilities": {
+   "might": 80,
+   "command": 76,
+   "cunning": 50,
+   "vigour": 72
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 7
+  },
+  "skills": [
+   "horseman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "General of Daming",
+  "rationale": "Daming general who commands the garrison against Liangshan.",
+  "source": "Water Margin ch. 64-66; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "wen-datong",
+  "name": "Wen Datong",
+  "nameZh": "闻达",
+  "abilities": {
+   "might": 76,
+   "command": 72,
+   "cunning": 48,
+   "vigour": 70
+  },
+  "virtues": {
+   "righteousness": 6,
+   "compassion": 4,
+   "daring": 6
+  },
+  "skills": [
+   "spearman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "daming",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "General of Daming",
+  "rationale": "Daming general paired with Li Cheng.",
+  "source": "Water Margin ch. 64-66; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "cai-jiu",
+  "name": "Cai Jiu",
+  "nameZh": "蔡九知府",
+  "abilities": {
+   "might": 20,
+   "command": 40,
+   "cunning": 35,
+   "vigour": 38
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 3
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jiangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Prefect of Jiangzhou",
+  "rationale": "Cai Jing's son and prefect of Jiangzhou; sentences Song Jiang to die.",
+  "source": "Water Margin ch. 39; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "huang-wenbing",
+  "name": "Huang Wenbing",
+  "nameZh": "黄文炳",
+  "abilities": {
+   "might": 20,
+   "command": 50,
+   "cunning": 82,
+   "vigour": 40
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "jiangzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Jiangzhou clerk and informer",
+  "rationale": "Scheming retired official who reads Song Jiang's poem as treason.",
+  "source": "Water Margin ch. 39; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "liu-gao",
+  "name": "Liu Gao",
+  "nameZh": "刘高",
+  "abilities": {
+   "might": 40,
+   "command": 45,
+   "cunning": 38,
+   "vigour": 50
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "qingfeng-zhai",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Deputy of Qingfeng Fort",
+  "rationale": "Deputy of Qingfeng Fort who clashes with Hua Rong and mistreats Song Jiang.",
+  "source": "Water Margin ch. 33-34; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "murong-yanda",
+  "name": "Murong Yanda",
+  "nameZh": "慕容彦达",
+  "abilities": {
+   "might": 30,
+   "command": 50,
+   "cunning": 52,
+   "vigour": 46
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 4
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "qingzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Prefect of Qingzhou",
+  "rationale": "Qingzhou prefect, brother of a palace consort; bullies the region.",
+  "source": "Water Margin ch. 57-58; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "zhang-dutian",
+  "name": "Zhang Dutian",
+  "nameZh": "张都监",
+  "abilities": {
+   "might": 30,
+   "command": 52,
+   "cunning": 60,
+   "vigour": 48
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 5
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "mengzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Military Inspector of Mengzhou",
+  "rationale": "Mengzhou military inspector who frames Wu Song at the Mandarin Duck Tower.",
+  "source": "Water Margin ch. 30-31; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "lu-qian",
+  "name": "Lu Qian",
+  "nameZh": "陆谦",
+  "abilities": {
+   "might": 55,
+   "command": 30,
+   "cunning": 46,
+   "vigour": 50
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 4
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Gao Qiu's household captain",
+  "rationale": "Lin Chong's false friend who lures him into the White Tiger Hall trap.",
+  "source": "Water Margin ch. 6-7; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "cheng-wanli",
+  "name": "Cheng Wanli",
+  "nameZh": "程万里",
+  "abilities": {
+   "might": 24,
+   "command": 44,
+   "cunning": 48,
+   "vigour": 38
+  },
+  "virtues": {
+   "righteousness": 4,
+   "compassion": 3,
+   "daring": 3
+  },
+  "skills": [
+   "scribe"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "yunzhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Prefect of Dongping",
+  "rationale": "Prefect of Dongping who refuses to bargain with Song Jiang.",
+  "source": "Water Margin ch. 67-69; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "yin-tianxi",
+  "name": "Yin Tianxi",
+  "nameZh": "殷天锡",
+  "abilities": {
+   "might": 36,
+   "command": 18,
+   "cunning": 24,
+   "vigour": 44
+  },
+  "virtues": {
+   "righteousness": 1,
+   "compassion": 1,
+   "daring": 6
+  },
+  "skills": [],
+  "start": {
+   "status": "official",
+   "prefecture": "jizhou",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Relative of the Prefect",
+  "rationale": "Gao Lian's brother-in-law and Chai Jin's bully neighbour in Gaotang.",
+  "source": "Water Margin ch. 51; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ },
+ {
+  "id": "dong-chao",
+  "name": "Dong Chao",
+  "nameZh": "董超",
+  "abilities": {
+   "might": 46,
+   "command": 20,
+   "cunning": 30,
+   "vigour": 52
+  },
+  "virtues": {
+   "righteousness": 2,
+   "compassion": 2,
+   "daring": 4
+  },
+  "skills": [
+   "swordsman"
+  ],
+  "start": {
+   "status": "official",
+   "prefecture": "dongjing",
+   "year": 1101
+  },
+  "joinsLate": false,
+  "office": "Escort constable",
+  "rationale": "Prison escort who tries to kill Lin Chong on the road to exile.",
+  "source": "Water Margin ch. 8; https://en.wikipedia.org/wiki/List_of_Water_Margin_characters"
+ }
+]
