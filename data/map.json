@@ -1,0 +1,1530 @@
+{
+ "prefectures": [
+  {
+   "id": "dongjing",
+   "name": "Dongjing (Kaifeng)",
+   "nameZh": "东京开封府",
+   "circuit": "Jingji",
+   "pos": {
+    "x": 0.506,
+    "y": 0.459
+   },
+   "lon": 114.35,
+   "lat": 34.8,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 650000,
+    "land": 80,
+    "flood": 45
+   },
+   "special": [
+    "capital",
+    "grand-canal"
+   ],
+   "note": "Northern Song capital; seat of Gao Qiu's court.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "yingtianfu",
+   "name": "Yingtianfu (Southern Capital)",
+   "nameZh": "应天府",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.585,
+    "y": 0.488
+   },
+   "lon": 115.65,
+   "lat": 34.41,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 260000,
+    "land": 78,
+    "flood": 50
+   },
+   "special": [
+    "grand-canal"
+   ],
+   "note": "Southern Capital (modern Shangqiu); canal gate between the marsh country and the capital.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "caozhou",
+   "name": "Caozhou",
+   "nameZh": "曹州",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.574,
+    "y": 0.427
+   },
+   "lon": 115.47,
+   "lat": 35.24,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 150000,
+    "land": 72,
+    "flood": 38
+   },
+   "special": [
+    "yellow-river-plain"
+   ],
+   "note": "Road from the Liangshan marsh toward the Southern Capital.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "jizhou",
+   "name": "Jizhou (Liangshan)",
+   "nameZh": "济州",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.612,
+    "y": 0.416
+   },
+   "lon": 116.09,
+   "lat": 35.39,
+   "terrain": "marsh",
+   "seat": "city",
+   "base": {
+    "population": 180000,
+    "land": 60,
+    "flood": 40
+   },
+   "special": [
+    "liangshan-marsh"
+   ],
+   "note": "Seat is Juye; the Liangshan marsh and its water stronghold lie in this prefecture.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "yunzhou",
+   "name": "Yunzhou (Dongping)",
+   "nameZh": "郓州",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.63,
+    "y": 0.376
+   },
+   "lon": 116.4,
+   "lat": 35.93,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 210000,
+    "land": 76,
+    "flood": 45
+   },
+   "special": [
+    "yellow-river-plain"
+   ],
+   "note": "Dongping Fu; Yuncheng county, home of Song Jiang's circle, lies in it.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "zhujiazhuang",
+   "name": "Zhu Family Village area",
+   "nameZh": "祝家庄",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.606,
+    "y": 0.389
+   },
+   "lon": 116.0,
+   "lat": 35.75,
+   "terrain": "plains",
+   "seat": "stronghold",
+   "base": {
+    "population": 24000,
+    "land": 70,
+    "flood": 50
+   },
+   "special": [
+    "fortified-villages",
+    "rival-seat"
+   ],
+   "note": "Cluster of fortified villages (Zhu, Li, Hu families) near the marsh; position approximate, the novel gives no coordinates.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "yanzhou",
+   "name": "Yanzhou",
+   "nameZh": "兖州",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.653,
+    "y": 0.404
+   },
+   "lon": 116.78,
+   "lat": 35.55,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 170000,
+    "land": 74,
+    "flood": 50
+   },
+   "special": [],
+   "note": "Prefecture east of the marsh on the road to Yizhou.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "yizhou",
+   "name": "Yizhou",
+   "nameZh": "沂州",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.748,
+    "y": 0.439
+   },
+   "lon": 118.35,
+   "lat": 35.07,
+   "terrain": "hills",
+   "seat": "city",
+   "base": {
+    "population": 120000,
+    "land": 58,
+    "flood": 65
+   },
+   "special": [],
+   "note": "Home region of Li Kui's village and the Yishui county folk.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "daming",
+   "name": "Daming Fu (Northern Capital)",
+   "nameZh": "大名府",
+   "circuit": "Hebei East",
+   "pos": {
+    "x": 0.555,
+    "y": 0.348
+   },
+   "lon": 115.15,
+   "lat": 36.3,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 320000,
+    "land": 82,
+    "flood": 35
+   },
+   "special": [
+    "yellow-river-plain",
+    "imperial-garrison"
+   ],
+   "note": "Northern Capital; Liang Shijie's seat.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "dongchang",
+   "name": "Dongchang",
+   "nameZh": "东昌府",
+   "circuit": "Hebei East",
+   "pos": {
+    "x": 0.605,
+    "y": 0.337
+   },
+   "lon": 115.98,
+   "lat": 36.45,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 140000,
+    "land": 74,
+    "flood": 38
+   },
+   "special": [
+    "yellow-river-plain"
+   ],
+   "note": "Garrison town between Daming and Yunzhou; modern Liaocheng.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "zhangde",
+   "name": "Zhangde (Xiangzhou)",
+   "nameZh": "彰德府",
+   "circuit": "Hebei West",
+   "pos": {
+    "x": 0.506,
+    "y": 0.363
+   },
+   "lon": 114.35,
+   "lat": 36.1,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 160000,
+    "land": 76,
+    "flood": 42
+   },
+   "special": [],
+   "note": "Modern Anyang; the northern road to Dongjing passes it.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "zhongshan",
+   "name": "Zhongshan Fu (Dingzhou)",
+   "nameZh": "中山府",
+   "circuit": "Hebei West",
+   "pos": {
+    "x": 0.545,
+    "y": 0.184
+   },
+   "lon": 114.99,
+   "lat": 38.51,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 150000,
+    "land": 74,
+    "flood": 50
+   },
+   "special": [
+    "horse-market"
+   ],
+   "note": "Northern garrison and horse-trading town.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "zhending",
+   "name": "Zhending Fu",
+   "nameZh": "真定府",
+   "circuit": "Hebei West",
+   "pos": {
+    "x": 0.519,
+    "y": 0.211
+   },
+   "lon": 114.57,
+   "lat": 38.15,
+   "terrain": "plains",
+   "seat": "town",
+   "base": {
+    "population": 130000,
+    "land": 72,
+    "flood": 55
+   },
+   "special": [],
+   "note": "Modern Zhengding; gate to the Jingxing pass.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "cangzhou",
+   "name": "Cangzhou",
+   "nameZh": "沧州",
+   "circuit": "Hebei East",
+   "pos": {
+    "x": 0.679,
+    "y": 0.2
+   },
+   "lon": 117.2,
+   "lat": 38.3,
+   "terrain": "coast",
+   "seat": "city",
+   "base": {
+    "population": 110000,
+    "land": 55,
+    "flood": 40
+   },
+   "special": [
+    "yellow-river-plain",
+    "exile-road"
+   ],
+   "note": "Seat position approximate (the old city moved); Chai Jin's estate and a place of exile.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "youzhou",
+   "name": "Youzhou (northern border)",
+   "nameZh": "幽州",
+   "circuit": "Yanshan (Liao-held)",
+   "pos": {
+    "x": 0.63,
+    "y": 0.081
+   },
+   "lon": 116.4,
+   "lat": 39.9,
+   "terrain": "plains",
+   "seat": "fortress",
+   "base": {
+    "population": 90000,
+    "land": 60,
+    "flood": 55
+   },
+   "special": [
+    "liao-border",
+    "horse-market"
+   ],
+   "note": "Held by Liao in 1101; the novel uses it as the far northern frontier.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "jizhou-north",
+   "name": "Jizhou (Ji, north)",
+   "nameZh": "蓟州",
+   "circuit": "Yanshan (Liao-held)",
+   "pos": {
+    "x": 0.691,
+    "y": 0.07
+   },
+   "lon": 117.4,
+   "lat": 40.05,
+   "terrain": "hills",
+   "seat": "town",
+   "base": {
+    "population": 70000,
+    "land": 45,
+    "flood": 60
+   },
+   "special": [
+    "liao-border"
+   ],
+   "note": "Not the marsh Jizhou: the northern Ji prefecture of the Yanshan region, treated as imperial in the novel.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "taiyuan",
+   "name": "Taiyuan",
+   "nameZh": "太原府",
+   "circuit": "Hedong",
+   "pos": {
+    "x": 0.397,
+    "y": 0.232
+   },
+   "lon": 112.55,
+   "lat": 37.87,
+   "terrain": "hills",
+   "seat": "city",
+   "base": {
+    "population": 200000,
+    "land": 62,
+    "flood": 70
+   },
+   "special": [
+    "imperial-garrison"
+   ],
+   "note": "Shanxi garrison city; home of Huyan Zhuo's family line.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "shangdang",
+   "name": "Shangdang (Luzhou)",
+   "nameZh": "潞州",
+   "circuit": "Hedong",
+   "pos": {
+    "x": 0.431,
+    "y": 0.356
+   },
+   "lon": 113.11,
+   "lat": 36.2,
+   "terrain": "mountains",
+   "seat": "city",
+   "base": {
+    "population": 100000,
+    "land": 45,
+    "flood": 75
+   },
+   "special": [
+    "mountain-gate"
+   ],
+   "note": "Taihang highlands; the Dongluzhou of Liu Tang's origin.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "puzhou",
+   "name": "Puzhou (Hezhong)",
+   "nameZh": "蒲州",
+   "circuit": "Hedong",
+   "pos": {
+    "x": 0.27,
+    "y": 0.454
+   },
+   "lon": 110.45,
+   "lat": 34.87,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 140000,
+    "land": 70,
+    "flood": 55
+   },
+   "special": [
+    "yellow-river-plain",
+    "imperial-garrison"
+   ],
+   "note": "Guan Sheng's garrison on the great bend of the Yellow River.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "mangdang-shan",
+   "name": "Mount Mangdang",
+   "nameZh": "芒砀山",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.63,
+    "y": 0.507
+   },
+   "lon": 116.4,
+   "lat": 34.15,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 8000,
+    "land": 25,
+    "flood": 80
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Outlaw hills near Yongcheng; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "mengzhou",
+   "name": "Mengzhou",
+   "nameZh": "孟州",
+   "circuit": "Jingxi North",
+   "pos": {
+    "x": 0.411,
+    "y": 0.451
+   },
+   "lon": 112.78,
+   "lat": 34.91,
+   "terrain": "plains",
+   "seat": "town",
+   "base": {
+    "population": 90000,
+    "land": 68,
+    "flood": 50
+   },
+   "special": [
+    "crossroads"
+   ],
+   "note": "Yellow River crossing; Ten-Foot Slope inn and Happy Forest are in this prefecture.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "luoyang",
+   "name": "Luoyang (Henan Fu)",
+   "nameZh": "河南府",
+   "circuit": "Jingxi North",
+   "pos": {
+    "x": 0.391,
+    "y": 0.473
+   },
+   "lon": 112.45,
+   "lat": 34.62,
+   "terrain": "hills",
+   "seat": "city",
+   "base": {
+    "population": 230000,
+    "land": 70,
+    "flood": 60
+   },
+   "special": [
+    "western-capital"
+   ],
+   "note": "Western Capital; road to Tong Pass.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "chenzhou",
+   "name": "Chenzhou",
+   "nameZh": "陈州",
+   "circuit": "Jingxi North",
+   "pos": {
+    "x": 0.539,
+    "y": 0.539
+   },
+   "lon": 114.89,
+   "lat": 33.73,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 140000,
+    "land": 76,
+    "flood": 40
+   },
+   "special": [],
+   "note": "Garrison town south of the capital.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "weizhou",
+   "name": "Weizhou",
+   "nameZh": "渭州",
+   "circuit": "Qinfeng",
+   "pos": {
+    "x": 0.041,
+    "y": 0.404
+   },
+   "lon": 106.68,
+   "lat": 35.54,
+   "terrain": "hills",
+   "seat": "city",
+   "base": {
+    "population": 90000,
+    "land": 48,
+    "flood": 70
+   },
+   "special": [
+    "frontier"
+   ],
+   "note": "Western frontier garrison on the Xia border; Lu Zhishen's post.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "yanan",
+   "name": "Yan'an",
+   "nameZh": "延安府",
+   "circuit": "Fuyan",
+   "pos": {
+    "x": 0.212,
+    "y": 0.327
+   },
+   "lon": 109.49,
+   "lat": 36.59,
+   "terrain": "hills",
+   "seat": "city",
+   "base": {
+    "population": 80000,
+    "land": 40,
+    "flood": 75
+   },
+   "special": [
+    "frontier"
+   ],
+   "note": "Loess-country garrison; iron and smiths.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "jingzhao",
+   "name": "Jingzhao (Xi'an)",
+   "nameZh": "京兆府",
+   "circuit": "Yongxing",
+   "pos": {
+    "x": 0.178,
+    "y": 0.499
+   },
+   "lon": 108.94,
+   "lat": 34.27,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 260000,
+    "land": 76,
+    "flood": 55
+   },
+   "special": [
+    "western-capital"
+   ],
+   "note": "Old Chang'an; seat of the Yongxing circuit.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "huazhou",
+   "name": "Huazhou",
+   "nameZh": "华州",
+   "circuit": "Yongxing",
+   "pos": {
+    "x": 0.228,
+    "y": 0.481
+   },
+   "lon": 109.76,
+   "lat": 34.5,
+   "terrain": "plains",
+   "seat": "fortress",
+   "base": {
+    "population": 90000,
+    "land": 66,
+    "flood": 55
+   },
+   "special": [
+    "pass",
+    "tong-pass"
+   ],
+   "note": "Guards the Tong Pass road to the capital region; Huayin county where Shi Jin lives.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "shaohua-shan",
+   "name": "Mount Shaohua",
+   "nameZh": "少华山",
+   "circuit": "Yongxing",
+   "pos": {
+    "x": 0.239,
+    "y": 0.483
+   },
+   "lon": 109.95,
+   "lat": 34.48,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 6000,
+    "land": 22,
+    "flood": 85
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Outlaw hills near Huayin.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "qingzhou",
+   "name": "Qingzhou",
+   "nameZh": "青州",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.756,
+    "y": 0.319
+   },
+   "lon": 118.48,
+   "lat": 36.7,
+   "terrain": "hills",
+   "seat": "city",
+   "base": {
+    "population": 190000,
+    "land": 70,
+    "flood": 65
+   },
+   "special": [
+    "imperial-garrison"
+   ],
+   "note": "Regional garrison with outlaw mountains all around it.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "qingfeng-zhai",
+   "name": "Qingfeng Fort",
+   "nameZh": "清风寨",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.739,
+    "y": 0.333
+   },
+   "lon": 118.2,
+   "lat": 36.5,
+   "terrain": "hills",
+   "seat": "fortress",
+   "base": {
+    "population": 14000,
+    "land": 40,
+    "flood": 70
+   },
+   "special": [
+    "fort"
+   ],
+   "note": "Border fort under Qingzhou; position approximate (fictional site).",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "qingfeng-shan",
+   "name": "Mount Qingfeng",
+   "nameZh": "清风山",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.733,
+    "y": 0.341
+   },
+   "lon": 118.1,
+   "lat": 36.4,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 6000,
+    "land": 22,
+    "flood": 85
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Outlaw hills above Qingfeng Fort; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "erlong-shan",
+   "name": "Mount Erlong",
+   "nameZh": "二龙山",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.761,
+    "y": 0.344
+   },
+   "lon": 118.55,
+   "lat": 36.35,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 7000,
+    "land": 24,
+    "flood": 88
+   },
+   "special": [
+    "bandit-hills",
+    "monastery"
+   ],
+   "note": "Strong hill fortress with a monastery; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "taohua-shan",
+   "name": "Mount Taohua",
+   "nameZh": "桃花山",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.727,
+    "y": 0.356
+   },
+   "lon": 118.0,
+   "lat": 36.2,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 5000,
+    "land": 22,
+    "flood": 85
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Outlaw hills near Qingzhou; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "duiying-shan",
+   "name": "Mount Duiying",
+   "nameZh": "对影山",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.745,
+    "y": 0.33
+   },
+   "lon": 118.3,
+   "lat": 36.55,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 3000,
+    "land": 18,
+    "flood": 85
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Twin-peak hills near Qingzhou; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "dengzhou",
+   "name": "Dengzhou",
+   "nameZh": "登州",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.893,
+    "y": 0.237
+   },
+   "lon": 120.74,
+   "lat": 37.8,
+   "terrain": "coast",
+   "seat": "city",
+   "base": {
+    "population": 130000,
+    "land": 58,
+    "flood": 55
+   },
+   "special": [
+    "port",
+    "imperial-garrison"
+   ],
+   "note": "Port on the Jiaodong coast.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "dengyun-shan",
+   "name": "Mount Dengyun",
+   "nameZh": "登云山",
+   "circuit": "Jingdong East",
+   "pos": {
+    "x": 0.873,
+    "y": 0.259
+   },
+   "lon": 120.4,
+   "lat": 37.5,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 5000,
+    "land": 20,
+    "flood": 85
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Outlaw hills inland of Dengzhou; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "lingzhou",
+   "name": "Lingzhou",
+   "nameZh": "凌州",
+   "circuit": "Hebei East",
+   "pos": {
+    "x": 0.641,
+    "y": 0.271
+   },
+   "lon": 116.57,
+   "lat": 37.34,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 100000,
+    "land": 70,
+    "flood": 40
+   },
+   "special": [
+    "imperial-garrison"
+   ],
+   "note": "Garrison town (modern Ling County) with a dead-tree hill nearby.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "zengtou-shi",
+   "name": "Zeng Family Fortress",
+   "nameZh": "曾头市",
+   "circuit": "Jingdong West",
+   "pos": {
+    "x": 0.661,
+    "y": 0.356
+   },
+   "lon": 116.9,
+   "lat": 36.2,
+   "terrain": "plains",
+   "seat": "stronghold",
+   "base": {
+    "population": 30000,
+    "land": 64,
+    "flood": 50
+   },
+   "special": [
+    "fortified-villages",
+    "rival-seat"
+   ],
+   "note": "Rival fortified town; the novel does not place it exactly, so the position is approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "jiangzhou",
+   "name": "Jiangzhou",
+   "nameZh": "江州",
+   "circuit": "Jiangnan West",
+   "pos": {
+    "x": 0.606,
+    "y": 0.837
+   },
+   "lon": 116.0,
+   "lat": 29.7,
+   "terrain": "river-delta",
+   "seat": "city",
+   "base": {
+    "population": 190000,
+    "land": 78,
+    "flood": 35
+   },
+   "special": [
+    "port",
+    "yangtze"
+   ],
+   "note": "Yangtze river port (modern Jiujiang).",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "jieyang",
+   "name": "Jieyang",
+   "nameZh": "揭阳镇",
+   "circuit": "Jiangnan West",
+   "pos": {
+    "x": 0.615,
+    "y": 0.83
+   },
+   "lon": 116.15,
+   "lat": 29.8,
+   "terrain": "river-delta",
+   "seat": "town",
+   "base": {
+    "population": 15000,
+    "land": 50,
+    "flood": 40
+   },
+   "special": [
+    "port",
+    "yangtze",
+    "smugglers"
+   ],
+   "note": "River ridge and ferry town on the Yangtze near Jiangzhou; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "huangmen-shan",
+   "name": "Mount Huangmen",
+   "nameZh": "黄门山",
+   "circuit": "Huainan West",
+   "pos": {
+    "x": 0.558,
+    "y": 0.785
+   },
+   "lon": 115.2,
+   "lat": 30.4,
+   "terrain": "mountains",
+   "seat": "stronghold",
+   "base": {
+    "population": 5000,
+    "land": 20,
+    "flood": 85
+   },
+   "special": [
+    "bandit-hills"
+   ],
+   "note": "Outlaw hills near the Yangtze; position approximate.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "xiangyang",
+   "name": "Xiangyang",
+   "nameZh": "襄阳府",
+   "circuit": "Jinghu North",
+   "pos": {
+    "x": 0.372,
+    "y": 0.664
+   },
+   "lon": 112.14,
+   "lat": 32.04,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 210000,
+    "land": 76,
+    "flood": 45
+   },
+   "special": [
+    "river-port"
+   ],
+   "note": "Han River city on the road to the middle Yangtze.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "tanzhou",
+   "name": "Tanzhou (Changsha)",
+   "nameZh": "潭州",
+   "circuit": "Jinghu South",
+   "pos": {
+    "x": 0.421,
+    "y": 0.949
+   },
+   "lon": 112.94,
+   "lat": 28.19,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 220000,
+    "land": 80,
+    "flood": 40
+   },
+   "special": [
+    "river-port"
+   ],
+   "note": "Xiang River city.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "hongzhou",
+   "name": "Hongzhou (Hongdu)",
+   "nameZh": "洪州",
+   "circuit": "Jiangnan West",
+   "pos": {
+    "x": 0.598,
+    "y": 0.913
+   },
+   "lon": 115.86,
+   "lat": 28.68,
+   "terrain": "river-delta",
+   "seat": "city",
+   "base": {
+    "population": 230000,
+    "land": 80,
+    "flood": 38
+   },
+   "special": [
+    "river-port"
+   ],
+   "note": "Modern Nanchang, on the Gan River.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "luzhou",
+   "name": "Luzhou (Hefei)",
+   "nameZh": "庐州",
+   "circuit": "Huainan West",
+   "pos": {
+    "x": 0.684,
+    "y": 0.677
+   },
+   "lon": 117.28,
+   "lat": 31.86,
+   "terrain": "plains",
+   "seat": "city",
+   "base": {
+    "population": 150000,
+    "land": 72,
+    "flood": 45
+   },
+   "special": [
+    "salt-road"
+   ],
+   "note": "Huai-country city on the salt-smuggling roads.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "jiankang",
+   "name": "Jiankang (Jiangning Fu)",
+   "nameZh": "江宁府",
+   "circuit": "Jiangnan East",
+   "pos": {
+    "x": 0.775,
+    "y": 0.662
+   },
+   "lon": 118.78,
+   "lat": 32.06,
+   "terrain": "river-delta",
+   "seat": "city",
+   "base": {
+    "population": 300000,
+    "land": 80,
+    "flood": 40
+   },
+   "special": [
+    "yangtze",
+    "port"
+   ],
+   "note": "Modern Nanjing; physicians and rich merchants.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "suzhou",
+   "name": "Suzhou",
+   "nameZh": "苏州",
+   "circuit": "Liangzhe",
+   "pos": {
+    "x": 0.886,
+    "y": 0.719
+   },
+   "lon": 120.62,
+   "lat": 31.3,
+   "terrain": "river-delta",
+   "seat": "city",
+   "base": {
+    "population": 330000,
+    "land": 86,
+    "flood": 35
+   },
+   "special": [
+    "grand-canal",
+    "rich-south"
+   ],
+   "note": "Lake-and-canal city of the rich south.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  },
+  {
+   "id": "hangzhou",
+   "name": "Hangzhou",
+   "nameZh": "杭州",
+   "circuit": "Liangzhe",
+   "pos": {
+    "x": 0.858,
+    "y": 0.796
+   },
+   "lon": 120.16,
+   "lat": 30.25,
+   "terrain": "river-delta",
+   "seat": "city",
+   "base": {
+    "population": 400000,
+    "land": 86,
+    "flood": 40
+   },
+   "special": [
+    "port",
+    "grand-canal",
+    "rich-south"
+   ],
+   "note": "Southern terminus of the Grand Canal.",
+   "source": "Wikipedia 'List of Water Margin characters' / '108 Heroes' for place names; Song-era seat coordinates from modern city locations (lon/lat recorded); Water Margin chapters for settings"
+  }
+ ],
+ "links": [
+  {
+   "a": "dongjing",
+   "b": "yingtianfu",
+   "kind": "river"
+  },
+  {
+   "a": "dongjing",
+   "b": "mengzhou",
+   "kind": "road"
+  },
+  {
+   "a": "dongjing",
+   "b": "chenzhou",
+   "kind": "road"
+  },
+  {
+   "a": "dongjing",
+   "b": "zhangde",
+   "kind": "road"
+  },
+  {
+   "a": "dongjing",
+   "b": "luoyang",
+   "kind": "road"
+  },
+  {
+   "a": "luoyang",
+   "b": "mengzhou",
+   "kind": "road"
+  },
+  {
+   "a": "luoyang",
+   "b": "huazhou",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "luoyang",
+   "b": "xiangyang",
+   "kind": "road"
+  },
+  {
+   "a": "huazhou",
+   "b": "jingzhao",
+   "kind": "road"
+  },
+  {
+   "a": "huazhou",
+   "b": "shaohua-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "huazhou",
+   "b": "puzhou",
+   "kind": "river"
+  },
+  {
+   "a": "jingzhao",
+   "b": "weizhou",
+   "kind": "road"
+  },
+  {
+   "a": "jingzhao",
+   "b": "yanan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "yanan",
+   "b": "weizhou",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "mengzhou",
+   "b": "puzhou",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "mengzhou",
+   "b": "shangdang",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "zhangde",
+   "b": "shangdang",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "shangdang",
+   "b": "taiyuan",
+   "kind": "road"
+  },
+  {
+   "a": "taiyuan",
+   "b": "puzhou",
+   "kind": "road"
+  },
+  {
+   "a": "taiyuan",
+   "b": "zhending",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "zhending",
+   "b": "zhongshan",
+   "kind": "road"
+  },
+  {
+   "a": "zhending",
+   "b": "zhangde",
+   "kind": "road"
+  },
+  {
+   "a": "zhongshan",
+   "b": "youzhou",
+   "kind": "road"
+  },
+  {
+   "a": "zhongshan",
+   "b": "cangzhou",
+   "kind": "road"
+  },
+  {
+   "a": "youzhou",
+   "b": "jizhou-north",
+   "kind": "road"
+  },
+  {
+   "a": "jizhou-north",
+   "b": "cangzhou",
+   "kind": "road"
+  },
+  {
+   "a": "daming",
+   "b": "zhangde",
+   "kind": "road"
+  },
+  {
+   "a": "daming",
+   "b": "dongchang",
+   "kind": "road"
+  },
+  {
+   "a": "daming",
+   "b": "cangzhou",
+   "kind": "road"
+  },
+  {
+   "a": "daming",
+   "b": "yunzhou",
+   "kind": "road"
+  },
+  {
+   "a": "dongchang",
+   "b": "yunzhou",
+   "kind": "road"
+  },
+  {
+   "a": "dongchang",
+   "b": "lingzhou",
+   "kind": "road"
+  },
+  {
+   "a": "lingzhou",
+   "b": "cangzhou",
+   "kind": "road"
+  },
+  {
+   "a": "lingzhou",
+   "b": "qingzhou",
+   "kind": "road"
+  },
+  {
+   "a": "lingzhou",
+   "b": "zengtou-shi",
+   "kind": "road"
+  },
+  {
+   "a": "zengtou-shi",
+   "b": "yunzhou",
+   "kind": "road"
+  },
+  {
+   "a": "zengtou-shi",
+   "b": "qingzhou",
+   "kind": "road"
+  },
+  {
+   "a": "yunzhou",
+   "b": "jizhou",
+   "kind": "marsh-water"
+  },
+  {
+   "a": "yunzhou",
+   "b": "zhujiazhuang",
+   "kind": "road"
+  },
+  {
+   "a": "zhujiazhuang",
+   "b": "jizhou",
+   "kind": "marsh-water"
+  },
+  {
+   "a": "jizhou",
+   "b": "caozhou",
+   "kind": "road"
+  },
+  {
+   "a": "jizhou",
+   "b": "yanzhou",
+   "kind": "road"
+  },
+  {
+   "a": "caozhou",
+   "b": "yingtianfu",
+   "kind": "road"
+  },
+  {
+   "a": "caozhou",
+   "b": "yunzhou",
+   "kind": "road"
+  },
+  {
+   "a": "caozhou",
+   "b": "mangdang-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "yanzhou",
+   "b": "yunzhou",
+   "kind": "road"
+  },
+  {
+   "a": "yanzhou",
+   "b": "yizhou",
+   "kind": "road"
+  },
+  {
+   "a": "yanzhou",
+   "b": "mangdang-shan",
+   "kind": "road"
+  },
+  {
+   "a": "yizhou",
+   "b": "qingzhou",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "yingtianfu",
+   "b": "mangdang-shan",
+   "kind": "road"
+  },
+  {
+   "a": "yingtianfu",
+   "b": "chenzhou",
+   "kind": "road"
+  },
+  {
+   "a": "chenzhou",
+   "b": "luzhou",
+   "kind": "road"
+  },
+  {
+   "a": "chenzhou",
+   "b": "xiangyang",
+   "kind": "road"
+  },
+  {
+   "a": "qingzhou",
+   "b": "qingfeng-zhai",
+   "kind": "road"
+  },
+  {
+   "a": "qingzhou",
+   "b": "erlong-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "qingzhou",
+   "b": "taohua-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "qingzhou",
+   "b": "duiying-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "qingfeng-zhai",
+   "b": "qingfeng-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "qingfeng-zhai",
+   "b": "duiying-shan",
+   "kind": "road"
+  },
+  {
+   "a": "qingzhou",
+   "b": "dengzhou",
+   "kind": "road"
+  },
+  {
+   "a": "dengzhou",
+   "b": "dengyun-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "jiangzhou",
+   "b": "jieyang",
+   "kind": "river"
+  },
+  {
+   "a": "jiangzhou",
+   "b": "hongzhou",
+   "kind": "river"
+  },
+  {
+   "a": "jiangzhou",
+   "b": "huangmen-shan",
+   "kind": "mountain-pass"
+  },
+  {
+   "a": "jiangzhou",
+   "b": "luzhou",
+   "kind": "river"
+  },
+  {
+   "a": "jiangzhou",
+   "b": "jiankang",
+   "kind": "river"
+  },
+  {
+   "a": "huangmen-shan",
+   "b": "xiangyang",
+   "kind": "river"
+  },
+  {
+   "a": "jiankang",
+   "b": "luzhou",
+   "kind": "road"
+  },
+  {
+   "a": "jiankang",
+   "b": "suzhou",
+   "kind": "river"
+  },
+  {
+   "a": "suzhou",
+   "b": "hangzhou",
+   "kind": "river"
+  },
+  {
+   "a": "jiankang",
+   "b": "hangzhou",
+   "kind": "road"
+  },
+  {
+   "a": "xiangyang",
+   "b": "tanzhou",
+   "kind": "river"
+  },
+  {
+   "a": "tanzhou",
+   "b": "hongzhou",
+   "kind": "road"
+  }
+ ]
+}

@@ -1,0 +1,177 @@
+{
+ "$schema": "http://json-schema.org/draft/2020-12/schema",
+ "title": "Map",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "prefectures",
+  "links"
+ ],
+ "properties": {
+  "prefectures": {
+   "type": "array",
+   "minItems": 40,
+   "maxItems": 55,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "name",
+     "nameZh",
+     "circuit",
+     "pos",
+     "lon",
+     "lat",
+     "terrain",
+     "seat",
+     "base",
+     "special",
+     "source"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+     },
+     "name": {
+      "type": "string",
+      "minLength": 1
+     },
+     "nameZh": {
+      "type": "string",
+      "minLength": 1
+     },
+     "circuit": {
+      "type": "string",
+      "minLength": 1
+     },
+     "pos": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "x",
+       "y"
+      ],
+      "properties": {
+       "x": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+       },
+       "y": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+       }
+      }
+     },
+     "lon": {
+      "type": "number",
+      "minimum": 70,
+      "maximum": 135
+     },
+     "lat": {
+      "type": "number",
+      "minimum": 15,
+      "maximum": 55
+     },
+     "terrain": {
+      "type": "string",
+      "enum": [
+       "plains",
+       "hills",
+       "mountains",
+       "marsh",
+       "river-delta",
+       "coast"
+      ]
+     },
+     "seat": {
+      "type": "string",
+      "enum": [
+       "city",
+       "town",
+       "fortress",
+       "stronghold"
+      ]
+     },
+     "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "population",
+       "land",
+       "flood"
+      ],
+      "properties": {
+       "population": {
+        "type": "integer",
+        "minimum": 1000,
+        "maximum": 2000000
+       },
+       "land": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+       },
+       "flood": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+       }
+      }
+     },
+     "special": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+       "type": "string",
+       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+     },
+     "note": {
+      "type": "string",
+      "minLength": 1
+     },
+     "source": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "links": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "a",
+     "b",
+     "kind"
+    ],
+    "properties": {
+     "a": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+     },
+     "b": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+     },
+     "kind": {
+      "type": "string",
+      "enum": [
+       "road",
+       "river",
+       "marsh-water",
+       "mountain-pass"
+      ]
+     }
+    }
+   }
+  }
+ }
+}
