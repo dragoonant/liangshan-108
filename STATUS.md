@@ -15,5 +15,5 @@ Moved to `dragoonant/liangshan-108` on 2026-11-07 (D1). Next: the owner picks ba
 ## B1 balance pass (2026-11-07)
 - Chao Gai (`data/heroes-extra.json`, start `yunzhou`) replaces Ruan Xiaoer as a start (D17). Eight mountain camps (`data/camps.json`, rules K-1..K-8: raids from their stronghold, slow growth, alliance, joining together, persuaded chiefs) give the map active neighbours (D18).
 - `src/ai/policies.ts` and the worker-thread `tools/sim.ts`: justice, benevolent, warlord, brotherhood, careless and greedy by difficulty and start; the table is in `docs/spec/70-sim-results.md`. Balance knobs live in `src/engine/tuning.ts`.
-- Stage 4: targets missed by a wide margin (0 wins in 576 games); no knob changed; a design change is proposed in 70-sim-results.md and logged in PLAN. Decide before M3.
+- Stage 4 (B1) and B2: D20 (loyal governors, conquest support -5) and D21 (capital waves, W-32) are in; targets still missed (0 wins in 576 games); see 70-sim-results.md.
 - Not done: the KB entry `liangshan-108.md` (outside this repo's paths) was not updated.

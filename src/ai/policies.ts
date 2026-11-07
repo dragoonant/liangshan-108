@@ -10,6 +10,7 @@ import { runway, levyAmount } from '../engine/strategic/economy'
 import { foodUpkeep } from '../engine/ctx'
 import { monthOf, AI_RATIO } from '../engine/calendar'
 import { greedyAction, perceive } from './greedy'
+import { planWave } from '../engine/battle/wave'
 import { allied } from '../engine/strategic/camps'
 import { oathStatus } from '../engine/strategic/heroes'
 
@@ -67,9 +68,9 @@ function core(e: Env): Action | null {
     const st = ps(e.c, p)
     if ((e.s.commandsLeft[p] ?? 0) <= 0) continue
     // food runway
-    if (runway(e.c, p) < 3) {
+    if (runway(e.c, p) < 4.5) {
       const buys = of(e, 'trade', (a) => a.pref === p && a.dir === 'buyFood')
-      const need = upkeep(e, p) * 4 - st.food
+      const need = upkeep(e, p) * 8 - st.food
       const pick = [...buys].sort((a, b) => b.amount - a.amount).find((a) => a.amount <= Math.max(100, need * 1.5) && st.gold >= a.amount * 0.7 + 60)
         ?? [...buys].sort((a, b) => a.amount - b.amount).find((a) => st.gold >= a.amount * 0.7 + 60)
       if (pick) return pick
@@ -117,7 +118,7 @@ function build(e: Env, o: { levyTo: number; train: number; forge: boolean }): Ac
     const lv = of(e, 'levy', (a) => a.pref === p)[0]
     if (lv && st.men < cap * o.levyTo) {
       const n = levyAmount(e.c, p, lv.actor)
-      if (st.gold - n >= reserve(e, p) + 100 && st.food >= Math.ceil((st.men + n) / 10) * 5 && st.support >= 35) return lv
+      if (st.gold - n >= reserve(e, p) + 100 && st.food >= Math.ceil((st.men + n) / 10) * 8 && st.support >= 35) return lv
     }
     if (st.training < o.train && st.men > 0 && free(e, p) >= Math.ceil(st.men / 20) + 50) { const t = of(e, 'train', (a) => a.pref === p)[0]; if (t) return t }
     if (o.forge && st.arms < st.men * 0.9 && free(e, p) >= 500) { const f = of(e, 'forge', (a) => a.pref === p)[0]; if (f) return f }
@@ -150,7 +151,11 @@ function finale(e: Env): Action | null {
     // use the biggest force offered to that target
     const variants = atk.filter((a) => a.target === best!.target && !a.heroes.includes(e.s.factions['player']!.chieftain as string))
     const bestV = [...(variants.length ? variants : atk.filter((a) => a.target === best!.target))].sort((a, b) => ratio(e, b) - ratio(e, a))[0] as Of<'attack'>
-    if (ratio(e, bestV) >= need && bestV.men >= 300) return bestV
+    // W-32: at the capital the bordering prefectures add a wave on day 5, so a smaller first force is enough
+    const extra = best.target === e.c.x.capital ? planWave(e.c, null).reduce((n, w) => n + w.men + w.heroes.reduce((m, h) => m + heroVal(e, h), 0), 0) : 0
+    const foe0 = ratio(e, bestV)
+    const adj = best.target === e.c.x.capital ? foe0 * (1 + extra / Math.max(1, 6000)) : foe0
+    if (adj >= (best.target === e.c.x.capital ? 0.9 : need) && bestV.men >= 300) return bestV
   }
   // otherwise build, gather and bring the household to the front
   const b = build(e, { levyTo: 0.95, train: 85, forge: true })
@@ -201,7 +206,7 @@ function expand(e: Env, o: Expand): Action | null {
     if (a.men < o.minMen || a.target === e.c.x.capital || a.men > ps(e.c, a.pref).men * 0.75) continue // the A rules keep 30% at home; so do we
     const r = ratio(e, a)
     if (r < o.minRatio) continue
-    if (!a.heroes.some((h) => hs(e.c, h).status === 'sworn')) continue // a conquest without a sworn commander has no commands and revolts (T-3, H-16)
+    if (!a.heroes.some((h) => hs(e.c, h).status === 'sworn' || hs(e.c, h).loyalty >= 60)) continue // a conquest needs a sworn or loyal (60+) governor for its command (T-3, D20)
     const stay = ps(e.c, a.pref).heroes.filter((h) => hs(e.c, h).faction === 'player' && !a.heroes.includes(h)).length
     if (!safeAt(e, a.pref, ps(e.c, a.pref).men - a.men, stay)) continue
     const v = o.value(a)
@@ -222,7 +227,7 @@ function readiness(e: Env): Action | null {
     const lv = of(e, 'levy', (a) => a.pref === p)[0]
     if (lv && st.men < want) {
       const n = levyAmount(e.c, p, lv.actor)
-      if (st.gold - n >= reserve(e, p) && st.food >= Math.ceil((st.men + n) / 10) * 4 && st.support >= 35) return lv
+      if (st.gold - n >= reserve(e, p) && st.food >= Math.ceil((st.men + n) / 10) * 7 && st.support >= 35) return lv
     }
     if (st.men >= 300 && st.training < 70 && free(e, p) >= Math.ceil(st.men / 20) + 50) { const tr = of(e, 'train', (a) => a.pref === p)[0]; if (tr) return tr }
     if (st.arms < st.men * 0.8 && free(e, p) >= 500) { const f = of(e, 'forge', (a) => a.pref === p)[0]; if (f) return f }

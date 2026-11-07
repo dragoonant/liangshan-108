@@ -366,7 +366,7 @@ describe('W battle', () => {
     expect(s.rng.draws - draws).toBe(1) // one variance roll, none for capture or counter
     expect(s.battle!.result).toMatchObject({ winner: 'a', reason: 'gao-qiu' })
   })
-  test('W-27 a won attack takes the prefecture: stocks halve (spoils to the origin), support -15, the garrison stays, Renown follows R-2', () => {
+  test('W-27 a won attack takes the prefecture: stocks halve (spoils to the origin), support -5 (D20), the garrison stays, Renown follows R-2', () => {
     const s = game('lin-chong')
     const c = ctxOf(s)
     setPref(s, 'mengzhou', { men: 2000, arms: 2000, gold: 100 })
@@ -382,6 +382,7 @@ describe('W battle', () => {
     expect(p.men).toBeGreaterThan(0)
     expect(s.heroes['lin-chong']!.loc).toBe('luoyang')
     expect(p.support).toBeLessThanOrEqual(50 + 10)
+    expect(p.support).toBeGreaterThanOrEqual(50 - 5 - 1)
   })
   test('W-28 handing the battle to the AI plays exactly what the AI would have played', () => {
     const mk = (human: 'a' | null) => {
@@ -446,5 +447,60 @@ describe('W battle', () => {
       expect(r.ok, JSON.stringify(a)).toBe(true)
     }
     void legalForUnit; void hs; void ps
+  })
+})
+
+import { callWave, planWave, WAVE_MAX } from '../../src/engine/battle/wave'
+import { view } from '../../src/engine'
+describe('W-32 reinforcement waves at the capital', () => {
+  const setup = () => {
+    const s = game('lin-chong')
+    const c = ctxOf(s)
+    for (const id of ['zhangde', 'chenzhou', 'luoyang']) { Object.assign(s.prefectures[id]!, { owner: 'player', governor: null, men: 1000, arms: 1000, training: 60 }) }
+    const put = (h: string, to: string) => { const from = s.heroes[h]!.loc; if (from) s.prefectures[from]!.heroes = s.prefectures[from]!.heroes.filter((x) => x !== h); s.prefectures[to]!.heroes.push(h); s.heroes[h]!.loc = to; s.heroes[h]!.faction = 'player'; s.heroes[h]!.status = 'ordinary'; s.heroes[h]!.loyalty = 70 }
+    for (const [h, p] of [['yang-lin', 'zhangde'], ['hua-rong', 'zhangde'], ['han-tao', 'zhangde'], ['li-ying', 'chenzhou'], ['shi-jin', 'chenzhou'], ['xu-ning', 'luoyang']] as const) put(h, p)
+    s.heroes['han-tao']!.status = 'ordinary'
+    startBattle(c, { attacker: 'player', origin: 'mengzhou', target: 'dongjing', heroes: ['lin-chong', 'shi-en'], men: 600 })
+    return { s, c }
+  }
+  test('W-32 the plan leaves each bordering prefecture a hero and 30% of its men, at most 8 units in all', () => {
+    const { s, c } = setup()
+    const plan = planWave(c, s.battle)
+    expect(plan.every((p) => ['chenzhou', 'luoyang', 'mengzhou', 'zhangde', 'yingtianfu'].includes(p.pref))).toBe(true)
+    for (const p of plan) { expect(p.men).toBeLessThanOrEqual(Math.floor(s.prefectures[p.pref]!.men * 0.7)); expect(p.heroes.length).toBeLessThan(s.prefectures[p.pref]!.heroes.length) }
+    expect(plan.reduce((a, p) => a + p.heroes.length, 0)).toBeLessThanOrEqual(WAVE_MAX)
+    expect(s.prefectures['luoyang']!.heroes.length).toBe(1)
+    expect(plan.some((p) => p.pref === 'luoyang')).toBe(false) // a lone hero stays at home
+  })
+  test('W-32 on day 5 the wave joins the attackers; days 4 and 6 bring nothing; the view and query.wave show arrival day and size', () => {
+    const { s, c } = setup()
+    const before = s.battle!.units.length
+    expect(query.wave(s).nextDay).toBe(5)
+    s.battle!.day = 4; callWave(c)
+    expect(s.battle!.units.length).toBe(before)
+    s.battle!.day = 5
+    const men0 = s.prefectures['zhangde']!.men
+    callWave(c)
+    const added = s.battle!.units.filter((u) => u.id.startsWith('w5-'))
+    expect(added.length).toBeGreaterThan(0)
+    expect(added.every((u) => u.side === 'a' && u.state === 'active' && u.home)).toBe(true)
+    expect(new Set(s.battle!.units.map((u) => `${u.pos.q},${u.pos.r}`)).size).toBe(s.battle!.units.length)
+    expect(s.prefectures['zhangde']!.men).toBeLessThan(men0)
+    callWave(c) // once per day
+    expect(s.battle!.units.filter((u) => u.id.startsWith('w5-')).length).toBe(added.length)
+    const q = query.wave(s)
+    expect(q.arrived).toEqual([{ day: 5, units: added.length, men: q.arrived[0]!.men }])
+    expect(q.nextDay).toBe(10)
+    expect(view(s, 'player', D).battle!.wave.arrived[0]!.day).toBe(5)
+  })
+  test('W-32 more bordering prefectures send more (cut links pay twice), and a battle elsewhere has no waves', () => {
+    const a = setup()
+    const one = planWave(a.c, a.s.battle).reduce((n, p) => n + p.heroes.length, 0)
+    a.s.prefectures['luoyang']!.heroes.push('yue-he'); a.s.heroes['yue-he']!.loc = 'luoyang'; a.s.heroes['yue-he']!.faction = 'player'; a.s.heroes['yue-he']!.status = 'ordinary'
+    expect(planWave(a.c, a.s.battle).reduce((n, p) => n + p.heroes.length, 0)).toBeGreaterThan(one)
+    const s = game('lin-chong'); const c = ctxOf(s)
+    startBattle(c, { attacker: 'player', origin: 'mengzhou', target: 'luoyang', heroes: ['lin-chong'], men: 300 })
+    s.battle!.day = 5; callWave(c)
+    expect(s.battle!.units.some((u) => u.id.startsWith('w'))).toBe(false)
   })
 })

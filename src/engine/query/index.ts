@@ -11,6 +11,7 @@ import type { Preview } from '../strategic/commands'
 import { loyaltyLabel, oathStatus, restingLevel } from '../strategic/heroes'
 import { persuadeOdds, recruitOdds } from '../strategic/recruit'
 import { host } from '../strategic/court'
+import { waveInfo } from '../battle/wave'
 import { allyOdds, campView, followOdds, joinOdds } from '../strategic/camps'
 import { renownInfo } from './renown'
 import { dmgChain, finalDamage, getUnit, moveRange as bMoveRange, captureOdds as bCapture, counterPct, openLinks, cornered } from '../battle/core'
@@ -70,6 +71,8 @@ export const query = {
     const actor = ch && hs(c, ch).loc ? ch : undefined
     return c.x.camps.map((k) => campView(c, k.id, actor))
   },
+  /** W-32: reinforcement waves at the capital: arrival days, what has arrived, what would be sent now. */
+  wave(s: GameState, data: DataBundle = defaultBundle) { return waveInfo(mkCtx(s, data)) },
   campOdds(s: GameState, camp: string, actor: string, data: DataBundle = defaultBundle): { ally: number; join: number } | null {
     const c = mkCtx(s, data)
     if (!c.x.campOf[camp] || !s.factions[camp]) return null

@@ -1,4 +1,5 @@
 // W-23..W-30, Q-8, X-1: the aftermath of a battle.
+import { TUNE } from '../tuning'
 import type { BUnit, Faction } from '../types'
 import type { Ctx } from '../ctx'
 import { emit, EMPEROR, GAO_QIU, heroName, hs, place, prefGraft, prefName, ps, rank, compat, rec, chieftainId } from '../ctx'
@@ -76,7 +77,7 @@ export function finishBattle(c: Ctx): void {
   for (const u of unitsA) {
     const r = ret(u)
     if (aw && u.commander && u.state !== 'captured') { garrison = r; garrisonArms = Math.floor((r * armedOf(u)) / 100) }
-    else addMen(c, b.origin, r, armedOf(u))
+    else addMen(c, u.home ?? b.origin, r, armedOf(u))
   }
   if (!aw) for (const u of unitsD) addMen(c, b.target, ret(u), armedOf(u))
   const fled: { hero: string; pref: string | null }[] = []
@@ -99,7 +100,7 @@ export function finishBattle(c: Ctx): void {
     tgt.owner = attFaction
     tgt.governor = attFaction === 'player' ? null : (b.units.find((u) => u.side === 'a' && u.commander)?.hero ?? null)
     tgt.men = Math.min(garrison, Math.floor(tgt.pop / 20)); tgt.arms = garrisonArms
-    tgt.support = clamp(0, 100, tgt.support + (defFaction === 'court' && prevGraft >= 40 ? 10 : -15))
+    tgt.support = clamp(0, 100, tgt.support + (defFaction === 'court' && prevGraft >= 40 ? 10 : -TUNE.conquestSupport))
     tgt.unrest = false; tgt.tiger = tgt.tiger
     // attacking heroes occupy the prefecture
     for (const u of unitsA) if (isReal(u) && u.state !== 'captured') place(c, u.hero, b.target)

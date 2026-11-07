@@ -8,6 +8,7 @@ import { query } from './query'
 import { perceive, decideStrategic } from '../ai/greedy'
 import { runway } from './strategic/economy'
 import { visibleTo } from './battle/core'
+import { waveInfo } from './battle/wave'
 
 export interface PrefView {
   id: string; owner: string; exact: boolean; pop: number; gold: number; food: number; men: number; arms: number; heroes: string[]
@@ -21,7 +22,7 @@ export interface GameView {
   renown: ReturnType<typeof query.renown>; deadline: ReturnType<typeof query.deadline>
   prefectures: Record<string, PrefView>; heroes: Record<string, HeroView>
   forecast: ReturnType<typeof query.forecast>; warnings: Warning[]; ledger: LedgerEntry[]; advice: ReturnType<typeof query.advice>
-  battle: null | { day: number; toAct: string; human: string | null; units: BUnit[]; terrain: Record<string, string>; burning: Record<string, number>; wind: number; weather: unknown }
+  battle: null | { day: number; toAct: string; human: string | null; units: BUnit[]; terrain: Record<string, string>; burning: Record<string, number>; wind: number; weather: unknown; wave: ReturnType<typeof waveInfo> }
   result: GameState['result']; log: GameState['log']
 }
 
@@ -81,7 +82,7 @@ export function view(s: GameState, seat: string = 'player', data: DataBundle = d
   if (s.battle) {
     const b = s.battle
     const side = b.human ?? 'a'
-    battle = { day: b.day, toAct: b.toAct, human: b.human, units: b.units.filter((u) => visibleTo(b, side, u)), terrain: b.terrain, burning: b.burning, wind: b.wind, weather: b.weather }
+    battle = { day: b.day, toAct: b.toAct, human: b.human, units: b.units.filter((u) => visibleTo(b, side, u)), terrain: b.terrain, burning: b.burning, wind: b.wind, weather: b.weather, wave: waveInfo(c) }
   }
   const f = s.factions['player']!
   return {

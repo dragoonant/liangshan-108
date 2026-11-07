@@ -20,12 +20,14 @@ export interface Preview { rule: string; text: string; gold: number; food: numbe
 export const isReject = (x: Reject | Preview): x is Reject => 'code' in x
 
 /** T-3 */
+export const LOYAL_GOVERNOR = 60
 export function commandCap(c: Ctx, pref: string): number {
   const p = ps(c, pref)
   if (p.owner === 'player') {
     const ch = chieftainId(c)
     if (ch && hs(c, ch).loc === pref) return 2
     if (p.heroes.some((h) => hs(c, h).status === 'sworn' && hs(c, h).faction === 'player')) return 1
+    if (p.heroes.some((h) => hs(c, h).faction === 'player' && hs(c, h).status === 'ordinary' && hs(c, h).wounded <= c.s.t && hs(c, h).loyalty >= LOYAL_GOVERNOR)) return 1 // D20
     return 0
   }
   if (p.owner === 'free') return 0
@@ -216,7 +218,7 @@ export function runCommand(c: Ctx, a: Action, faction: string, dry: boolean): Re
       dest.men += men; dest.arms += arms
       spend()
       let brother = false
-      for (const h of a.heroes) { place(c, h, a.to); if (hs(c, h).status === 'sworn' || hs(c, h).status === 'chieftain') brother = true }
+      for (const h of a.heroes) { place(c, h, a.to); if (hs(c, h).status === 'sworn' || hs(c, h).status === 'chieftain' || (hs(c, h).status === 'ordinary' && hs(c, h).loyalty >= LOYAL_GOVERNOR)) brother = true }
       if (player) {
         s.commandsLeft[a.pref] = Math.min(s.commandsLeft[a.pref] ?? 0, commandCap(c, a.pref))
         if (brother) s.commandsLeft[a.to] = Math.min(commandCap(c, a.to), (s.commandsLeft[a.to] ?? 0) + 1)

@@ -8,6 +8,7 @@ import { addLoyaltyAt } from '../strategic/heroes'
 import { addRenown } from '../strategic/renown'
 import { DIRS, hexDistance, key, neighbor, neighbors, parseKey, same, add } from './hex'
 import { TERR } from './terrain'
+import { callWave } from './wave'
 import {
   DAYS, active, actionPctMelee, addFatigue, addMorale, checkRout, counterPct, cornered, dmgChain, finalDamage, getUnit, hasSkill,
   humanControls, moveRange, other, routUnit, terrAt, unitAt, unitName, visibleTo,
@@ -416,6 +417,7 @@ function dusk(c: Ctx): void {
     u.fatigueLog = []
   }
   emit(c, 'dayStarted', 'W-7', `Day ${b.day} of ${DAYS}`, undefined, b.day)
+  callWave(c)
 }
 void routUnit; void neighbors; void abil; void same
 

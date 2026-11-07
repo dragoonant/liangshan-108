@@ -103,6 +103,7 @@ export interface BUnit {
   fatigueLog: { cause: string; n: number }[]
   specialUsed: boolean // weather, scuttle once per battle
   capturedBy: Side | null
+  home?: string // W-32: the prefecture a reinforcement unit came from; its survivors return there
 }
 
 export interface BattleState {
@@ -127,6 +128,7 @@ export interface BattleState {
   result: null | { winner: Side; reason: string }
   burned: number // village hexes burned by the human side (R-3)
   force: string[] // attacker heroes sent
+  waves?: { day: number; units: number; men: number }[] // W-32 reinforcement waves that have arrived
 }
 
 export interface FlowState { stage: "commands" | "ai" | "end"; f: number; queue: string[] | null }

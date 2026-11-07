@@ -131,10 +131,11 @@ async function main(): Promise<void> {
   console.log(out)
   console.log(`\ngames ${rows.length} in ${((Date.now() - t0) / 1000).toFixed(0)} s, ${nWorkers} workers, invariant/stall/replay failures ${failures.length}`)
   for (const f of failures.slice(0, 30)) console.log('FAIL', f)
+  const outPath = arg('out', '')
   if (write) {
     const today = new Date().toISOString().slice(0, 10)
     const hdr = `# 70 - Sim results\n\nRun ${today}: \`npm run sim -- --games ${games} --policy ${polArg} --difficulty ${diffArg} --start ${startArg} --seed ${seed0}\`. ${rows.length} games; seeds are \`${seed0} + cell * 1000 + game\` where cell counts policy x difficulty x start in the order printed (so every seed is reproducible: \`createGame({ startHero, difficulty, seed })\` and the policy). Policies are in \`src/ai/policies.ts\`; \`greedy\` is the A-rules decider.\n\n`
-    writeFileSync(new URL('../docs/spec/70-sim-results.md', import.meta.url), `${hdr}${out}\n\nInvariant, stall (50,000 steps) and replay failures: ${failures.length}.\n${failures.slice(0, 20).map((f) => `- ${f}`).join('\n')}\n`)
+    writeFileSync(outPath ? outPath : new URL('../docs/spec/70-sim-results.md', import.meta.url), `${hdr}${out}\n\nInvariant, stall (50,000 steps) and replay failures: ${failures.length}.\n${failures.slice(0, 20).map((f) => `- ${f}`).join('\n')}\n`)
   }
   process.exit(failures.length ? 1 : 0)
 }

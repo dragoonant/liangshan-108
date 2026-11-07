@@ -10,7 +10,7 @@ import { checkEnd } from './actions'
 
 export interface Launch { attacker: Faction; origin: string; target: string; heroes: string[]; men: number; imperial?: boolean }
 
-function mkUnit(c: Ctx, id: string, side: Side, hero: string, men: number, guard: number, armed: number, training: number, commander: boolean, pos: Hex, morale: number): BUnit {
+export function mkUnit(c: Ctx, id: string, side: Side, hero: string, men: number, guard: number, armed: number, training: number, commander: boolean, pos: Hex, morale: number): BUnit {
   const cap = hero.startsWith('cap-')
   const a = cap ? { might: 40, command: 40, cunning: 30, vigour: 40 } : abil(c, hero)
   const skills = cap ? [] : (rec(c, hero).skills as string[])

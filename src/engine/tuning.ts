@@ -10,9 +10,10 @@ export interface Tuning {
   joinRenown: number // R-2 Renown per hero joined (heavenly: +1 more)
   reliefRenown: number // R-2 relief
   huntRenown: number // R-2 bandits broken
+  conquestSupport: number // W-27 support lost by a conquered prefecture
 }
 export const DEFAULT_TUNING: Tuning = {
-  edict: 500, hostBase: 2000, hostPerMonth: 25, hostMax: 9000, taxPct: 100, harvestPct: 100, wagePct: 100, upkeepPct: 100, joinRenown: 1, reliefRenown: 1, huntRenown: 2,
+  edict: 500, hostBase: 2000, hostPerMonth: 25, hostMax: 9000, taxPct: 100, harvestPct: 100, wagePct: 100, upkeepPct: 100, joinRenown: 1, reliefRenown: 1, huntRenown: 2, conquestSupport: 5,
 }
 export const TUNE: Tuning = { ...DEFAULT_TUNING }
 export function setTuning(p: Partial<Tuning>): void { Object.assign(TUNE, DEFAULT_TUNING, p) }

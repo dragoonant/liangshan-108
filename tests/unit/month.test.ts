@@ -41,6 +41,19 @@ describe('T turn', () => {
     // a command in a prefecture with none left is not listed and is rejected
     expect(legalActions(s, D).some((a) => 'pref' in a && a.pref === 'jizhou')).toBe(false)
   })
+  test('T-3 a loyal hero (loyalty 60+) gives 1 command, several do not add up, 59 gives none (D20)', () => {
+    const s = game()
+    const c = ctxOf(s)
+    Object.assign(s.prefectures['daming']!, { owner: 'player', governor: null })
+    const put = (h: string, loy: number) => { const p = s.prefectures['yunzhou']!; p.heroes = p.heroes.filter((x) => x !== h); s.prefectures['daming']!.heroes.push(h); Object.assign(s.heroes[h]!, { loc: 'daming', faction: 'player', status: 'ordinary', loyalty: loy }) }
+    put('wu-yong', 59)
+    expect(commandCap(c, 'daming')).toBe(0)
+    s.heroes['wu-yong']!.loyalty = 60
+    expect(commandCap(c, 'daming')).toBe(1)
+    put('liu-tang', 90)
+    expect(commandCap(c, 'daming')).toBe(1)
+    expect(commandCap(c, 'yunzhou')).toBe(2)
+  })
   test('T-4 standing orders: upkeep still runs and a prefecture with no hero loses 2 support', () => {
     const s = game()
     s.prefectures['daming']!.owner = 'player'
